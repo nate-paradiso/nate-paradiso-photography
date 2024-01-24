@@ -1,3 +1,7 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+@use "./typography" as *;
+
 *,
 *::before,
 *::after {
@@ -13,7 +17,7 @@
 }
 body {
   font-family: Oswald, Verdana, Geneva, Tahoma, sans-serif;
-  background-color: ;
+  background-color: $background-black;
   color: #ffffff;
   font-family: Oswald;
   font-weight: 200;
