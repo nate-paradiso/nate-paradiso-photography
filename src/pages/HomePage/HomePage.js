@@ -1,10 +1,6 @@
 import React from "react";
-import { Gallery } from "../../components/Gallery/Gallery";
+// import { Gallery } from "../../components/Gallery/Gallery";
 
 export const HomePage = () => {
-  return (
-    <div>
-      <Gallery />
-    </div>
-  );
+  return <div>{/* <Gallery /> */}the home page</div>;
 };

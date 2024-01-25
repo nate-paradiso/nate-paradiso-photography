@@ -35,11 +35,19 @@ export const Header = () => {
         </div>
       ) : (
         // Render the full menu component here for larger screens
-        <div className="full-menu">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/travel">Travel</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+        <div className="header__full-menu">
+          <NavLink className="header__link" to="/">
+            Home
+          </NavLink>
+          <NavLink className="header__link" to="/travel">
+            Travel
+          </NavLink>
+          <NavLink className="header__link" to="/about">
+            About
+          </NavLink>
+          <NavLink className="header__link" to="/contact">
+            Contact
+          </NavLink>
         </div>
       )}
     </header>

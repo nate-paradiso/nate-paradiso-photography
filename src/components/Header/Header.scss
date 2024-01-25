@@ -29,4 +29,15 @@
       margin-left: 1rem; // Adjust margin for larger screens
     }
   }
+  &__full-menu {
+    display: flex;
+    width: 400rem;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  &__link {
+    padding: 0 0.25rem;
+    font-size: 1.25rem;
+  }
 }
