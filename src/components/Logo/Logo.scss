@@ -3,8 +3,14 @@
 @use "../../styles/variables" as *;
 
 .logo {
-  height: 108px;
   &__image {
-    height: 108px;
+    height: 15vw;
+    max-height: 100px;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+    @include tablet {
+      margin-left: 1rem; // Adjust margin for larger screens
+      height: 6.75rem;
+    }
   }
 }

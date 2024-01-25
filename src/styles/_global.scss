@@ -26,6 +26,11 @@ body {
   flex-direction: column;
   justify-content: space-between;
   margin: 2rem;
+  @include desktop {
+    margin: auto;
+    padding-top: 2rem;
+    max-width: 80rem;
+  }
 }
 p {
   letter-spacing: 0.05rem;

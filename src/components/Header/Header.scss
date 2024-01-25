@@ -6,15 +6,26 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  @include desktop {
+    margin: auto;
+    max-width: 90rem;
+  }
   &__logo-text {
     display: flex;
     flex-direction: row;
   }
   &__title {
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 6vw; // Adjust font size based on viewport width
     letter-spacing: 5px;
-    width: 11.75rem;
-    margin-left: 1rem;
+    width: auto; // Allow the title to shrink based on content
+    max-width: 15rem; // Set the maximum width
+    min-width: 0.5625rem;
+    margin-left: 0.5rem; // Adjust margin for smaller screens
+
+    @include tablet {
+      font-size: 2rem; // Adjust font size for larger screens
+      margin-left: 1rem; // Adjust margin for larger screens
+    }
   }
 }

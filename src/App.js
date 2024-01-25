@@ -7,7 +7,6 @@ import "./styles/_global.scss";
 import { Travel } from "./pages/Travel/Travel";
 import { About } from "./pages/About/About";
 import { Contact } from "./pages/Contact/Contact";
-// import { slide as Menu } from "react-burger-menu";
 
 // Create a new context
 export const MyContext = React.createContext();
