@@ -32,20 +32,18 @@ const MyProvider = props => {
 const App = () => {
   return (
     <MyProvider>
-      <div>
-        <BrowserRouter>
-          <div className="body">
-            <Header />
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/travel" element={<Travel />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-            <Footer />
-          </div>
-        </BrowserRouter>
-      </div>
+      <BrowserRouter>
+        <div className="body">
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/travel" element={<Travel />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+          <Footer />
+        </div>
+      </BrowserRouter>
     </MyProvider>
   );
 };

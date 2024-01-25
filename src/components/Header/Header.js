@@ -1,13 +1,12 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./Header.scss";
 import { Logo } from "../Logo/Logo";
-import { CustomIcon } from "../CustomIcon/CustomIcon";
 import { Navigation } from "../Navigation/Navigation";
-import { MyContext } from "../../App";
+// import { MyContext } from "../../App";
 
 export const Header = () => {
-  const ctx = useContext(MyContext);
+  // const ctx = useContext(MyContext);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
@@ -32,7 +31,6 @@ export const Header = () => {
       </div>
       {isMobile ? (
         <div>
-          <CustomIcon />
           <Navigation />
         </div>
       ) : (
