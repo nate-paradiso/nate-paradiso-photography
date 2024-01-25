@@ -1,0 +1,10 @@
+@use "../../styles/global" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.logo {
+  height: 108px;
+  &__image {
+    height: 108px;
+  }
+}

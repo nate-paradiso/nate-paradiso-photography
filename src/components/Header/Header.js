@@ -1,14 +1,24 @@
-import Logo from "../../assets/images/NPLogoDropShadowInvert.png";
 import { NavLink } from "react-router-dom";
+import "./Header.scss";
+import { Logo } from "../Logo/Logo";
+import { CustomIcon } from "../CustomIcon/CustomIcon";
+import { Navigation } from "../Navigation/Navigation";
 
 export const Header = () => {
   return (
     <>
-      <div className="header__logo">
-        <NavLink to="/">
-          <img src={Logo} alt="logo" />
-        </NavLink>
-      </div>
+      <header className="header">
+        <div className="header__logo-text">
+          <NavLink to="/">
+            <Logo />
+          </NavLink>
+          <p className="header__title">Nate Paradiso Photography</p>
+        </div>
+        <div>
+          <CustomIcon />
+          <Navigation />
+        </div>
+      </header>
     </>
   );
 };
