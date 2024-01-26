@@ -22,10 +22,27 @@
     max-width: 15rem; // Set the maximum width
     min-width: 0.5625rem;
     margin-left: 0.5rem; // Adjust margin for smaller screens
+    margin-right: 2.5rem; // Adjust margin for smaller screens
 
     @include tablet {
       font-size: 2rem; // Adjust font size for larger screens
       margin-left: 1rem; // Adjust margin for larger screens
+    }
+  }
+  &__full-menu {
+    display: flex;
+    width: 400rem;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  &__link {
+    padding: 0 0.25rem;
+    font-size: 1.25rem;
+
+    transition: color 0.3s ease;
+    &:hover {
+      color: #8f8f8f;
     }
   }
 }
