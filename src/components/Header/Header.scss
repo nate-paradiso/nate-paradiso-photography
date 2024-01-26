@@ -39,5 +39,10 @@
   &__link {
     padding: 0 0.25rem;
     font-size: 1.25rem;
+
+    transition: color 0.3s ease;
+    &:hover {
+      color: #8f8f8f;
+    }
   }
 }
