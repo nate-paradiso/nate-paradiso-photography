@@ -24,7 +24,7 @@ export const MyGallery = () => {
 
   const galleryOptions = {
     images,
-    margin: 10,
+    margin: 7,
   };
 
   return (
