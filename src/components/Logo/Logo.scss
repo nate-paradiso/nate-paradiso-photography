@@ -1,0 +1,15 @@
+@use "../../styles/global" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.logo {
+  &__image {
+    height: 15vw;
+    max-height: 100px;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+    @include tablet {
+      height: 6.75rem;
+    }
+  }
+}

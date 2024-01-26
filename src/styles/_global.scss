@@ -1,0 +1,48 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+@use "./typography" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+body {
+  font-family: Oswald, Verdana, Geneva, Tahoma, sans-serif;
+  background-color: $background-black;
+  color: #ffffff;
+  font-family: Oswald;
+  font-weight: 200;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 2rem;
+  @include desktop {
+    margin: auto;
+    padding: 2rem;
+    max-width: 80rem;
+  }
+}
+p {
+  letter-spacing: 0.05rem;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
