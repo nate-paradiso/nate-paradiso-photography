@@ -4,7 +4,7 @@ import { HomePage } from "./pages/HomePage/HomePage";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
 import "./styles/_global.scss";
-import { Travel } from "./pages/Travel/Travel";
+import { Wedding } from "./pages/WeddingPage/WeddingPage";
 import { About } from "./pages/About/About";
 import { Contact } from "./pages/Contact/Contact";
 
@@ -37,7 +37,7 @@ const App = () => {
           <Header />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/travel" element={<Travel />} />
+            <Route path="/weddings" element={<Wedding />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

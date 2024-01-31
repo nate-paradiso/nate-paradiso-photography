@@ -1,35 +1,34 @@
-import React from "react";
-import { Gallery } from "react-grid-gallery";
-import "./Gallery.scss";
+import React, { useState } from "react";
+import { PhotoAlbum } from "react-photo-album";
+import { Lightbox } from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
-export const MyGallery = () => {
-  const images = [
-    {
-      src: "https://res.cloudinary.com/hzjhihahh/image/upload/v1706222674/portfolio-nate-paradiso-photography/rl4jbg7pxtjrmistqwfs.jpg",
-      width: 600,
-      height: 441,
-      className: "img",
-    },
-    {
-      src: "https://res.cloudinary.com/hzjhihahh/image/upload/v1706222674/portfolio-nate-paradiso-photography/rl4jbg7pxtjrmistqwfs.jpg",
-      width: 600,
-      height: 441,
-    },
-    {
-      src: "https://res.cloudinary.com/hzjhihahh/image/upload/v1706222670/portfolio-nate-paradiso-photography/urezb0tgmqmnsx8lh25c.jpg",
-      height: 1200,
-      width: 882,
-    },
-  ];
+export const Gallery = ({ photos }) => {
+  const [index, setIndex] = useState(-1);
 
-  const galleryOptions = {
-    images,
-    margin: 7,
+  const handlePhotoClick = ({ index: currentIndex }) => {
+    console.log("Clicked Index:", currentIndex);
+    console.log("Slides:", photos);
+    setIndex(currentIndex);
   };
-
+  //height of thumbnails
+  const layoutConfig = {
+    rows: {
+      targetRowHeight: 200, // Adjust the height of each row
+    },
+  };
   return (
-    <div className="gallery">
-      <Gallery images={images} {...galleryOptions} />
-    </div>
+    <>
+      <PhotoAlbum
+        layout="rows"
+        photos={photos}
+        targetRowHeight={150}
+        onClick={handlePhotoClick}
+        className="gallery"
+        {...layoutConfig["rows"]}
+      />
+
+      <Lightbox index={index} slides={photos} open={index >= 0} close={() => setIndex(-1)} />
+    </>
   );
 };

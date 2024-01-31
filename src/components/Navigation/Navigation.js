@@ -28,12 +28,12 @@ export const Navigation = () => {
         Home
       </NavLink>
       <NavLink
-        to="/travel"
+        to="/weddings"
         onClick={() => ctx.stateChangeHandler({ isOpen: false })}
         className="menu-item"
         activeClassName="active"
       >
-        Travel
+        Weddings
       </NavLink>
       <NavLink
         to="/about"
