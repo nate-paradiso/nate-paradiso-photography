@@ -150,11 +150,6 @@ export const cloudinaryPortfolioPhotos = [
     height: 441,
   },
   {
-    publicId: "portfolio-nate-paradiso-photography/kdvnpeburwpnqxbhorki",
-    height: 660,
-    width: 441,
-  },
-  {
     publicId: "portfolio-nate-paradiso-photography/tw4e2xdtr5bjj2jnvsjc",
     width: 660,
     height: 441,
@@ -168,6 +163,11 @@ export const cloudinaryPortfolioPhotos = [
     publicId: "portfolio-nate-paradiso-photography/jzztvwlfb7ah9lmreile",
     width: 660,
     height: 441,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/kdvnpeburwpnqxbhorki",
+    height: 660,
+    width: 441,
   },
   {
     publicId: "portfolio-nate-paradiso-photography/a3ig1ex3arb7swjzldvn",
