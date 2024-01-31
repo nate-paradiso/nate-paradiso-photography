@@ -2,9 +2,7 @@
 @use "../../styles/mixins" as *;
 @use "../../styles/variables" as *;
 
-.gallery {
+.react-photo-album {
+  margin-bottom: 2rem;
   margin-top: 2rem;
-}
-.img {
-  display: none;
 }
