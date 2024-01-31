@@ -39,7 +39,7 @@ export const Header = () => {
         // Render the full menu component here for larger screens
         <div className="header__full-menu">
           <NavLink className="header__link" to="/">
-            Portfolio
+            Nature
           </NavLink>
           <NavLink className="header__link" to="/weddings">
             Weddings

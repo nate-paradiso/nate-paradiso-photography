@@ -25,7 +25,7 @@ export const Navigation = () => {
         className="menu-item"
         activeClassName="active"
       >
-        Home
+        Nature
       </NavLink>
       <NavLink
         to="/weddings"

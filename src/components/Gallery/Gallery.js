@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { PhotoAlbum } from "react-photo-album";
 import { Lightbox } from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import "./Gallery.scss";
 
 export const Gallery = ({ photos }) => {
   const [index, setIndex] = useState(-1);
@@ -26,7 +27,6 @@ export const Gallery = ({ photos }) => {
         photos={photos}
         targetRowHeight={150}
         onClick={handlePhotoClick}
-        className="gallery"
         {...layoutConfig["columns"]}
       />
 

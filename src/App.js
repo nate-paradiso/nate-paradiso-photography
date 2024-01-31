@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { HomePage } from "./pages/HomePage/HomePage";
+import { Nature } from "./pages/Nature/Nature";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
 import "./styles/_global.scss";
@@ -36,7 +36,7 @@ const App = () => {
         <div className="body">
           <Header />
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<Nature />} />
             <Route path="/weddings" element={<Wedding />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
