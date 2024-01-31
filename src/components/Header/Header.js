@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./Header.scss";
-import { Logo } from "../Logo/Logo";
+// import { Logo } from "../Logo/Logo";
 import { Navigation } from "../Navigation/Navigation";
 // import { MyContext } from "../../App";
 
@@ -24,10 +24,12 @@ export const Header = () => {
   return (
     <header className="header">
       <div className="header__logo-text">
-        <NavLink to="/">
-          <Logo />
-        </NavLink>
-        <p className="header__title">Nate Paradiso Photography</p>
+        {
+          <NavLink to="/">
+            {/* <Logo /> */}
+            <p className="header__title">Nate Paradiso Photography</p>
+          </NavLink>
+        }
       </div>
       {isMobile ? (
         <div>
@@ -37,10 +39,10 @@ export const Header = () => {
         // Render the full menu component here for larger screens
         <div className="header__full-menu">
           <NavLink className="header__link" to="/">
-            Home
+            Portfolio
           </NavLink>
-          <NavLink className="header__link" to="/travel">
-            Travel
+          <NavLink className="header__link" to="/weddings">
+            Weddings
           </NavLink>
           <NavLink className="header__link" to="/about">
             About

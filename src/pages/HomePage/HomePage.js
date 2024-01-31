@@ -1,10 +1,10 @@
-import React from "react";
-import { MyGallery } from "../../components/Gallery/Gallery";
+import { Gallery } from "../../components/Gallery/Gallery";
+import { cloudinaryPortfolioSlides } from "../../components/Slides/Slides";
 
 export const HomePage = () => {
   return (
     <>
-      <MyGallery />
+      <Gallery photos={cloudinaryPortfolioSlides} />
     </>
   );
 };

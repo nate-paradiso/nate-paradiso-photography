@@ -1,5 +1,5 @@
 {
   "prettier.configPath": ".prettierrc",
   "prettier.ignorePath": ".prettierignore",
-  "cSpell.words": ["paradiso", "resizer"]
+  "cSpell.words": ["cloudinary", "paradiso", "resizer"]
 }
