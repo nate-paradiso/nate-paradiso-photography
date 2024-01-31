@@ -11,21 +11,23 @@ export const Gallery = ({ photos }) => {
     console.log("Slides:", photos);
     setIndex(currentIndex);
   };
-  //height of thumbnails
+
+  // Specify the correct layout in the configuration object
   const layoutConfig = {
-    rows: {
-      targetRowHeight: 200, // Adjust the height of each row
+    columns: {
+      targetColumnHeight: 300, // Adjust the height of each row (each image in a column)
     },
   };
+
   return (
     <>
       <PhotoAlbum
-        layout="rows"
+        layout="columns" // Specify the correct layout here
         photos={photos}
         targetRowHeight={150}
         onClick={handlePhotoClick}
         className="gallery"
-        {...layoutConfig["rows"]}
+        {...layoutConfig["columns"]}
       />
 
       <Lightbox index={index} slides={photos} open={index >= 0} close={() => setIndex(-1)} />
