@@ -45,4 +45,8 @@ menu {
 a {
   text-decoration: inherit;
   color: inherit;
+
+  &:hover {
+    color: #8f8f8f;
+  }
 }

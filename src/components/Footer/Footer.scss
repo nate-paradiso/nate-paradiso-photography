@@ -7,12 +7,14 @@
   justify-content: center;
   align-items: center;
   flex-direction: end;
-  padding: 4rem;
+  padding: 1rem;
   border-top: 1px solid white;
+  @include desktop {
+    padding: 4rem;
+  }
   &__icon {
     height: 50px;
     margin: 1rem;
-    // filter: invert(1); // Invert the colors
     transition: filter 0.3s; // Add a transition for a smooth effect
 
     &:hover {
