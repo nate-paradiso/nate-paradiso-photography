@@ -1,6 +1,6 @@
-import instagram from "../../assets/images/3228551_app_b_w_instagram_logo_media_icon.svg";
-import youtube from "../../assets/images/3228540_app_b_w_logo_media_popular_icon.svg";
-import mail from "../../assets/images/1011335_email_envelope_mail_message_send_icon.svg";
+import instagram from "../../assets/images/icons8-instagram.svg";
+import youtube from "../../assets/images/icons8-youtube.svg";
+import mail from "../../assets/images/icons8-mail-50.png";
 import "./Footer.scss";
 import { NavLink } from "react-router-dom";
 
@@ -24,7 +24,7 @@ export const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img className="footer__icon" src={youtube} alt="instagram" />
+              <img className="footer__icon" src={youtube} alt="youtube" />
             </NavLink>
           </div>
           <div>
@@ -37,7 +37,7 @@ export const Footer = () => {
             </NavLink>
           </div>
         </div>
-        <p>Copywrite Nate Paradiso 2024</p>
+        <p>Copyright Nate Paradiso 2024</p>
       </div>
     </>
   );

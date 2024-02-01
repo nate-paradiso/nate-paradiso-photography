@@ -1,10 +1,10 @@
 import { Gallery } from "../../components/Gallery/Gallery";
 import { cloudinaryWeddingSlides } from "../../components/Slides/Slides";
 
-export const Wedding = () => {
+export const WeddingPage = () => {
   return (
     <>
-      <Gallery photos={cloudinaryWeddingSlides} />
+      <Gallery photos={cloudinaryWeddingSlides} layout="columns" />
     </>
   );
 };
