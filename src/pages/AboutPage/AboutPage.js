@@ -1,7 +1,7 @@
-import "./About.scss";
+import "./AboutPage.scss";
 import { NavLink } from "react-router-dom";
 
-export const About = () => {
+export const AboutPage = () => {
   return (
     <div className="about">
       <div className="about__container">
@@ -14,14 +14,12 @@ export const About = () => {
         <br />
         <br />
         <p className="about__container--text-paragraph">
-          With a portfolio spanning assignments for National Geographic in the stunning landscapes
-          of Alaska, published work in reputable magazines such as Tail and Microscopy Today,
-          recognition for capturing the celestial beauty of a lunar eclipse in National Geographic's
-          "As the World Turns" assignment – featured on major networks like Fox News and CNN – and
-          being published in prestigious works like Modernist Pizza books, Nate stands as a
-          celebrated photographer with a proven track record. Notably, he/ has been honored with
-          awards, including the best photo accolade in the City of Boulder Colorado Open Space and
-          Mountain Parks competition.
+          With a portfolio spanning assignments for National Geographic in Alaska, published work in
+          reputable magazines such as Tail and Microscopy Today, and recognition for capturing the
+          celestial beauty of a lunar eclipse in National Geographic's "As the World Turns"
+          assignment – featured on major networks like Fox News and CNN – and being published in
+          prestigious works like Modernist Pizza books, Nate stands as a celebrated photographer
+          with a proven track record.
         </p>
       </div>
       <div>

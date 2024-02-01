@@ -4,7 +4,7 @@ import { Lightbox } from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import "./Gallery.scss";
 
-export const Gallery = ({ photos }) => {
+export const Gallery = ({ photos, layout, targetRowHeight, columns, margin }) => {
   const [index, setIndex] = useState(-1);
 
   const handlePhotoClick = ({ index: currentIndex }) => {
@@ -14,20 +14,15 @@ export const Gallery = ({ photos }) => {
   };
 
   // Specify the correct layout in the configuration object
-  const layoutConfig = {
-    columns: {
-      targetColumnHeight: 300, // Adjust the height of each row (each image in a column)
-    },
-  };
 
   return (
     <>
       <PhotoAlbum
-        layout="columns" // Specify the correct layout here
+        layout={layout} // Specify the correct layout here
         photos={photos}
-        targetRowHeight={150}
+        targetRowHeight={targetRowHeight}
         onClick={handlePhotoClick}
-        {...layoutConfig["columns"]}
+        columns={columns}
       />
 
       <Lightbox index={index} slides={photos} open={index >= 0} close={() => setIndex(-1)} />

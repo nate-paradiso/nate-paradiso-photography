@@ -17,13 +17,13 @@ export const Navigation = () => {
       isOpen={ctx.isMenuOpen}
       onStateChange={state => ctx.stateChangeHandler(state)}
       right
-      width={`75px`}
+      width={`105px`}
     >
       <NavLink
         to="/"
         onClick={() => ctx.stateChangeHandler({ isOpen: false })}
         className="menu-item"
-        activeClassName="active"
+        // activeClassName="active"
       >
         Nature
       </NavLink>
@@ -31,15 +31,23 @@ export const Navigation = () => {
         to="/weddings"
         onClick={() => ctx.stateChangeHandler({ isOpen: false })}
         className="menu-item"
-        activeClassName="active"
+        // activeClassName="active"
       >
         Weddings
+      </NavLink>
+      <NavLink
+        to="/realestate"
+        onClick={() => ctx.stateChangeHandler({ isOpen: false })}
+        className="menu-item"
+        // activeClassName="active"
+      >
+        Real Estate
       </NavLink>
       <NavLink
         to="/about"
         onClick={() => ctx.stateChangeHandler({ isOpen: false })}
         className="menu-item"
-        activeClassName="active"
+        // activeClassName="active"
       >
         About
       </NavLink>
@@ -47,7 +55,7 @@ export const Navigation = () => {
         to="/contact"
         onClick={() => ctx.stateChangeHandler({ isOpen: false })}
         className="menu-item"
-        activeClassName="active"
+        // activeClassName="active"
       >
         Contact
       </NavLink>

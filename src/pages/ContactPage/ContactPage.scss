@@ -1,0 +1,15 @@
+@use "../../styles/global" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+.gform {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+}
