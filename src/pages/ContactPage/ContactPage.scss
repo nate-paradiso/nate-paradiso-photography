@@ -7,9 +7,36 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 4rem;
+  &__required {
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    color: rgb(185, 185, 185);
+  }
+  &__label {
+    letter-spacing: 1.5px;
+  }
+  &__input {
+    border: 2px solid;
+    padding: 8px;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    transition: background-color 0.3s ease; // Smooth transition on background color change
+    &--darken {
+      &:hover:not(:focus) {
+        background-color: rgba(255, 255, 255, 0.605); // Darken the background on hover
+      }
+    }
+  }
+  &__success {
+    align-self: center;
+  }
+  &__text-area {
+    min-height: 150px;
+    max-width: 100%;
+  }
 }
 .gform {
   display: flex;
   flex-direction: column;
-  width: 50vw;
+  width: 100vw;
 }
