@@ -81,15 +81,11 @@ export const ContactPage = () => {
           return false;
         }
 
-        console.log("Submitting form data:", data);
-
         let url = form.action;
         let xhr = new XMLHttpRequest();
         xhr.open("POST", url);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function () {
-          console.log("Ready state:", xhr.readyState, "Status:", xhr.status);
-
           if (xhr.readyState === 4) {
             form.removeAttribute("data-submitting"); // Release the form from submitting state
             submitButton.disabled = false; // Re-enable the submit button
@@ -151,8 +147,8 @@ export const ContactPage = () => {
       <form
         className="gform"
         method="POST"
-        data-email="natepphotography@gmail.com"
-        action="https://script.google.com/macros/s/AKfycbwXHksOd-1SD06F5mQZZkKkuTtG-ybtjZIcNoHyxCsoHijDgh83bv3Kq68sbzik0JCgyg/exec"
+        data-email="example@gmail.com"
+        action="https://script.google.com/macros/s/AKfycbx1mSHcIXUmuOmylCtxfpSPUbo7Kg8DEE2V1rhdtQ6mE-983pw0qzzzD8vGZBnwI2KdXg/exec"
       >
         <label htmlFor="name">Name:</label>
         <input type="text" id="name" name="name" required />
