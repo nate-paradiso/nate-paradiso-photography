@@ -70,7 +70,17 @@ export const cloudinaryPortfolioPhotos = [
     height: 441,
   },
   {
+    publicId: "portfolio-nate-paradiso-photography/qm02ijfuuw6vtmixoqq9",
+    width: 660,
+    height: 441,
+  },
+  {
     publicId: "portfolio-nate-paradiso-photography/bzldhr7e3vukjv94jcao",
+    width: 660,
+    height: 441,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/cx9eakkldzruv29dtgvt",
     width: 660,
     height: 441,
   },
@@ -115,12 +125,22 @@ export const cloudinaryPortfolioPhotos = [
     height: 441,
   },
   {
+    publicId: "portfolio-nate-paradiso-photography/pygwbp1x16puyiu1xzcl",
+    height: 660,
+    width: 441,
+  },
+  {
     publicId: "portfolio-nate-paradiso-photography/s3jbz5tngt8rl82qlevk",
     width: 660,
     height: 441,
   },
   {
     publicId: "portfolio-nate-paradiso-photography/bmuzmhytnuxjm3dxgt2p",
+    width: 660,
+    height: 441,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/krpgza1unbyrozvofgqy",
     width: 660,
     height: 441,
   },
@@ -140,6 +160,41 @@ export const cloudinaryPortfolioPhotos = [
     height: 441,
   },
   {
+    publicId: "portfolio-nate-paradiso-photography/xoa6tjthpqj1boytmjab",
+    width: 660,
+    height: 441,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/yuplbvkxcfieb0atzphl",
+    width: 660,
+    height: 441,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/cnreuizpuhanxa5wlu8o",
+    width: 660,
+    height: 441,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/iym3el77nkqo5ozwxi13",
+    width: 660,
+    height: 441,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/ilphgec1ekocxx7bvqkl",
+    width: 660,
+    height: 441,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/i5k5ckvumcl5bkou5nn4",
+    width: 660,
+    height: 441,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/tmfytvl1u6zbsgx31jhs",
+    width: 660,
+    height: 441,
+  },
+  {
     publicId: "portfolio-nate-paradiso-photography/lyuhfkaofjee7vagsqh9",
     width: 660,
     height: 441,
@@ -150,12 +205,47 @@ export const cloudinaryPortfolioPhotos = [
     height: 441,
   },
   {
+    publicId: "portfolio-nate-paradiso-photography/fd5nmy9xil6mso9xvjhc",
+    width: 660,
+    height: 441,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/dh3rphppklqpqgbp1izs",
+    height: 660,
+    width: 441,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/g07rnv8qwjgs2cd7lbvv",
+    width: 660,
+    height: 441,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/hmg40zw11ww36dpkpsbl",
+    width: 660,
+    height: 441,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/xytuyguvo3hymu3huuus",
+    width: 660,
+    height: 441,
+  },
+  {
     publicId: "portfolio-nate-paradiso-photography/tw4e2xdtr5bjj2jnvsjc",
     width: 660,
     height: 441,
   },
   {
     publicId: "portfolio-nate-paradiso-photography/xaimixlxm161qnffk45j",
+    width: 660,
+    height: 441,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/eyrr2h3psmwr6q9f17z7",
+    width: 660,
+    height: 441,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/ubyfnlk2bgru5qvaej4y",
     width: 660,
     height: 441,
   },

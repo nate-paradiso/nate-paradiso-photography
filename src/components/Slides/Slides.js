@@ -1,6 +1,8 @@
 import { cloudinaryPortfolioPhotos } from "../PortfolioGallery/PortfolioGallery";
 import { cloudinaryWeddingPhotos } from "../WeddingGallery/WeddingGallery";
 import { cloudinaryRealEstatePhotos } from "../RealEstateGallery/RealEstateGallery";
+import { cloudinaryCouplesPhotos } from "../CouplesGallery/CouplesGallery";
+import { cloudinaryStillLifePhotos } from "../StillLifeGallery/StillLifeGallery";
 
 const breakpoints = [1200, 640, 320];
 
@@ -67,6 +69,57 @@ export const cloudinaryRealEstateSlides = cloudinaryRealEstatePhotos.map(photo =
 
   return {
     src: cloudinaryLink(photo.publicId, scaledWidth, scaledHeight), // Use scaledWidth and scaledHeight here
+    width: scaledWidth,
+    height: scaledHeight,
+    srcSet: breakpoints.map(breakpoint => {
+      const breakpointWidth = Math.min(breakpoint, scaledWidth);
+      const breakpointHeight = Math.round((scaledHeight / scaledWidth) * breakpointWidth);
+
+      return {
+        src: cloudinaryLink(photo.publicId, breakpointWidth, breakpointHeight),
+        width: breakpointWidth,
+        height: breakpointHeight,
+      };
+    }),
+  };
+});
+export const cloudinaryCoupleSlides = cloudinaryCouplesPhotos.map(photo => {
+  const width = photo.width;
+  const height = photo.height;
+
+  const maxWidth = 750;
+  const scaledWidth = Math.min(width, maxWidth);
+  const scaledHeight = Math.round((height / width) * scaledWidth);
+
+  return {
+    src: cloudinaryLink(photo.publicId, scaledWidth, scaledHeight), // Use scaledWidth and scaledHeight here
+    width: scaledWidth,
+    height: scaledHeight,
+    srcSet: breakpoints.map(breakpoint => {
+      const breakpointWidth = Math.min(breakpoint, scaledWidth);
+      const breakpointHeight = Math.round((scaledHeight / scaledWidth) * breakpointWidth);
+
+      return {
+        src: cloudinaryLink(photo.publicId, breakpointWidth, breakpointHeight),
+        width: breakpointWidth,
+        height: breakpointHeight,
+      };
+    }),
+  };
+});
+export const cloudinaryStillLifeSlides = cloudinaryStillLifePhotos.map(photo => {
+  const width = photo.width;
+  const height = photo.height;
+
+  const availableWidth =
+    window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+  const maxWidth = Math.min(availableWidth, 750); // Set the maximum width to 750 pixels or the available width, whichever is smaller
+
+  const scaledWidth = Math.min(width, maxWidth);
+  const scaledHeight = Math.round((height / width) * scaledWidth);
+
+  return {
+    src: cloudinaryLink(photo.publicId, width, height), // Use scaledWidth and scaledHeight here
     width: scaledWidth,
     height: scaledHeight,
     srcSet: breakpoints.map(breakpoint => {

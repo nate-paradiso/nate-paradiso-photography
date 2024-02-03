@@ -39,13 +39,19 @@ export const Header = () => {
         // Render the full menu component here for larger screens
         <div className="header__full-menu">
           <NavLink className="header__link" to="/">
-            Nature
+            Adventure
           </NavLink>
           <NavLink className="header__link" to="/weddings">
             Weddings
           </NavLink>
+          <NavLink className="header__link" to="/couples">
+            Couples
+          </NavLink>
           <NavLink className="header__link" to="/realestate">
             Real Estate
+          </NavLink>
+          <NavLink className="header__link" to="/stilllife">
+            Still Life
           </NavLink>
           <NavLink className="header__link" to="/about">
             About

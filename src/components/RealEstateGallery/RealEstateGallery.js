@@ -5,6 +5,42 @@ export const cloudinaryRealEstatePhotos = [
     height: 500,
   },
   {
+    publicId: "realestate/xd6yuaznhinze4texuaf",
+    width: 750,
+    height: 500,
+  },
+  {
+    publicId: "realestate/rp4buzyjnx9zrs9exuda",
+    width: 750,
+    height: 500,
+  },
+  {
+    publicId: "realestate/otr4tr6ym1xjfwmyziso",
+    width: 750,
+    height: 500,
+  },
+  {
+    publicId: "realestate/uoo9qtcyvrvyfmprfjfq",
+    width: 750,
+    height: 500,
+  },
+  {
+    publicId: "realestate/ljtwkciqvi6hgmkdsqrq",
+    width: 750,
+    height: 500,
+  },
+  {
+    publicId: "realestate/y6bwifyq07nlqeycluv5",
+    width: 750,
+    height: 500,
+  },
+  {
+    publicId: "realestate/vmfkzhexdk2i1okxskiw",
+    width: 750,
+    height: 500,
+  },
+
+  {
     publicId: "realestate/mwhzxp3qh8yflesmgqmh",
     width: 750,
     height: 500,
@@ -80,17 +116,22 @@ export const cloudinaryRealEstatePhotos = [
     height: 500,
   },
   {
-    publicId: "realestate/yah6pzzb2jznnafrmfwk",
-    width: 750,
-    height: 500,
-  },
-  {
     publicId: "realestate/buqaadfetyrkzlaelvnp",
     width: 750,
     height: 500,
   },
   {
     publicId: "realestate/wezbzumgscr1lrbbfpfd",
+    width: 750,
+    height: 500,
+  },
+  {
+    publicId: "realestate/y2u7avr4x4epjsmidunk",
+    width: 750,
+    height: 500,
+  },
+  {
+    publicId: "realestate/a3uy3knlgsg6gu2tusip",
     width: 750,
     height: 500,
   },

@@ -8,8 +8,6 @@ export const Gallery = ({ photos, layout, targetRowHeight, columns, margin }) =>
   const [index, setIndex] = useState(-1);
 
   const handlePhotoClick = ({ index: currentIndex }) => {
-    console.log("Clicked Index:", currentIndex);
-    console.log("Slides:", photos);
     setIndex(currentIndex);
   };
 
@@ -23,6 +21,7 @@ export const Gallery = ({ photos, layout, targetRowHeight, columns, margin }) =>
         targetRowHeight={targetRowHeight}
         onClick={handlePhotoClick}
         columns={columns}
+        margin={margin}
       />
 
       <Lightbox index={index} slides={photos} open={index >= 0} close={() => setIndex(-1)} />
