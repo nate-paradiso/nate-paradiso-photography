@@ -56,12 +56,16 @@
       background-color: rgba(255, 255, 255, 0.13); // Darken the background on hover
     }
   }
+  &__tube-spinner {
+    height: 50px;
+  }
   &__error-message {
     color: white;
     background-color: rgba(255, 0, 0, 0.585);
     padding: 0.5rem;
   }
 }
+
 .container {
   display: flex;
   flex-direction: column;

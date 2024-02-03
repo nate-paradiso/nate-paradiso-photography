@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import "./ContactPage.scss";
+import tubeSpinner from "../../assets/images/tube-spinner.svg";
 
 export const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +20,7 @@ export const ContactPage = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isButtonVisible, setIsButtonVisible] = useState(true); // State to control button visibility
 
   useEffect(() => {
     // get all data in form and return object
@@ -76,6 +78,7 @@ export const ContactPage = () => {
 
     function handleFormSubmit(event) {
       event.preventDefault();
+
       let form = event.target;
 
       // Check if the form is already submitting
@@ -137,6 +140,7 @@ export const ContactPage = () => {
         submitButton.disabled = false; // Re-enable the submit button
         return;
       }
+      setIsButtonVisible(false);
 
       let url = form.action;
       let xhr = new XMLHttpRequest();
@@ -292,10 +296,15 @@ export const ContactPage = () => {
               {validationErrors.message && (
                 <span className="contact__error-message">{validationErrors.message}</span>
               )}
-
-              <button className="contact__button" type="submit">
-                Submit
-              </button>
+              <div>
+                {isButtonVisible ? (
+                  <button className="contact__button" type="submit">
+                    Submit
+                  </button>
+                ) : (
+                  <img className="contact__tube-spinner" src={tubeSpinner} alt="loading icon" />
+                )}
+              </div>
             </>
           )}
         </form>
