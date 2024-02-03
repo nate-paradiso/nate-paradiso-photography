@@ -7,6 +7,11 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 4rem;
+  @include tablet {
+    width: 50vw;
+    margin-left: 2rem;
+    max-width: 500px;
+  }
   &__required {
     font-size: 0.95rem;
     letter-spacing: 2px;
@@ -17,7 +22,7 @@
   }
   &__input {
     border: 2px solid;
-    padding: 8px;
+    padding: 15px;
     margin: 0.5rem 0;
     font-size: 1rem;
     transition: background-color 0.3s ease; // Smooth transition on background color change
@@ -33,6 +38,47 @@
   &__text-area {
     min-height: 150px;
     max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  &__button {
+    height: 50px;
+    margin-top: 1rem;
+    width: 100px;
+    font-family: Oswald;
+    color: white;
+    font-size: 1rem;
+    background-color: black;
+    border: none;
+    border: rgba(255, 255, 255, 0.394) solid 2px;
+
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.13); // Darken the background on hover
+    }
+  }
+  &__error-message {
+    color: white;
+    background-color: rgba(255, 0, 0, 0.585);
+    padding: 0.5rem;
+  }
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include tablet {
+    flex-direction: row;
+  }
+}
+.text {
+  margin-bottom: 5rem;
+  &__paragraph {
+    font-size: 1.5rem;
+    align-content: center;
+    @include tablet {
+      max-width: 500px;
+      margin-top: 2rem;
+    }
   }
 }
 .gform {
