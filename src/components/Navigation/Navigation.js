@@ -52,7 +52,7 @@ export const Navigation = () => {
         Real Estate
       </NavLink>
       <NavLink
-        to="/stilllife"
+        to="/still-life"
         onClick={() => ctx.stateChangeHandler({ isOpen: false })}
         className="menu-item"
         // activeClassName="active"
