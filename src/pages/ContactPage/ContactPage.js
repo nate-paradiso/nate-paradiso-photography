@@ -217,81 +217,89 @@ export const ContactPage = () => {
   };
 
   return (
-    <div className="contact">
-      <form
-        className="gform"
-        method="POST"
-        data-email="example@gmail.com"
-        action="https://script.google.com/macros/s/AKfycbx1mSHcIXUmuOmylCtxfpSPUbo7Kg8DEE2V1rhdtQ6mE-983pw0qzzzD8vGZBnwI2KdXg/exec"
-      >
-        {isSubmitted ? (
-          <p className="contact__success">Thank you for your submission!</p>
-        ) : (
-          <>
-            <label htmlFor="name" className="contact__label">
-              First Name: <span className="contact__required">(required)</span>
-            </label>
-            <input
-              className="contact__input contact__input--darken"
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-            />
-            {validationErrors.name && (
-              <span className="contact__error-message">{validationErrors.name}</span>
-            )}
-            <label htmlFor="lastName" className="contact__label">
-              Last Name: <span className="contact__required">(required)</span>
-            </label>
-            <input
-              className="contact__input contact__input--darken"
-              type="text"
-              id="lastName"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleInputChange}
-            />
-            {validationErrors.lastName && (
-              <span className="contact__error-message">{validationErrors.lastName}</span>
-            )}
+    <div className="container">
+      <div className="text">
+        <p className="text__paragraph">
+          Looking to discuss a project? Please get in touch using the form on this page. Generally,
+          I’m able to reply to all inquiries within 48 hours.
+        </p>
+      </div>
+      <div className="contact">
+        <form
+          className="gform"
+          method="POST"
+          data-email="example@gmail.com"
+          action="https://script.google.com/macros/s/AKfycbx1mSHcIXUmuOmylCtxfpSPUbo7Kg8DEE2V1rhdtQ6mE-983pw0qzzzD8vGZBnwI2KdXg/exec"
+        >
+          {isSubmitted ? (
+            <p className="contact__success">Thank you for your submission!</p>
+          ) : (
+            <>
+              <label htmlFor="name" className="contact__label">
+                First Name: <span className="contact__required">(required)</span>
+              </label>
+              <input
+                className="contact__input contact__input--darken"
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+              />
+              {validationErrors.name && (
+                <span className="contact__error-message">{validationErrors.name}</span>
+              )}
+              <label htmlFor="lastName" className="contact__label">
+                Last Name: <span className="contact__required">(required)</span>
+              </label>
+              <input
+                className="contact__input contact__input--darken"
+                type="text"
+                id="lastName"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleInputChange}
+              />
+              {validationErrors.lastName && (
+                <span className="contact__error-message">{validationErrors.lastName}</span>
+              )}
 
-            <label htmlFor="email" className="contact__label">
-              Email: <span className="contact__required">(required)</span>
-            </label>
-            <input
-              className="contact__input contact__input--darken"
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-            />
-            {validationErrors.email && (
-              <span className="contact__error-message">{validationErrors.email}</span>
-            )}
+              <label htmlFor="email" className="contact__label">
+                Email: <span className="contact__required">(required)</span>
+              </label>
+              <input
+                className="contact__input contact__input--darken"
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+              />
+              {validationErrors.email && (
+                <span className="contact__error-message">{validationErrors.email}</span>
+              )}
 
-            <label htmlFor="message" className="contact__label">
-              Message: <span className="contact__required">(required)</span>
-            </label>
-            <textarea
-              className="contact__input contact__text-area contact__input--darken"
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleInputChange}
-            ></textarea>
-            {validationErrors.message && (
-              <span className="contact__error-message">{validationErrors.message}</span>
-            )}
+              <label htmlFor="message" className="contact__label">
+                Message: <span className="contact__required">(required)</span>
+              </label>
+              <textarea
+                className="contact__input contact__text-area contact__input--darken"
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+              ></textarea>
+              {validationErrors.message && (
+                <span className="contact__error-message">{validationErrors.message}</span>
+              )}
 
-            <button className="contact__button" type="submit">
-              Send
-            </button>
-          </>
-        )}
-      </form>
+              <button className="contact__button" type="submit">
+                Submit
+              </button>
+            </>
+          )}
+        </form>
+      </div>
     </div>
   );
 };
