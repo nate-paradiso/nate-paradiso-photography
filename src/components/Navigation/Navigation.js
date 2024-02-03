@@ -25,7 +25,7 @@ export const Navigation = () => {
         className="menu-item"
         // activeClassName="active"
       >
-        Nature
+        Adventure
       </NavLink>
       <NavLink
         to="/weddings"
@@ -36,12 +36,28 @@ export const Navigation = () => {
         Weddings
       </NavLink>
       <NavLink
+        to="/couples"
+        onClick={() => ctx.stateChangeHandler({ isOpen: false })}
+        className="menu-item"
+        // activeClassName="active"
+      >
+        Couples
+      </NavLink>
+      <NavLink
         to="/realestate"
         onClick={() => ctx.stateChangeHandler({ isOpen: false })}
         className="menu-item"
         // activeClassName="active"
       >
         Real Estate
+      </NavLink>
+      <NavLink
+        to="/stilllife"
+        onClick={() => ctx.stateChangeHandler({ isOpen: false })}
+        className="menu-item"
+        // activeClassName="active"
+      >
+        Still Life
       </NavLink>
       <NavLink
         to="/about"

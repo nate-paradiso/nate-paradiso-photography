@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { NaturePage } from "./pages/NaturePage/NaturePage";
+import { AdventurePage } from "./pages/AdventurePage/AdventurePage";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
 import "./styles/_global.scss";
@@ -8,6 +8,8 @@ import { WeddingPage } from "./pages/WeddingPage/WeddingPage";
 import { AboutPage } from "./pages/AboutPage/AboutPage";
 import { ContactPage } from "./pages/ContactPage/ContactPage";
 import { RealEstatePage } from "./pages/RealEstatePage/RealEstatePage";
+import { CouplesPage } from "./pages/CouplesPage/CouplesPage";
+import { StillLifePage } from "./pages/StillLifePage/StillLifePage";
 
 // Create a new context
 export const MyContext = React.createContext();
@@ -37,9 +39,11 @@ const App = () => {
         <div className="body">
           <Header />
           <Routes>
-            <Route path="/" element={<NaturePage />} />
+            <Route path="/" element={<AdventurePage />} />
             <Route path="/weddings" element={<WeddingPage />} />
+            <Route path="/couples" element={<CouplesPage />} />
             <Route path="/realestate" element={<RealEstatePage />} />
+            <Route path="/stilllife" element={<StillLifePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
