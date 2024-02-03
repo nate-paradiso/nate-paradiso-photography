@@ -34,6 +34,7 @@
   }
   &__success {
     align-self: center;
+    font-size: 1.2rem;
   }
   &__text-area {
     min-height: 150px;
@@ -57,6 +58,7 @@
     }
   }
   &__tube-spinner {
+    margin-top: 1rem;
     height: 50px;
   }
   &__error-message {
