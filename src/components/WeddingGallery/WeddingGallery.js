@@ -439,11 +439,7 @@ export const cloudinaryWeddingPhotos = [
     width: 1320,
     height: 881,
   },
-  {
-    publicId: "weddings/rm1hwsispzhtxezzbclf",
-    width: 1320,
-    height: 881,
-  },
+
   {
     publicId: "weddings/yp9tlnkp8jsjwa699g52",
     width: 1320,

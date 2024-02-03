@@ -50,7 +50,7 @@ export const Header = () => {
           <NavLink className="header__link" to="/realestate">
             Real Estate
           </NavLink>
-          <NavLink className="header__link" to="/stilllife">
+          <NavLink className="header__link" to="/still-life">
             Still Life
           </NavLink>
           <NavLink className="header__link" to="/about">
