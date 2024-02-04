@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import "./Header.scss";
-// import { Logo } from "../Logo/Logo";
 import { Navigation } from "../Navigation/Navigation";
-// import { MyContext } from "../../App";
 
 export const Header = () => {
   // const ctx = useContext(MyContext);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const location = useLocation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -38,25 +37,64 @@ export const Header = () => {
       ) : (
         // Render the full menu component here for larger screens
         <div className="header__full-menu">
-          <NavLink className="header__link" to="/">
+          <NavLink
+            className={`header__link ${
+              location.pathname === "/" ? "header__link--active" : "header__link--inactive"
+            }`}
+            to="/"
+          >
             Adventure
           </NavLink>
-          <NavLink className="header__link" to="/weddings">
+          <NavLink
+            className={`header__link ${
+              location.pathname === "/weddings" ? "header__link--active" : "header__link--inactive"
+            }`}
+            to="/weddings"
+          >
             Weddings
           </NavLink>
-          <NavLink className="header__link" to="/couples">
+          <NavLink
+            className={`header__link ${
+              location.pathname === "/couples" ? "header__link--active" : "header__link--inactive"
+            }`}
+            to="/couples"
+          >
             Couples
           </NavLink>
-          <NavLink className="header__link" to="/realestate">
+          <NavLink
+            className={`header__link ${
+              location.pathname === "/realestate"
+                ? "header__link--active"
+                : "header__link--inactive"
+            }`}
+            to="/realestate"
+          >
             Real Estate
           </NavLink>
-          <NavLink className="header__link" to="/still-life">
+          <NavLink
+            className={`header__link ${
+              location.pathname === "/still-life"
+                ? "header__link--active"
+                : "header__link--inactive"
+            }`}
+            to="/still-life"
+          >
             Still Life
           </NavLink>
-          <NavLink className="header__link" to="/about">
+          <NavLink
+            className={`header__link ${
+              location.pathname === "/about" ? "header__link--active" : "header__link--inactive"
+            }`}
+            to="/about"
+          >
             About
           </NavLink>
-          <NavLink className="header__link" to="/contact">
+          <NavLink
+            className={`header__link ${
+              location.pathname === "/contact" ? "header__link--active" : "header__link--inactive"
+            }`}
+            to="/contact"
+          >
             Contact
           </NavLink>
         </div>

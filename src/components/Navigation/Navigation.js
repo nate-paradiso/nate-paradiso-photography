@@ -1,13 +1,14 @@
 // Create a navigation component that wraps the burger menu
 import React, { useContext } from "react";
 import { slide as Menu } from "react-burger-menu";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { MyContext } from "../../App";
 import hamburger from "../../assets/images/burger-menu-1.svg";
 import close from "../../assets/images/cross.svg";
 import "./Navigation.scss";
 
 export const Navigation = () => {
+  const location = useLocation();
   const ctx = useContext(MyContext);
 
   return (
@@ -22,56 +23,63 @@ export const Navigation = () => {
       <NavLink
         to="/"
         onClick={() => ctx.stateChangeHandler({ isOpen: false })}
-        className="menu-item"
-        // activeClassName="active"
+        className={`menu-item ${
+          location.pathname === "/" ? "menu-item--active" : "menu-item--inactive"
+        }`}
       >
         Adventure
       </NavLink>
       <NavLink
         to="/weddings"
         onClick={() => ctx.stateChangeHandler({ isOpen: false })}
-        className="menu-item"
-        // activeClassName="active"
+        className={`menu-item ${
+          location.pathname === "/weddings" ? "menu-item--active" : "menu-item--inactive"
+        }`}
       >
         Weddings
       </NavLink>
       <NavLink
         to="/couples"
         onClick={() => ctx.stateChangeHandler({ isOpen: false })}
-        className="menu-item"
-        // activeClassName="active"
+        className={`menu-item ${
+          location.pathname === "/couples" ? "menu-item--active" : "menu-item--inactive"
+        }`}
       >
         Couples
       </NavLink>
       <NavLink
         to="/realestate"
         onClick={() => ctx.stateChangeHandler({ isOpen: false })}
-        className="menu-item"
-        // activeClassName="active"
+        className={`menu-item ${
+          location.pathname === "/realestate" ? "menu-item--active" : "menu-item--inactive"
+        }`}
       >
         Real Estate
       </NavLink>
       <NavLink
         to="/still-life"
         onClick={() => ctx.stateChangeHandler({ isOpen: false })}
-        className="menu-item"
-        // activeClassName="active"
+        className={`menu-item ${
+          location.pathname === "/still-life" ? "menu-item--active" : "menu-item--inactive"
+        }`}
       >
         Still Life
       </NavLink>
       <NavLink
         to="/about"
         onClick={() => ctx.stateChangeHandler({ isOpen: false })}
-        className="menu-item"
-        // activeClassName="active"
+        className={`menu-item ${
+          location.pathname === "/about" ? "menu-item--active" : "menu-item--inactive"
+        }`}
       >
         About
       </NavLink>
       <NavLink
         to="/contact"
         onClick={() => ctx.stateChangeHandler({ isOpen: false })}
-        className="menu-item"
-        // activeClassName="active"
+        className={`menu-item ${
+          location.pathname === "/contact" ? "menu-item--active" : "menu-item--inactive"
+        }`}
       >
         Contact
       </NavLink>
