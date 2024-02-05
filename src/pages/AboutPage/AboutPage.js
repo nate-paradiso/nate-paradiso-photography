@@ -47,17 +47,17 @@ export const AboutPage = () => {
         </NavLink>
         <NavLink
           className="about__partners--link"
-          to={"https://modernistcuisine.com/"}
-          target="_blank"
-        >
-          <img className="about__partners--img" src={tongass} alt="tongass" />
-        </NavLink>
-        <NavLink
-          className="about__partners--link"
           to={"https://tongassonthefly.com/"}
           target="_blank"
         >
-          <img className="about__partners--img" src={mod} alt="mod" />
+          <img className="about__partners--img" src={tongass} alt="tongass on the fly" />
+        </NavLink>
+        <NavLink
+          to={"https://modernistcuisine.com/"}
+          className="about__partners--link"
+          target="_blank"
+        >
+          <img className="about__partners--img" src={mod} alt="modernist cuisine" />
         </NavLink>
       </div>
     </div>
