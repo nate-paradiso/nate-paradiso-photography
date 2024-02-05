@@ -83,6 +83,14 @@ export const Header = () => {
           </NavLink>
           <NavLink
             className={`header__link ${
+              location.pathname === "/video" ? "header__link--active" : "header__link--inactive"
+            }`}
+            to="/video"
+          >
+            Video
+          </NavLink>
+          <NavLink
+            className={`header__link ${
               location.pathname === "/about" ? "header__link--active" : "header__link--inactive"
             }`}
             to="/about"
