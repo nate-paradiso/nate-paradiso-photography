@@ -10,6 +10,7 @@ import { ContactPage } from "./pages/ContactPage/ContactPage";
 import { RealEstatePage } from "./pages/RealEstatePage/RealEstatePage";
 import { CouplesPage } from "./pages/CouplesPage/CouplesPage";
 import { StillLifePage } from "./pages/StillLifePage/StillLifePage";
+import { VideoPage } from "./pages/VideoPage/VideoPage";
 
 // Create a new context
 export const MyContext = React.createContext();
@@ -44,6 +45,7 @@ const App = () => {
             <Route path="/couples" element={<CouplesPage />} />
             <Route path="/realestate" element={<RealEstatePage />} />
             <Route path="/still-life" element={<StillLifePage />} />
+            <Route path="/video" element={<VideoPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>

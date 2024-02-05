@@ -1,0 +1,18 @@
+@use "../../styles/global" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.videos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  max-width: 1920px;
+  margin: auto;
+
+  &__vid {
+    padding: 1rem;
+  }
+}

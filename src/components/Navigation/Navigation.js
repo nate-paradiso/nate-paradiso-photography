@@ -66,6 +66,15 @@ export const Navigation = () => {
         Still Life
       </NavLink>
       <NavLink
+        to="/video"
+        onClick={() => ctx.stateChangeHandler({ isOpen: false })}
+        className={`menu-item ${
+          location.pathname === "/video" ? "menu-item--active" : "menu-item--inactive"
+        }`}
+      >
+        Video
+      </NavLink>
+      <NavLink
         to="/about"
         onClick={() => ctx.stateChangeHandler({ isOpen: false })}
         className={`menu-item ${

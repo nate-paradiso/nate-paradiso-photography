@@ -10,7 +10,23 @@
   @include desktop {
     flex-direction: row;
   }
-
+  &__partners {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include desktop {
+      flex-direction: row;
+    }
+    &--img {
+      max-width: 635px;
+      width: 100%;
+      padding: 1rem 1rem;
+    }
+    &--link {
+      max-width: 635px;
+    }
+  }
   &__container {
     max-width: 100%;
     margin-bottom: 2rem;
