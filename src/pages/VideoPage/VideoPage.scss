@@ -11,8 +11,9 @@
   width: 100%;
   max-width: 1920px;
   margin: auto;
-
   &__vid {
-    padding: 1rem;
+    padding: 1rem 0;
+    height: auto !important;
+    aspect-ratio: 16/9;
   }
 }
