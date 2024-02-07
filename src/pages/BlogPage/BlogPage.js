@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import "./BlogPage.scss";
 import axios from "axios";
 import { LikesButton } from "../../components/LikesButton/LikesButton";
-require("dotenv").config();
+// require("dotenv").config();
 
 export const BlogPage = () => {
   const [blogPosts, setBlogPosts] = useState([]);

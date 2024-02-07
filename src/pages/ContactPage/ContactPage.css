@@ -1,0 +1,185 @@
+@font-face {
+  font-family: "Oswald";
+  src: url("../assets/fonts/Oswald-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Oswald";
+  src: url("../assets/fonts/Oswald-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Oswald";
+  src: url("../assets/fonts/Oswald-ExtraLight.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Oswald";
+  src: url("../assets/fonts/Oswald-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+body {
+  font-family: Oswald, Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #141414;
+  color: #ffffff;
+  font-family: Oswald;
+  font-weight: 200;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1rem;
+}
+@media (min-width: 1280px) {
+  body {
+    margin: auto;
+    padding: 2rem;
+    max-width: 100%;
+  }
+}
+
+p {
+  letter-spacing: 0.05rem;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+a:hover {
+  color: #8f8f8f;
+}
+
+button,
+[type=button] {
+  background-color: initial;
+  cursor: pointer;
+  border: initial;
+}
+
+button {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+@media (min-width: 768px) {
+  .contact {
+    width: 50vw;
+    margin-left: 2rem;
+    max-width: 500px;
+  }
+}
+.contact__required {
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  color: rgb(185, 185, 185);
+}
+.contact__label {
+  letter-spacing: 1.5px;
+}
+.contact__input {
+  border: 2px solid;
+  padding: 15px;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+.contact__input--darken:hover:not(:focus) {
+  background-color: rgba(255, 255, 255, 0.605);
+}
+.contact__success {
+  align-self: center;
+  font-size: 1.2rem;
+}
+.contact__text-area {
+  min-height: 150px;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+.contact__button {
+  height: 50px;
+  margin-top: 1rem;
+  width: 100px;
+  font-family: Oswald;
+  color: white;
+  font-size: 1rem;
+  background-color: black;
+  border: none;
+  border: rgba(255, 255, 255, 0.394) solid 2px;
+  cursor: pointer;
+}
+.contact__button:hover {
+  background-color: rgba(255, 255, 255, 0.13);
+}
+.contact__tube-spinner {
+  margin-top: 1rem;
+  height: 50px;
+}
+.contact__error-message {
+  color: white;
+  background-color: rgba(255, 0, 0, 0.585);
+  padding: 0.5rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+}
+
+.text {
+  margin-bottom: 5rem;
+}
+.text__paragraph {
+  font-size: 1.5rem;
+  align-content: center;
+}
+@media (min-width: 768px) {
+  .text__paragraph {
+    max-width: 500px;
+    margin-top: 2rem;
+  }
+}
+
+.gform {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}/*# sourceMappingURL=ContactPage.css.map */
