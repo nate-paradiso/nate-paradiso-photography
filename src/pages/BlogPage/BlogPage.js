@@ -54,9 +54,6 @@ export const BlogPage = () => {
         return null;
       }
     };
-    const binId = "65c31407266cfc3fde86e117";
-    const masterKey = "$2a$10$oyG9NdLsadD0KHy.9CcYdePwG4DrFBOb3M6im3nflsXQiUW73I8y.";
-    const accessKey = "$2a$10$N80nFteKN8U7JsWmxV72fO25gbsqjBH8TITSv3IlTMeznTxgBDpHu";
 
     fetchBlogPosts(binId, masterKey, accessKey);
   }, []);
