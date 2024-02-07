@@ -50,3 +50,16 @@ a {
     color: #8f8f8f;
   }
 }
+
+button,
+[type="button"] {
+  background-color: initial;
+  cursor: pointer;
+  border: initial;
+}
+
+button {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}

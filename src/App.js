@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AdventurePage } from "./pages/AdventurePage/AdventurePage";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
-import "./styles/_global.scss";
 import { WeddingPage } from "./pages/WeddingPage/WeddingPage";
 import { AboutPage } from "./pages/AboutPage/AboutPage";
 import { ContactPage } from "./pages/ContactPage/ContactPage";
@@ -11,6 +10,8 @@ import { RealEstatePage } from "./pages/RealEstatePage/RealEstatePage";
 import { CouplesPage } from "./pages/CouplesPage/CouplesPage";
 import { StillLifePage } from "./pages/StillLifePage/StillLifePage";
 import { VideoPage } from "./pages/VideoPage/VideoPage";
+import { BlogPage } from "./pages/BlogPage/BlogPage";
+import "./styles/_global.scss";
 
 // Create a new context
 export const MyContext = React.createContext();
@@ -37,7 +38,7 @@ const App = () => {
   return (
     <MyProvider>
       <BrowserRouter>
-        <div className="body">
+        <main className="body">
           <Header />
           <Routes>
             <Route path="/" element={<AdventurePage />} />
@@ -47,10 +48,11 @@ const App = () => {
             <Route path="/still-life" element={<StillLifePage />} />
             <Route path="/video" element={<VideoPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/blog" element={<BlogPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
           <Footer />
-        </div>
+        </main>
       </BrowserRouter>
     </MyProvider>
   );

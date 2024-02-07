@@ -26,14 +26,14 @@ export const VideoPage = () => {
         url={"https://youtu.be/LIS774-iptA?si=E5Mm9H0ZUqQLO-Ss"}
         controls={false}
       />
-      <ReactPlayer className="videos__vid" url={"https://youtu.be/83e0AKPgBxQ"} controls={true} />
-      <ReactPlayer className="videos__vid" url={"https://youtu.be/BN1a0m5XEpA"} controls={true} />
-      <ReactPlayer className="videos__vid" url={"https://youtu.be/IKFkIprY_R8"} controls={true} />
-      <ReactPlayer className="videos__vid" url={"https://youtu.be/wNPZjAzwDQE"} controls={true} />
-      <ReactPlayer className="videos__vid" url={"https://youtu.be/0lrLXQuhimQ"} controls={true} />
-      <ReactPlayer className="videos__vid" url={"https://youtu.be/_AdQ8clfi58"} controls={true} />
-      <ReactPlayer className="videos__vid" url={"https://youtu.be/CGcPL9bjsTk"} controls={true} />
-      <ReactPlayer className="videos__vid" url={"https://youtu.be/tn5y7_1Fb1o"} controls={true} />
+      <ReactPlayer className="videos__vid" url={"https://youtu.be/83e0AKPgBxQ"} controls={false} />
+      <ReactPlayer className="videos__vid" url={"https://youtu.be/BN1a0m5XEpA"} controls={false} />
+      <ReactPlayer className="videos__vid" url={"https://youtu.be/IKFkIprY_R8"} controls={false} />
+      <ReactPlayer className="videos__vid" url={"https://youtu.be/wNPZjAzwDQE"} controls={false} />
+      <ReactPlayer className="videos__vid" url={"https://youtu.be/0lrLXQuhimQ"} controls={false} />
+      <ReactPlayer className="videos__vid" url={"https://youtu.be/_AdQ8clfi58"} controls={false} />
+      <ReactPlayer className="videos__vid" url={"https://youtu.be/CGcPL9bjsTk"} controls={false} />
+      <ReactPlayer className="videos__vid" url={"https://youtu.be/tn5y7_1Fb1o"} controls={false} />
     </div>
   );
 };

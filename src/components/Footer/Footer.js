@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 export const Footer = () => {
   return (
     <>
-      <div>
+      <footer>
         <div className="footer">
           <div>
             <NavLink
@@ -38,7 +38,7 @@ export const Footer = () => {
           </div>
         </div>
         <p>Copyright Nate Paradiso 2024</p>
-      </div>
+      </footer>
     </>
   );
 };

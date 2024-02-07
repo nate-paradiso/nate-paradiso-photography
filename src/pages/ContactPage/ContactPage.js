@@ -187,8 +187,8 @@ export const ContactPage = () => {
     }
 
     function validateEmail(email) {
-      // Example: Check if the email has a valid format
-      // You might want to use a more sophisticated email validation function
+      // Check if the email has a valid format
+
       let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return emailRegex.test(email);
     }
@@ -202,8 +202,6 @@ export const ContactPage = () => {
     for (let i = 0; i < forms.length; i++) {
       forms[i].addEventListener("submit", handleFormSubmit, false);
     }
-
-    // Cleanup
   }, []); // Empty dependency array ensures this runs once after initial render
 
   const handleInputChange = e => {
