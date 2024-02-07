@@ -4,9 +4,44 @@ import { useState, useEffect } from "react";
 import "./BlogPage.scss";
 import axios from "axios";
 import { LikesButton } from "../../components/LikesButton/LikesButton";
+require("dotenv").config();
 
 export const BlogPage = () => {
   const [blogPosts, setBlogPosts] = useState([]);
+  const apiKey = process.env.REACT_APP_API_KEY;
+  const binId = process.env.REACT_APP_BIN_ID;
+  const url = `https://api.jsonbin.io/v3/b/${binId}`;
+
+  useEffect(() => {
+    const fetchBlogPosts = async (binId, apiKey) => {
+      try {
+        const response = await axios.get(url, {
+          headers: {
+            "X-Master-Key": apiKey,
+          },
+        });
+        setBlogPosts(response.data);
+      } catch (error) {
+        console.error("Error fetching blog posts:", error);
+      }
+    };
+
+    fetchBlogPosts(binId, apiKey);
+  }, [binId, apiKey, url]);
+
+  const handleUpdateLikes = async (postId, updatedLikes) => {
+    try {
+      const response = await axios.patch(
+        `https://api.jsonbin.io/v3/b/65c31407266cfc3fde86e117/${postId}`,
+        {
+          likes: updatedLikes,
+        },
+      );
+      setBlogPosts(response.data);
+    } catch (error) {
+      console.error("Error updating likes:", error);
+    }
+  };
 
   const formatTimeFromNow = timestamp => {
     const timeNow = Date.now();
@@ -36,41 +71,6 @@ export const BlogPage = () => {
     }
     const yearsAgo = Math.floor(monthsAgo / 12);
     return `${yearsAgo} year${yearsAgo !== 1 ? "s" : ""} ago`;
-  };
-
-  useEffect(() => {
-    const fetchBlogPosts = async (binId, masterKey, accessKey = null) => {
-      try {
-        const headers = {
-          "X-Master-Key": masterKey,
-        };
-        if (accessKey) {
-          headers["X-Access-Key"] = accessKey;
-        }
-        const response = await axios.get(`https://api.jsonbin.io/v3/b/${binId}`, { headers });
-        setBlogPosts(response.data);
-      } catch (error) {
-        console.error("Error fetching bin data:", error);
-        return null;
-      }
-    };
-
-    fetchBlogPosts(binId, masterKey, accessKey);
-  }, []);
-
-  const handleUpdateLikes = async (postId, updatedLikes) => {
-    try {
-      const response = await axios.patch(
-        `https://api.jsonbin.io/v3/b/65c31407266cfc3fde86e117/${postId}`,
-        {
-          likes: updatedLikes,
-        },
-      );
-      setBlogPosts(response.data);
-      // Update local state or perform any other actions as needed
-    } catch (error) {
-      console.error("Error updating likes:", error);
-    }
   };
 
   return (
