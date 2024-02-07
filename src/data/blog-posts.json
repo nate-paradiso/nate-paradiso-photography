@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "title": "SPEARFISHING NEAH BAY, WA",
+    "timestamp": 1684243200000,
+    "body": "Embark on a picturesque journey westward from Seattle, and you'll discover the captivating charm of Neah Bay, nestled in the northwestern corner of the United States. This scenic drive is well worth undertaking, for it leads to a fishing haven unlike any other in the Lower 48. Moreover, if you have a penchant for diving, Neah Bay promises an awe-inspiring spectacle beneath its azure waters. While free diving presents a more convenient option, scuba diving is also available for those seeking an immersive experience. The primary objective of our expedition was to engage in free diving and spearfishing, and despite less-than-ideal tidal conditions, we successfully located vibrant schools of Black Rockfish. As expected in the Northwest, the weather showcased its typical mélange of rain, sunshine, and wind gusts. Should you ever find yourself with the opportunity to fish in Neah Bay, I implore you to seize it without hesitation!",
+    "images": [
+      {
+        "id": "1",
+        "imgUrl": "https://res.cloudinary.com/hzjhihahh/image/upload/v1706676250/portfolio-nate-paradiso-photography/kdve5ufeal8g9hfnlepc.jpg",
+        "alt": "free-diver"
+      },
+      {
+        "id": "2",
+        "imgUrl": "https://res.cloudinary.com/hzjhihahh/image/upload/v1706676250/portfolio-nate-paradiso-photography/qm02ijfuuw6vtmixoqq9.jpg",
+        "alt": "rockfish"
+      }
+    ],
+    "likes": 1,
+    "comments": [
+      {
+        "id": "1",
+        "name": "Micheal Lyons",
+        "comment": "",
+        "likes": 0,
+        "timestamp": 1628522461000
+      }
+    ]
+  }
+]

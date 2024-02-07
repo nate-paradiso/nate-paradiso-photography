@@ -1,8 +1,8 @@
-import { cloudinaryPortfolioPhotos } from "../PortfolioGallery/PortfolioGallery";
-import { cloudinaryWeddingPhotos } from "../WeddingGallery/WeddingGallery";
-import { cloudinaryRealEstatePhotos } from "../RealEstateGallery/RealEstateGallery";
-import { cloudinaryCouplesPhotos } from "../CouplesGallery/CouplesGallery";
-import { cloudinaryStillLifePhotos } from "../StillLifeGallery/StillLifeGallery";
+import { cloudinaryPortfolioPhotos } from "../../data/PortfolioGallery/PortfolioGallery";
+import { cloudinaryWeddingPhotos } from "../../data/WeddingGallery/WeddingGallery";
+import { cloudinaryRealEstatePhotos } from "../../data/RealEstateGallery/RealEstateGallery";
+import { cloudinaryCouplesPhotos } from "../../data/CouplesGallery/CouplesGallery";
+import { cloudinaryStillLifePhotos } from "../../data/StillLifeGallery/StillLifeGallery";
 
 const breakpoints = [1200, 640, 320];
 

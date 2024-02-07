@@ -99,6 +99,14 @@ export const Header = () => {
           </NavLink>
           <NavLink
             className={`header__link ${
+              location.pathname === "/blog" ? "header__link--active" : "header__link--inactive"
+            }`}
+            to="/blog"
+          >
+            Blog
+          </NavLink>
+          <NavLink
+            className={`header__link ${
               location.pathname === "/contact" ? "header__link--active" : "header__link--inactive"
             }`}
             to="/contact"
