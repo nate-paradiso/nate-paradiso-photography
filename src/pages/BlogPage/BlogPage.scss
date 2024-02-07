@@ -2,14 +2,16 @@
 @use "../../styles/mixins" as *;
 @use "../../styles/variables" as *;
 .blog {
+  margin-bottom: 2rem;
   &__post {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    max-width: 600px;
+    max-width: 850px;
     width: 100%;
     @include tablet {
+      padding: 0rem 75px;
       margin: auto;
     }
     &--title {
@@ -36,9 +38,19 @@
       margin-top: 1rem;
     }
     &--like-button {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
+      margin: 0.5rem 0.5rem 0 0.5rem;
+      align-self: flex-end;
     }
+  }
+}
+.cannot-find {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.25rem;
+  @include tablet {
+    font-size: 1.5rem;
   }
 }

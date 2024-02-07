@@ -12,7 +12,6 @@ import { StillLifePage } from "./pages/StillLifePage/StillLifePage";
 import { VideoPage } from "./pages/VideoPage/VideoPage";
 import { BlogPage } from "./pages/BlogPage/BlogPage";
 import "./styles/_global.scss";
-
 // Create a new context
 export const MyContext = React.createContext();
 

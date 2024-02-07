@@ -1,11 +1,13 @@
 // const { v4: uuid } = require("uuid");
 import { useState, useEffect } from "react";
-import blogData from "../../data/blog-posts.json";
+// import blogData from "../../data/blog-posts.json";
 import "./BlogPage.scss";
+import axios from "axios";
 import { LikesButton } from "../../components/LikesButton/LikesButton";
 
 export const BlogPage = () => {
   const [blogPosts, setBlogPosts] = useState([]);
+
   const formatTimeFromNow = timestamp => {
     const timeNow = Date.now();
     const secondsAgo = Math.floor((timeNow - timestamp) / 1000);
@@ -37,15 +39,43 @@ export const BlogPage = () => {
   };
 
   useEffect(() => {
-    setBlogPosts(blogData);
+    const fetchBlogPosts = async (binId, masterKey, accessKey = null) => {
+      try {
+        const headers = {
+          "X-Master-Key": masterKey,
+        };
+        if (accessKey) {
+          headers["X-Access-Key"] = accessKey;
+        }
+        const response = await axios.get(`https://api.jsonbin.io/v3/b/${binId}`, { headers });
+        setBlogPosts(response.data);
+      } catch (error) {
+        console.error("Error fetching bin data:", error);
+        return null;
+      }
+    };
+    const binId = "65c31407266cfc3fde86e117";
+    const masterKey = "$2a$10$oyG9NdLsadD0KHy.9CcYdePwG4DrFBOb3M6im3nflsXQiUW73I8y.";
+    const accessKey = "$2a$10$N80nFteKN8U7JsWmxV72fO25gbsqjBH8TITSv3IlTMeznTxgBDpHu";
+
+    fetchBlogPosts(binId, masterKey, accessKey);
   }, []);
 
-  const handleUpdateLikes = (postId, updatedLikes) => {
-    const updatedPost = blogData.map(blogData =>
-      blogData.id === postId ? { ...blogData, likes: updatedLikes } : blogData,
-    );
-    setBlogPosts(updatedPost);
+  const handleUpdateLikes = async (postId, updatedLikes) => {
+    try {
+      const response = await axios.patch(
+        `https://api.jsonbin.io/v3/b/65c31407266cfc3fde86e117/${postId}`,
+        {
+          likes: updatedLikes,
+        },
+      );
+      setBlogPosts(response.data);
+      // Update local state or perform any other actions as needed
+    } catch (error) {
+      console.error("Error updating likes:", error);
+    }
   };
+
   return (
     <article>
       {/* added a ternary to the entire body to check for axios data, if not there, then state loading... */}
@@ -82,7 +112,9 @@ export const BlogPage = () => {
           ))}
         </div>
       ) : (
-        <p>There are no posts right now. Come back soon!</p>
+        <div className="cannot-find">
+          <p className="cannot-find__text">Cannot find posts...sorry friend.</p>
+        </div>
       )}
     </article>
   );

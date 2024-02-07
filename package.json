@@ -25,7 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "node -e 'process.env.SKIP_BUILD_NODE_MODULES=true' && npm rebuild path-browserify os-browserify crypto-browserify"
   },
   "eslintConfig": {
     "extends": [
