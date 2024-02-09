@@ -27,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "node -e 'process.env.SKIP_BUILD_NODE_MODULES=true' && npm rebuild path-browserify os-browserify crypto-browserify"
+    "login": "netlify login"
   },
   "eslintConfig": {
     "extends": [
@@ -47,5 +47,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "netlify-cli": "^17.16.0"
+  }
 }
