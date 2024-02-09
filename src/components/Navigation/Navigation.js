@@ -84,6 +84,15 @@ export const Navigation = () => {
         About
       </NavLink>
       <NavLink
+        to="/blog"
+        onClick={() => ctx.stateChangeHandler({ isOpen: false })}
+        className={`menu-item ${
+          location.pathname === "/blog" ? "menu-item--active" : "menu-item--inactive"
+        }`}
+      >
+        Blog
+      </NavLink>
+      <NavLink
         to="/contact"
         onClick={() => ctx.stateChangeHandler({ isOpen: false })}
         className={`menu-item ${
