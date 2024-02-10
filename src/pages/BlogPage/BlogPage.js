@@ -3,9 +3,12 @@ import blogData from "../../data/blog-posts.json";
 import "./BlogPage.scss";
 import { LikesButton } from "../../components/LikesButton/LikesButton";
 import { formatTimeFromNow } from "../../_utility/utility";
+import avatar from "../../assets/images/Pngtree—avatar vector icon white background_5184638.png";
+import ReactPlayer from "react-player";
 
 export const BlogPage = () => {
   const [blogPosts, setBlogPosts] = useState([]);
+  const [displayedPosts, setDisplayedPosts] = useState(3);
 
   useEffect(() => {
     setBlogPosts(blogData);
@@ -17,31 +20,57 @@ export const BlogPage = () => {
     );
     setBlogPosts(updatedPost);
   };
+
+  const handleLoadMore = () => {
+    // Increase the number of displayed posts by 3 when the "Load More" button is clicked
+    setDisplayedPosts(prevDisplayedPosts => prevDisplayedPosts + 3);
+  };
+
   return (
     <article>
       {/* added a ternary to the entire body to check for axios data, if not there, then state loading... */}
       {blogPosts.length > 0 ? (
         <div className="blog">
-          {blogPosts.map(post => (
+          {blogPosts.slice(0, displayedPosts).map(post => (
             <div className="blog__post blog__post--line-break" key={post.id}>
               <h4 className="blog__post--title">{post.title}</h4>
               <p className="blog__post--time">{formatTimeFromNow(post.timestamp)}</p>
               <p className="blog__post--body">{post.body}</p>
               <div className="blog__post--image-wrapper">
-                {post.images.map(image => (
-                  <img
-                    className="blog__post--image"
-                    key={image.id}
-                    src={image.imgUrl}
-                    alt={image.alt}
-                  />
-                ))}
-                {post.comments.map(comment => (
-                  <p className="blog__post--image-comment" key={comment.id}>
-                    {comment.comment}
-                  </p>
-                ))}
+                {post.videos &&
+                  post.videos.map(video => (
+                    <div className="videos">
+                      <ReactPlayer
+                        className="videos__vid"
+                        key={video.id}
+                        url={video.videoUrl}
+                        controls={false}
+                      />
+                    </div>
+                  ))}
+                {post.images &&
+                  post.images.map(image => (
+                    <img
+                      className="blog__post--image"
+                      key={image.id}
+                      src={image.imgUrl}
+                      alt={image.alt}
+                    />
+                  ))}
               </div>
+              {post.comments &&
+                post.comments.map(comment => (
+                  <div className="blog__post-comment" key={comment.id}>
+                    <div className="blog__post-comment-container">
+                      <img className="blog__post-comment-container--avatar" src={avatar} alt="" />
+                      <h3 className="blog__post-comment-container--name">{comment.name}</h3>
+                      <p className="blog__post-comment-container--time">
+                        {formatTimeFromNow(comment.timestamp)}
+                      </p>
+                    </div>
+                    <p className="blog__post-comment--comment">{comment.comment}</p>
+                  </div>
+                ))}
               <div className="blog__post--likes-button">
                 <div>
                   <p className="blog__post--tags">tags: {post.tags}</p>
@@ -49,14 +78,17 @@ export const BlogPage = () => {
                 <LikesButton
                   postId={post.id}
                   likes={post.likes}
+                  // likes={post.likes === 0 ? "" : post.likes}
                   handleUpdateLikes={handleUpdateLikes}
                 ></LikesButton>
               </div>
             </div>
           ))}
+          {/* Display the "Load More" button if there are more posts to load */}
+          {displayedPosts < blogPosts.length && <button onClick={handleLoadMore}>Load More</button>}
         </div>
       ) : (
-        <p>There are no posts right now. Come back soon!</p>
+        <p>Cannot find posts...sorry</p>
       )}
     </article>
   );
