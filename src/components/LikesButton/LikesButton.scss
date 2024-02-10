@@ -5,7 +5,9 @@
 .likes {
   &__button {
     display: flex;
+    width: 8.125rem;
     justify-content: flex-end;
+    flex-direction: row;
   }
   &__button-thumb {
     height: 30px;

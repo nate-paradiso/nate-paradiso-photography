@@ -42,7 +42,7 @@ export const BlogPage = () => {
                   </p>
                 ))}
               </div>
-              <div className="blog__post--like-button">
+              <div className="blog__post--likes-button">
                 <div>
                   <p>tags: {post.tags}</p>
                 </div>
