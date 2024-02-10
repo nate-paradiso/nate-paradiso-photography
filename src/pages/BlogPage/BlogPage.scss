@@ -11,6 +11,7 @@
     max-width: 850px;
     width: 100%;
     margin: auto;
+    margin-bottom: 4rem;
     @include tablet {
       padding: 0rem 75px;
     }
@@ -45,6 +46,27 @@
     }
     &--tags {
       color: rgba(177, 177, 177, 0.855);
+    }
+  }
+  &__post-comment {
+    margin: 1rem;
+    &--comment {
+      margin: 1rem 1rem;
+    }
+  }
+  &__post-comment-container {
+    display: flex;
+    flex-direction: row;
+    &--name {
+      margin-right: 2rem;
+      font-size: 1.5rem;
+    }
+    &--time {
+      margin-top: 0.5rem;
+    }
+    &--avatar {
+      height: 40px;
+      margin-right: 2rem;
     }
   }
 }
