@@ -44,7 +44,7 @@ export const BlogPage = () => {
               </div>
               <div className="blog__post--likes-button">
                 <div>
-                  <p>tags: {post.tags}</p>
+                  <p className="blog__post--tags">tags: {post.tags}</p>
                 </div>
                 <LikesButton
                   postId={post.id}

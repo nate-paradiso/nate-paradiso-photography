@@ -43,6 +43,9 @@
       flex-direction: row;
       width: 100%;
     }
+    &--tags {
+      color: rgba(177, 177, 177, 0.855);
+    }
   }
 }
 .cannot-find {
