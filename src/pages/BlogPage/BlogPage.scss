@@ -18,6 +18,7 @@
     &--title {
       padding: 1rem 0.5rem 0rem 0rem;
       font-size: 1.75rem;
+      text-transform: uppercase;
       @include tablet {
         font-size: 2rem;
       }
@@ -75,6 +76,12 @@
       margin-bottom: 0.5rem;
       letter-spacing: 0.25rem;
       text-transform: uppercase;
+    }
+  }
+  &__load-more {
+    font-size: 1.25rem;
+    &:hover {
+      color: #8f8f8f;
     }
   }
   &__post-comment-container {

@@ -222,8 +222,7 @@ export const ContactPage = () => {
     <div className="container">
       <div className="text">
         <p className="text__paragraph">
-          Looking to discuss a project? Please get in touch using the form on this page. Generally,
-          I’m able to reply to all inquiries within 48 hours.
+          Looking to discuss a project in photography or web development? Please get in touch!
         </p>
       </div>
       <div className="contact">

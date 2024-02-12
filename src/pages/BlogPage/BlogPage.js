@@ -5,11 +5,12 @@ import { LikesButton } from "../../components/LikesButton/LikesButton";
 import { formatTimeFromNow } from "../../_utility/utility";
 import avatar from "../../assets/images/Pngtree—avatar vector icon white background_5184638.png";
 import ReactPlayer from "react-player";
+import { NavLink, Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid"; // Import uuidv4 function
 
 export const BlogPage = () => {
   const [blogPosts, setBlogPosts] = useState([]);
-  const [displayedPosts, setDisplayedPosts] = useState(3);
+  const [displayedPosts, setDisplayedPosts] = useState(6);
 
   useEffect(() => {
     // Generate UUIDs for posts and images
@@ -25,6 +26,8 @@ export const BlogPage = () => {
         id: uuidv4(), // Generate UUID for comment
       })),
     }));
+    // Sort the blog posts by date (timestamp)
+    updatedBlogData.sort((a, b) => a.timestamp - b.timestamp);
     setBlogPosts(updatedBlogData);
     // eslint-disable-next-line
   }, []);
@@ -38,7 +41,7 @@ export const BlogPage = () => {
 
   const handleLoadMore = () => {
     // Increase the number of displayed posts by 3 when the "Load More" button is clicked
-    setDisplayedPosts(prevDisplayedPosts => prevDisplayedPosts + 3);
+    setDisplayedPosts(prevDisplayedPosts => prevDisplayedPosts + 1);
   };
   return (
     <article>
@@ -47,9 +50,35 @@ export const BlogPage = () => {
         <div className="blog">
           {blogPosts.slice(0, displayedPosts).map(post => (
             <div className="blog__post blog__post--line-break" key={post.id}>
-              <h4 className="blog__post--title">{post.title}</h4>
+              <Link to={`blog/${post.id}`}>
+                <h4 className="blog__post--title">{post.title}</h4>
+              </Link>
+
               <p className="blog__post--time">{formatTimeFromNow(post.timestamp)}</p>
-              <p className="blog__post--body">{post.body}</p>
+              {post.paragraph && (
+                <div>
+                  {Array.isArray(post.paragraph) ? (
+                    post.paragraph.map(paragraph => (
+                      <>
+                        <p key={paragraph.id} className="blog__post--body">
+                          {paragraph.para}
+                        </p>
+                        <br />
+                      </>
+                    ))
+                  ) : (
+                    <p key={post.id} className="blog__post--body">
+                      {post.paragraph}
+                    </p>
+                  )}
+                </div>
+              )}
+
+              {post.urlLink && (
+                <NavLink target="_blank" to={post.urlLink}>
+                  Here
+                </NavLink>
+              )}
               <div className="blog__post--image-wrapper">
                 {post.videos &&
                   post.videos.map(video => (
@@ -98,7 +127,11 @@ export const BlogPage = () => {
             </div>
           ))}
           {/* Display the "Load More" button if there are more posts to load */}
-          {displayedPosts < blogPosts.length && <button onClick={handleLoadMore}>Load More</button>}
+          {displayedPosts < blogPosts.length && (
+            <button className="blog__load-more" onClick={handleLoadMore}>
+              Load More
+            </button>
+          )}
         </div>
       ) : (
         <p>Cannot find posts...sorry</p>
@@ -185,7 +218,7 @@ export const BlogPage = () => {
 //             <div className="blog__post blog__post--line-break" key={post.id}>
 //               <h4 className="blog__post--title">{post.title}</h4>
 //               <p className="blog__post--time">{formatTimeFromNow(post.timestamp)}</p>
-//               <p className="blog__post--body">{post.body}</p>
+//               <p className="blog__post--body">{post.paragraph}</p>
 //               <div className="blog__post--image-wrapper">
 //                 {post.images.map(image => (
 //                   <img

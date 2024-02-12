@@ -12,6 +12,7 @@ import { StillLifePage } from "./pages/StillLifePage/StillLifePage";
 import { VideoPage } from "./pages/VideoPage/VideoPage";
 import { BlogPage } from "./pages/BlogPage/BlogPage";
 import "./styles/_global.scss";
+import { SinglePostPage } from "./pages/SinglePostPage/SinglePostPage";
 // Create a new context
 export const MyContext = React.createContext();
 
@@ -48,6 +49,7 @@ const App = () => {
             <Route path="/video" element={<VideoPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:postId" element={<SinglePostPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
           <Footer />
