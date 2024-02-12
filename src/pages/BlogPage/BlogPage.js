@@ -5,13 +5,28 @@ import { LikesButton } from "../../components/LikesButton/LikesButton";
 import { formatTimeFromNow } from "../../_utility/utility";
 import avatar from "../../assets/images/Pngtree—avatar vector icon white background_5184638.png";
 import ReactPlayer from "react-player";
+import { v4 as uuidv4 } from "uuid"; // Import uuidv4 function
 
 export const BlogPage = () => {
   const [blogPosts, setBlogPosts] = useState([]);
   const [displayedPosts, setDisplayedPosts] = useState(3);
 
   useEffect(() => {
-    setBlogPosts(blogData);
+    // Generate UUIDs for posts and images
+    const updatedBlogData = blogData.map(post => ({
+      ...post,
+      id: uuidv4(), // Generate UUID for post
+      images: post.images.map(image => ({
+        ...image,
+        id: uuidv4(), // Generate UUID for image
+      })),
+      comments: post.comments.map(comment => ({
+        ...comment,
+        id: uuidv4(), // Generate UUID for comment
+      })),
+    }));
+    setBlogPosts(updatedBlogData);
+    // eslint-disable-next-line
   }, []);
 
   const handleUpdateLikes = (postId, updatedLikes) => {
