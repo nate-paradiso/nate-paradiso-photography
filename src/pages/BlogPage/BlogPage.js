@@ -39,14 +39,12 @@ export const BlogPage = () => {
               <div className="blog__post--image-wrapper">
                 {post.videos &&
                   post.videos.map(video => (
-                    <div className="videos">
-                      <ReactPlayer
-                        className="videos__vid"
-                        key={video.id}
-                        url={video.videoUrl}
-                        controls={false}
-                      />
-                    </div>
+                    <ReactPlayer
+                      className="blog__post--vid"
+                      key={video.id}
+                      url={video.videoUrl}
+                      controls={false}
+                    />
                   ))}
                 {post.images &&
                   post.images.map(image => (
