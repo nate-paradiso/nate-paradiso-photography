@@ -25,7 +25,6 @@ export const BlogPage = () => {
     // Increase the number of displayed posts by 3 when the "Load More" button is clicked
     setDisplayedPosts(prevDisplayedPosts => prevDisplayedPosts + 3);
   };
-
   return (
     <article>
       {/* added a ternary to the entire body to check for axios data, if not there, then state loading... */}
@@ -59,6 +58,7 @@ export const BlogPage = () => {
               {post.comments &&
                 post.comments.map(comment => (
                   <div className="blog__post-comment" key={comment.id}>
+                    <h4 className="blog__post-comment--title">comments ({post.comments.length})</h4>
                     <div className="blog__post-comment-container">
                       <img className="blog__post-comment-container--avatar" src={avatar} alt="" />
                       <h3 className="blog__post-comment-container--name">{comment.name}</h3>
