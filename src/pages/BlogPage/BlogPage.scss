@@ -65,14 +65,22 @@
     }
   }
   &__post-comment {
-    margin: 1rem;
+    margin: 1rem 0rem;
+    width: 100%;
     &--comment {
-      margin: 1rem 1rem;
+      padding: 1rem 1rem 1rem 1rem;
+      background-color: rgba(92, 92, 92, 0.151);
+    }
+    &--title {
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.25rem;
+      text-transform: uppercase;
     }
   }
   &__post-comment-container {
     display: flex;
     flex-direction: row;
+    margin-bottom: 1rem;
     &--name {
       margin-right: 2rem;
       font-size: 1.5rem;
