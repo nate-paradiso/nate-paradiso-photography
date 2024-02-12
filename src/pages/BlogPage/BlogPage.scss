@@ -31,6 +31,7 @@
       font-size: 1.125rem;
     }
     &--image {
+      max-width: 100%;
       width: 100%;
       padding-top: 1rem;
     }
@@ -46,6 +47,21 @@
     }
     &--tags {
       color: rgba(177, 177, 177, 0.855);
+    }
+    &--image-wrapper {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      max-width: 1920px;
+      margin: auto;
+    }
+    &--vid {
+      padding: 2rem 0;
+      height: auto !important;
+      aspect-ratio: 3/2;
     }
   }
   &__post-comment {

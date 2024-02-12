@@ -47,15 +47,7 @@
       }
     ],
     "likes": 0,
-    "comments": [
-      {
-        "id": 1,
-        "name": "",
-        "comment": "",
-        "likes": 0,
-        "timestamp": 1628522461000
-      }
-    ],
+    "comments": [],
     "tags": "free diving, washington, pacific northwest, ocean, seattle, diving, spearfishing, neah bay"
   },
   {
@@ -126,15 +118,7 @@
       }
     ],
     "likes": 0,
-    "comments": [
-      {
-        "id": 1,
-        "name": "",
-        "comment": "",
-        "likes": 0,
-        "timestamp": 1628522461000
-      }
-    ],
+    "comments": [],
     "tags": "wedding, colorado, mountain, loveland pass, Lake Dillon, Summit County, Colorado, bride, grooms, elopement"
   },
   {
