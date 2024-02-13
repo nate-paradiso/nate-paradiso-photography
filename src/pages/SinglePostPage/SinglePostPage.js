@@ -4,25 +4,30 @@ import { formatTimeFromNow } from "../../_utility/utility";
 import avatar from "../../assets/images/Pngtree—avatar vector icon white background_5184638.png";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const SinglePostPage = ({ blogPosts }) => {
-  const { postId } = useParams();
+  const navigate = useNavigate();
+  const { title } = useParams();
   const [post, setPost] = useState(null);
-  console.log(blogPosts);
 
   useEffect(() => {
+    const decodedTitle = decodeURIComponent(title);
     // Find the post with the matching postId from the blogData array
-    const foundPost = blogPosts.find(post => post.id === postId);
+    const foundPost = blogPosts.find(post => post.title === decodedTitle);
     setPost(foundPost);
     // eslint-disable-next-line
   }, []);
 
+  const handleNavigateBack = () => {
+    navigate("/blog");
+  };
+
   if (!post) {
     return <p>Cannot find post</p>;
   }
-  console.log(post);
 
   return (
     <article>
@@ -42,7 +47,7 @@ export const SinglePostPage = ({ blogPosts }) => {
                   </>
                 ))
               ) : (
-                <p className="blog__post--body">{postId.paragraph}</p>
+                <p className="blog__post--body">{post.paragraph}</p>
               )}
             </div>
           )}
@@ -93,9 +98,11 @@ export const SinglePostPage = ({ blogPosts }) => {
         ></LikesButton> */}
           </div>
         </div>
-        <Link to="/blog">
-          <button className="blog__load-more">Back to Blog</button>
-        </Link>
+        {/* <Link to="/blog"> */}
+        <button onClick={handleNavigateBack} className="blog__load-more">
+          Back to Blog
+        </button>
+        {/* </Link> */}
       </div>
     </article>
   );

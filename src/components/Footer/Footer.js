@@ -38,6 +38,7 @@ export const Footer = () => {
           </div>
         </div>
         <p>Copyright Nate Paradiso 2024</p>
+        <p>Website built by Nate Paradiso with React</p>
       </footer>
     </>
   );

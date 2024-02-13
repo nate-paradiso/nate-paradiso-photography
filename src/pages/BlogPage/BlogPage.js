@@ -8,11 +8,11 @@ import ReactPlayer from "react-player";
 import { NavLink, Link } from "react-router-dom";
 
 export const BlogPage = ({ blogPosts }) => {
-  const [displayedPosts, setDisplayedPosts] = useState(3);
+  const [displayedPosts, setDisplayedPosts] = useState(6);
 
   useEffect(() => {
     // Sort the blog posts by date (timestamp)
-    blogPosts.sort((a, b) => a.timestamp - b.timestamp);
+    blogPosts.sort((a, b) => b.timestamp - a.timestamp);
     // eslint-disable-next-line
   }, []);
 
@@ -35,7 +35,7 @@ export const BlogPage = ({ blogPosts }) => {
           {blogPosts.slice(0, displayedPosts).map(post => (
             <div className="blog__post blog__post--line-break" key={post.id}>
               <h4 className="blog__post--title">
-                <Link to={`/blog/${post.id}`}>{post.title}</Link>
+                <Link to={`/blog/${encodeURIComponent(post.title)}`}>{post.title}</Link>{" "}
               </h4>
 
               <p className="blog__post--time">{formatTimeFromNow(post.timestamp)}</p>

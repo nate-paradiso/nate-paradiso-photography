@@ -52,7 +52,7 @@ const App = () => {
     }));
 
     setBlogPosts(updatedBlogData);
-    console.log(blogPosts);
+    // eslint-disable-next-line
   }, []);
   return (
     <MyProvider>
@@ -71,7 +71,7 @@ const App = () => {
               path="/blog"
               element={<BlogPage blogPosts={blogPosts} setBlogPosts={setBlogPosts} />}
             />
-            <Route path="/blog/:postId" element={<SinglePostPage blogPosts={blogPosts} />} />
+            <Route path="/blog/:title" element={<SinglePostPage blogPosts={blogPosts} />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
           <Footer />
