@@ -1,43 +1,27 @@
 import { useState, useEffect } from "react";
-import blogData from "../../data/blog-posts.json";
+// import blogData from "../../data/blog-posts.json";
 import "./BlogPage.scss";
-import { LikesButton } from "../../components/LikesButton/LikesButton";
+// import { LikesButton } from "../../components/LikesButton/LikesButton";
 import { formatTimeFromNow } from "../../_utility/utility";
 import avatar from "../../assets/images/Pngtree—avatar vector icon white background_5184638.png";
 import ReactPlayer from "react-player";
 import { NavLink, Link } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid"; // Import uuidv4 function
 
-export const BlogPage = () => {
-  const [blogPosts, setBlogPosts] = useState([]);
-  const [displayedPosts, setDisplayedPosts] = useState(6);
+export const BlogPage = ({ blogPosts }) => {
+  const [displayedPosts, setDisplayedPosts] = useState(3);
 
   useEffect(() => {
-    // Generate UUIDs for posts and images
-    const updatedBlogData = blogData.map(post => ({
-      ...post,
-      id: uuidv4(), // Generate UUID for post
-      images: post.images.map(image => ({
-        ...image,
-        id: uuidv4(), // Generate UUID for image
-      })),
-      comments: post.comments.map(comment => ({
-        ...comment,
-        id: uuidv4(), // Generate UUID for comment
-      })),
-    }));
     // Sort the blog posts by date (timestamp)
-    updatedBlogData.sort((a, b) => a.timestamp - b.timestamp);
-    setBlogPosts(updatedBlogData);
+    blogPosts.sort((a, b) => a.timestamp - b.timestamp);
     // eslint-disable-next-line
   }, []);
 
-  const handleUpdateLikes = (postId, updatedLikes) => {
-    const updatedPost = blogData.map(blogData =>
-      blogData.id === postId ? { ...blogData, likes: updatedLikes } : blogData,
-    );
-    setBlogPosts(updatedPost);
-  };
+  // const handleUpdateLikes = (postId, updatedLikes) => {
+  //   const updatedPost = blogData.map(blogData =>
+  //     blogData.id === postId ? { ...blogData, likes: updatedLikes } : blogData,
+  //   );
+  //   setBlogPosts(updatedPost);
+  // };
 
   const handleLoadMore = () => {
     // Increase the number of displayed posts by 3 when the "Load More" button is clicked
@@ -50,9 +34,9 @@ export const BlogPage = () => {
         <div className="blog">
           {blogPosts.slice(0, displayedPosts).map(post => (
             <div className="blog__post blog__post--line-break" key={post.id}>
-              <Link to={`blog/${post.id}`}>
-                <h4 className="blog__post--title">{post.title}</h4>
-              </Link>
+              <h4 className="blog__post--title">
+                <Link to={`/blog/${post.id}`}>{post.title}</Link>
+              </h4>
 
               <p className="blog__post--time">{formatTimeFromNow(post.timestamp)}</p>
               {post.paragraph && (
@@ -117,12 +101,12 @@ export const BlogPage = () => {
                 <div>
                   <p className="blog__post--tags">tags: {post.tags}</p>
                 </div>
-                <LikesButton
+                {/* <LikesButton
                   postId={post.id}
                   likes={post.likes}
                   // likes={post.likes === 0 ? "" : post.likes}
                   handleUpdateLikes={handleUpdateLikes}
-                ></LikesButton>
+                ></LikesButton> */}
               </div>
             </div>
           ))}

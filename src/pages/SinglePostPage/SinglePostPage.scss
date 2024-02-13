@@ -1,3 +1,118 @@
 @use "../../styles/global" as *;
 @use "../../styles/mixins" as *;
 @use "../../styles/variables" as *;
+
+@use "../../styles/global" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+.blog {
+  margin-bottom: 2rem;
+  &__post {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width: 850px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 4rem;
+    @include tablet {
+      padding: 0rem 75px;
+    }
+    &--title {
+      padding: 1rem 0.5rem 0rem 0rem;
+      font-size: 1.75rem;
+      text-transform: uppercase;
+      @include tablet {
+        font-size: 2rem;
+      }
+      letter-spacing: 0.25rem;
+    }
+    &--time {
+      padding-bottom: 1rem;
+    }
+    &--body {
+      letter-spacing: 0.1rem;
+      font-size: 1.125rem;
+    }
+    &--image {
+      max-width: 100%;
+      width: 100%;
+      padding-top: 1rem;
+    }
+    &--line-break {
+      border-top: solid white 2px;
+      margin-top: 1rem;
+    }
+    &--likes-button {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      width: 100%;
+    }
+    &--tags {
+      color: rgba(177, 177, 177, 0.855);
+    }
+    &--image-wrapper {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      max-width: 1920px;
+      margin: auto;
+    }
+    &--vid {
+      padding: 2rem 0;
+      height: auto !important;
+      aspect-ratio: 3/2;
+    }
+  }
+  &__post-comment {
+    margin: 1rem 0rem;
+    width: 100%;
+    &--comment {
+      padding: 1rem 1rem 1rem 1rem;
+      background-color: rgba(92, 92, 92, 0.151);
+    }
+    &--title {
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.25rem;
+      text-transform: uppercase;
+    }
+  }
+  &__load-more {
+    font-size: 1.25rem;
+    &:hover {
+      color: #8f8f8f;
+    }
+  }
+  &__post-comment-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    &--name {
+      margin-right: 2rem;
+      font-size: 1.5rem;
+    }
+    &--time {
+      margin-top: 0.5rem;
+    }
+    &--avatar {
+      height: 40px;
+      margin-right: 2rem;
+    }
+  }
+}
+.cannot-find {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.25rem;
+  @include tablet {
+    font-size: 1.5rem;
+  }
+}
