@@ -22,6 +22,7 @@ export const SinglePostPage = ({ blogPosts }) => {
 
   const handleNavigateBack = () => {
     navigate("/blog");
+    window.scrollTo(0, 0);
   };
 
   if (!post) {

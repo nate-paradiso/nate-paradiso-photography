@@ -42,12 +42,10 @@ export const BlogPage = ({ blogPosts }) => {
                 <div>
                   {Array.isArray(post.paragraph) ? (
                     post.paragraph.map(paragraph => (
-                      <>
-                        <p key={paragraph.id} className="blog__post--body">
-                          {paragraph.para}
-                        </p>
+                      <div key={paragraph.id}>
+                        <p className="blog__post--body">{paragraph.para}</p>
                         <br />
-                      </>
+                      </div>
                     ))
                   ) : (
                     <p key={post.id} className="blog__post--body">
