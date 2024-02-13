@@ -1,6 +1,38 @@
 [
   {
     "id": 1,
+    "urltitle": "diving-with-the-giant-pacific-octopus",
+    "title": "Diving with the Giant Pacific Octopus",
+    "timestamp": 1707844111000,
+    "paragraph": [
+      {
+        "id": 1,
+        "para": "I felt incredibly fortunate to capture such a momentous event on film, especially considering how rare it is to witness a giant Pacific octopus swimming freely in its natural habitat. Thankfully, my GoPro was up to the task, allowing me to document this extraordinary sight with surprising clarity. "
+      },
+      {
+        "id": 2,
+        "para": "This was truly the most incredible wildlife experience I've ever had. The giant Pacific octopus, typically snug in its den, surprised me by not only venturing out but also walking around and even swimming through the water. It felt like stepping onto an alien planet, witnessing such rare behavior up close."
+      },
+      {
+        "id": 13,
+        "para": "As the largest species of octopus, the giant Pacific octopus is not only an awe-inspiring sight but also one of the most intelligent marine creatures. With their remarkable ability to change color and texture, solve puzzles, and even use tools, they continue to fascinate and captivate marine enthusiasts around the world."
+      }
+    ],
+    "videos": [
+      {
+        "id": 1,
+        "videoUrl": "https://youtu.be/-QSW__YMuzg?si=IKlyh2YnpkH4ZlPT"
+      }
+    ],
+
+    "images": [],
+    "likes": 0,
+    "comments": [],
+    "tags": "scuba diving, washington, saltwater state park, reed, octopus, gliding, swimming, diver, dive, pacific northwest, pnw, underwater, gopro"
+  },
+  {
+    "id": 1,
+    "urltitle": "spearfishing-neah-bay-wa",
     "title": "SPEARFISHING NEAH BAY, WA",
     "timestamp": 1684243200000,
     "paragraph": "Embark on a picturesque journey westward from Seattle, and you'll discover the captivating charm of Neah Bay, nestled in the northwestern corner of the United States. This scenic drive is well worth undertaking, for it leads to a fishing haven unlike any other in the Lower 48. Moreover, if you have a penchant for diving, Neah Bay promises an awe-inspiring spectacle beneath its azure waters. While free diving presents a more convenient option, scuba diving is also available for those seeking an immersive experience. The primary objective of our expedition was to engage in free diving and spearfishing, and despite less-than-ideal tidal conditions, we successfully located vibrant schools of Black Rockfish. As expected in the Northwest, the weather showcased its typical mélange of rain, sunshine, and wind gusts. Should you ever find yourself with the opportunity to fish in Neah Bay, I implore you to seize it without hesitation!",
@@ -52,6 +84,7 @@
   },
   {
     "id": 2,
+    "urltitle": "summit-county-wedding-loveland-pass-and-lake-dillon-colorado",
     "title": "SUMMIT COUNTY WEDDING - LOVELAND PASS AND LAKE DILLON - COLORADO",
     "timestamp": 1573334400000,
     "paragraph": "Roy and Vivian. These two have been together since the early days of college.  I was honored when they asked me to photograph their wedding and excited about the location they had chosen.  All things aligned nicely and Loveland Pass/Lake Dillon provided the perfect backdrop for their special day.  The fall weather created dramatic scenery with rich colors and tones.  Enjoy!",
@@ -123,6 +156,7 @@
   },
   {
     "id": 3,
+    "urltitle": "komodo-below-komodo-national-park-indonesia",
     "title": "KOMODO BELOW - KOMODO NATIONAL PARK, INDONESIA",
     "timestamp": 1539820800000,
     "paragraph": "Here is a highlight reel from a live aboard trip to Komodo National Park.  All shot with a Garmin Ultra Virb and Nikon D600. ",
@@ -147,6 +181,7 @@
   },
   {
     "id": 4,
+    "urltitle": "climbing-navajo-peak-indian-peaks-wilderness-13409ft",
     "title": "CLIMBING NAVAJO PEAK - INDIAN PEAKS WILDERNESS - 13,409FT",
     "timestamp": 1538352000000,
     "paragraph": "A grueling 11 hour climb up Navajo Peak was how I spent my Saturday.  We woke up at 4:30am and arrived at the trailhead by 6:15am.  The timer started and we set out at 6:30am.  Round trip the climb was about 11 miles with 2900 ft of elevation gain.  Luckily all the elevation gain is in the last 2 miles…  The route follows the Isabelle Glacier trail until it ends, where you must route find up Airplane Gully to the ridge and finally up the last bit to the summit.  Airplane Gully, aka, the “ankle breaker” has plane wreckage scattered throughout.  In 1948 a C-47 plane leaving Denver lost control in high winds and crashed into a cliff near the summit of Navajo Peak. Seeing the wreckage up close was eye opening, thrilling, and sad.  The three people in the plane were not found for months due to the harsh winter.  The debris made for some interesting subjects to photograph in the high alpine.  I would highly recommend this climb for anyone willing to endure it. Watch a short video of our summit below. ",
@@ -302,6 +337,7 @@
   },
   {
     "id": 5,
+    "urltitle": "amanda-and-josh-boulder-country-club-boulder-co",
     "title": "AMANDA AND JOSH - BOULDER COUNTRY CLUB - BOULDER, CO",
     "timestamp": 1536211200000,
     "paragraph": "I finally found some time to post a wedding at the Boulder Country Club from last year! It's hard to remember everything so these photos really bring me back! Enjoy!",
@@ -459,6 +495,7 @@
   },
   {
     "id": 6,
+    "urltitle": "crestone-needle-standard-route",
     "title": "CRESTONE NEEDLE - STANDARD ROUTE",
     "timestamp": 1530595200000,
     "paragraph": "A short film of our climb up Crestone Needle in Colorado using the standard class 3 route.  Shot with Mavic Air and Garmin Ultra Virb. ",
@@ -482,6 +519,7 @@
   },
   {
     "id": 7,
+    "urltitle": "brandon-and-kendra-bucerias-mexico",
     "title": "BRANDON AND KENDRA - BUCERIAS, MEXICO!",
     "timestamp": 1523689200000,
     "paragraph": "Mexico bound!  It was super fun photographing a couple of close friends who like Jo and I decided to get hitched in Mexico. It's pretty much always an adventure hanging out with Kendra and Brandon and this trip did not disappoint!   The colors in Mexico were so vivid and deep, something you don't see in Colorado, which gave the wedding a very warm feel.  The wedding was a public display which added another element of interesting viewers in the background.  Enjoy!",
@@ -664,9 +702,10 @@
   },
   {
     "id": 8,
+    "urltitle": "a-week-in-alaska-anchorage-to-talkeetna",
     "title": "A WEEK IN ALASKA -ANCHORAGE TO TALKEETNA",
     "timestamp": 1523689200000,
-    "paragraph": "It started with a last minute idea from a friend to travel to Alaska for New Years to see the northern lights.  We took a direct flight from Denver to Anchorage and a two hour drive to Talkeetna on the day after Christmas 2017.  The weather couldn't have been better!  Clear skies in the winter are almost unheard of and although the aurora display wasn't off the charts, it was still visible and beautiful.  It started with a last minute idea from a friend to travel to Alaska for New Years to see the northern lights.  We took a direct flight from Denver to Anchorage and a two hour drive to Talkeetna on the day after Christmas 2017.  The weather couldn't have been better!  Clear skies in the winter are almost unheard of and although the aurora display wasn't off the charts, it was still visible and beautiful.  With such nice weather we decided to take a scenic flight tour over the Alaskan Range with K2 Aviation in Talkeetna.  Being so close yet so far from those mountains was incredible.  The sheer scale is impressive when you get up close.  Scattered clouds and some alpine glow really gave the mountain some depth.  Denali itself was still 10,000 ft above our heads during the flight and was a little tough to photograph.  Although the cliffs and glaciers surrounding Denali were just as, if not more, impressive.  While in Anchorage, we decided to take a scenic two hour drive to the Matanuska Glacier. In the winter, this active glacier is only accessible through a guided tour. We were lucky enough to sign up and get the opportunity to tour the glacier. Our guide was very knowledgeable and taught us how glaciers were formed and took us inside crevasses. The Matanuska Glacier is 24 miles long and 4 miles wide at the terminus, averaging approximately 2 miles in width. It is a remarkable site to see!  The next adventure to Alaska will hopefully be spent underwater!",
+    "paragraph": "It started with a last minute idea from a friend to travel to Alaska for New Years to see the northern lights. We took a direct flight from Denver to Anchorage and a two hour drive to Talkeetna on the day after Christmas 2017. The weather couldn't have been better! Clear skies in the winter are almost unheard of and although the aurora display wasn't off the charts, it was still visible and beautiful. With such nice weather we decided to take a scenic flight tour over the Alaskan Range with K2 Aviation in Talkeetna. Being so close yet so far from those mountains was incredible. The sheer scale is impressive when you get up close. Scattered clouds and some alpine glow really gave the mountain some depth. Denali itself was still 10,000 ft above our heads during the flight and was a little tough to photograph. Although the cliffs and glaciers surrounding Denali were just as, if not more, impressive. While in Anchorage, we decided to take a scenic two hour drive to the Matanuska Glacier. In the winter, this active glacier is only accessible through a guided tour. We were lucky enough to sign up and get the opportunity to tour the glacier. Our guide was very knowledgeable and taught us how glaciers were formed and took us inside crevasses. The Matanuska Glacier is 24 miles long and 4 miles wide at the terminus, averaging approximately 2 miles in width. It is a remarkable site to see! The next adventure to Alaska will hopefully be spent underwater!",
     "videos": [],
     "images": [
       {
@@ -801,6 +840,7 @@
   },
   {
     "id": 9,
+    "urltitle": "cameron-and-kassidy-the-pines-at-genesse",
     "title": "CAMERON AND KASSIDY - THE PINES AT GENESSE",
     "timestamp": 1517472000000,
     "paragraph": "This shoot was so easy!  A great couple who were up for anything and a beautiful place. It couldnt' have turned out better. ",
@@ -908,6 +948,7 @@
   },
   {
     "id": 10,
+    "urltitle": "jen-and-hk-lyons-co",
     "title": "JEN AND HK - LYONS,CO",
     "timestamp": 1509519600000,
     "paragraph": "A beautiful wedding in Lyons with the most fun couple! This day was filled with lots of love, laughter, whiskey and memories for a lifetime. ",
@@ -1020,6 +1061,7 @@
   },
   {
     "id": 11,
+    "urltitle": "published!-tail-fly-fishing-magazine",
     "title": "PUBLISHED! TAIL FLY FISHING MAGAZINE",
     "timestamp": 1509260400000,
     "paragraph": "A good friend of mine recently wrote an article about a fly fishing trip him and I took to South Padre Island Island, Texas during a red tide event.  He submitted it along with my images to Tail Fly Fishing Magazine and they published it!  A great read and a great magazine that differs from the rest by telling real stories from real anglers.  ",
@@ -1052,6 +1094,7 @@
   },
   {
     "id": 12,
+    "urltitle": "total-solar-eclipse-2017-laramie-peak-wyoming",
     "title": "TOTAL SOLAR ECLIPSE 2017 - LARAMIE PEAK, WYOMING",
     "timestamp": 1503385200000,
     "paragraph": "A different view of the #eclipse. A surreal experience in the #medicinebow national forest of #wyoming. There are a lot of fake composite images out there, this is not! Taken at 15 minute intervals the day turned into night. The fastest two minutes of my life.",
@@ -1074,6 +1117,7 @@
   },
   {
     "id": 13,
+    "urltitle": "argoflex75-experimenting-with-a-vintage-film-camera",
     "title": "ARGOFLEX 75 - EXPERIMENTING WITH A VINTAGE FILM CAMERA",
     "timestamp": 1480060800000,
     "paragraph": "The Argus Argoflex 75.  Manufactured in the USA between 1949-1964.  I picked up this camera at a thrift store.  Designed to shoot medium format 620 film, which is approximately 6cmx6cm, the camera is a TLR design (twin reflex lens). The top lens is designed for the viewfinder only while the bottom lens exposes the film.  The best part about this camera is the waist level viewfinder! This design makes it difficult to compose as the viewfinder projects the image in reverse but being so large makes it fun.  The Images below are from my first roll of b+w 125ISO film.  Images with snow in the background have the highlights blown out as the camera shutter speed is set around 1/50sec and cannot be changed.  The aperture is also set to f/11 with no other adjustments. That being said, the film speed and a shutter bulb setting are the only two adjustments.  I was happy with a few of the twelve exposures and I love the look of film!",
@@ -1156,6 +1200,7 @@
   },
   {
     "id": 14,
+    "urltitle": "published-in-national-geographci's-your-shot-on-instagram",
     "title": "Publised in NATIONAL GEOGRAPHIC'S YOUR SHOT on INSTAGRAM!",
     "timestamp": 1474009200000,
     "paragraph": "I was lucky to be picked out of 14,000 submissions for the As The World Turns your shot assignment on National Geographic.  My Lunar Eclipse photo has done well:)  Check it out on instagram",
@@ -1180,6 +1225,7 @@
   },
   {
     "id": 15,
+    "urltitle": "kiribati-christmas-island-diy",
     "title": "KIRIBATI - CHRISTMAS ISLAND DIY",
     "timestamp": 1457078400000,
     "paragraph": [
