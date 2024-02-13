@@ -10,21 +10,27 @@ export const AboutPage = () => {
       <div className="about">
         <div className="about__container">
           <p className="about__container--text">
-            With over a decade of experience, Nate Paradiso has honed his skills to become a
-            distinguished photographer. His photographic journey is driven by passion that
-            transforms ordinary moments into extraordinary memories. Specializing in underwater,
-            weddings, nature, and beyond. Nate brings a unique and creative perspective to each
-            frame.{" "}
+            Behind the lens, Nate's passion for capturing moments transforms ordinary scenes into
+            impactful visuals. Specializing in underwater, nature, and beyond, Nate brings a unique
+            and creative perspective to his photography.
           </p>
           <br />
           <br />
           <p className="about__container--text-paragraph">
-            With a portfolio spanning assignments for National Geographic in Alaska, published work
-            in reputable magazines such as Tail and Microscopy Today, and recognition for capturing
-            the celestial beauty of a lunar eclipse in National Geographic's "As the World Turns"
-            assignment – featured on major networks like Fox News and CNN – and being published in
-            prestigious works like Modernist Pizza books, Nate stands as a celebrated photographer
-            with a proven track record.
+            His portfolio includes assignments for National Geographic in Alaska and published work
+            in prestigious magazines like Tail and Microscopy Today. Nate's talent has earned him
+            recognition, with his stunning images featured in National Geographic's "As the World
+            Turns" assignment and showcased on major networks such as Fox News and CNN.
+            Additionally, his work has been published in esteemed works like the Modernist Pizza
+            books.
+          </p>
+          <br />
+          <p className="about__container--text-paragraph">
+            Not just a skilled photographer, Nate Paradiso is also the web developer behind the
+            website you're currently enjoying. With experience in both fields, Nate's expertise
+            shines through in every aspect of his work. Nate's ability to seamlessly blend his
+            skills as both a photographer and web developer underscores his versatility and
+            dedication to crafting immersive visual experiences.
           </p>
         </div>
         <div>

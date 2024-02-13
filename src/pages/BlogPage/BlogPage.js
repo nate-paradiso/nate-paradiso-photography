@@ -1,29 +1,31 @@
 import { useState, useEffect } from "react";
-import blogData from "../../data/blog-posts.json";
+// import blogData from "../../data/blog-posts.json";
 import "./BlogPage.scss";
-import { LikesButton } from "../../components/LikesButton/LikesButton";
+// import { LikesButton } from "../../components/LikesButton/LikesButton";
 import { formatTimeFromNow } from "../../_utility/utility";
 import avatar from "../../assets/images/Pngtree—avatar vector icon white background_5184638.png";
 import ReactPlayer from "react-player";
+import { NavLink, Link } from "react-router-dom";
 
-export const BlogPage = () => {
-  const [blogPosts, setBlogPosts] = useState([]);
-  const [displayedPosts, setDisplayedPosts] = useState(3);
+export const BlogPage = ({ blogPosts }) => {
+  const [displayedPosts, setDisplayedPosts] = useState(6);
 
   useEffect(() => {
-    setBlogPosts(blogData);
+    // Sort the blog posts by date (timestamp)
+    blogPosts.sort((a, b) => b.timestamp - a.timestamp);
+    // eslint-disable-next-line
   }, []);
 
-  const handleUpdateLikes = (postId, updatedLikes) => {
-    const updatedPost = blogData.map(blogData =>
-      blogData.id === postId ? { ...blogData, likes: updatedLikes } : blogData,
-    );
-    setBlogPosts(updatedPost);
-  };
+  // const handleUpdateLikes = (postId, updatedLikes) => {
+  //   const updatedPost = blogData.map(blogData =>
+  //     blogData.id === postId ? { ...blogData, likes: updatedLikes } : blogData,
+  //   );
+  //   setBlogPosts(updatedPost);
+  // };
 
   const handleLoadMore = () => {
     // Increase the number of displayed posts by 3 when the "Load More" button is clicked
-    setDisplayedPosts(prevDisplayedPosts => prevDisplayedPosts + 3);
+    setDisplayedPosts(prevDisplayedPosts => prevDisplayedPosts + 1);
   };
   return (
     <article>
@@ -32,9 +34,35 @@ export const BlogPage = () => {
         <div className="blog">
           {blogPosts.slice(0, displayedPosts).map(post => (
             <div className="blog__post blog__post--line-break" key={post.id}>
-              <h4 className="blog__post--title">{post.title}</h4>
+              <h4 className="blog__post--title">
+                <Link to={`/blog/${encodeURIComponent(post.title)}`}>{post.title}</Link>{" "}
+              </h4>
+
               <p className="blog__post--time">{formatTimeFromNow(post.timestamp)}</p>
-              <p className="blog__post--body">{post.body}</p>
+              {post.paragraph && (
+                <div>
+                  {Array.isArray(post.paragraph) ? (
+                    post.paragraph.map(paragraph => (
+                      <>
+                        <p key={paragraph.id} className="blog__post--body">
+                          {paragraph.para}
+                        </p>
+                        <br />
+                      </>
+                    ))
+                  ) : (
+                    <p key={post.id} className="blog__post--body">
+                      {post.paragraph}
+                    </p>
+                  )}
+                </div>
+              )}
+
+              {post.urlLink && (
+                <NavLink target="_blank" to={post.urlLink}>
+                  Here
+                </NavLink>
+              )}
               <div className="blog__post--image-wrapper">
                 {post.videos &&
                   post.videos.map(video => (
@@ -73,17 +101,21 @@ export const BlogPage = () => {
                 <div>
                   <p className="blog__post--tags">tags: {post.tags}</p>
                 </div>
-                <LikesButton
+                {/* <LikesButton
                   postId={post.id}
                   likes={post.likes}
                   // likes={post.likes === 0 ? "" : post.likes}
                   handleUpdateLikes={handleUpdateLikes}
-                ></LikesButton>
+                ></LikesButton> */}
               </div>
             </div>
           ))}
           {/* Display the "Load More" button if there are more posts to load */}
-          {displayedPosts < blogPosts.length && <button onClick={handleLoadMore}>Load More</button>}
+          {displayedPosts < blogPosts.length && (
+            <button className="blog__load-more" onClick={handleLoadMore}>
+              Load More
+            </button>
+          )}
         </div>
       ) : (
         <p>Cannot find posts...sorry</p>
@@ -170,7 +202,7 @@ export const BlogPage = () => {
 //             <div className="blog__post blog__post--line-break" key={post.id}>
 //               <h4 className="blog__post--title">{post.title}</h4>
 //               <p className="blog__post--time">{formatTimeFromNow(post.timestamp)}</p>
-//               <p className="blog__post--body">{post.body}</p>
+//               <p className="blog__post--body">{post.paragraph}</p>
 //               <div className="blog__post--image-wrapper">
 //                 {post.images.map(image => (
 //                   <img

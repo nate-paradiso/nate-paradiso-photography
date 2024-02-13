@@ -1,5 +1,14 @@
 {
   "prettier.configPath": ".prettierrc",
   "prettier.ignorePath": ".prettierignore",
-  "cSpell.words": ["activelink", "cloudinary", "paradiso", "realestate", "resizer", "stilllife"]
+  "cSpell.words": [
+    "activelink",
+    "cloudinary",
+    "paradiso",
+    "realestate",
+    "resizer",
+    "stilllife",
+    "unlisten",
+    "uuidv"
+  ]
 }
