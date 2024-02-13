@@ -112,9 +112,11 @@ export const BlogPage = ({ blogPosts }) => {
           ))}
           {/* Display the "Load More" button if there are more posts to load */}
           {displayedPosts < blogPosts.length && (
-            <button className="blog__load-more" onClick={handleLoadMore}>
-              Load More
-            </button>
+            <div className="blog__load-more-container">
+              <button className="blog__load-more-container--button" onClick={handleLoadMore}>
+                Load More
+              </button>
+            </div>
           )}
         </div>
       ) : (

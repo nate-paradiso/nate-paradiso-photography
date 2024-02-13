@@ -99,9 +99,11 @@ export const SinglePostPage = ({ blogPosts }) => {
           </div>
         </div>
         {/* <Link to="/blog"> */}
-        <button onClick={handleNavigateBack} className="blog__load-more">
-          Back to Blog
-        </button>
+        <div className="blog__load-more-container">
+          <button onClick={handleNavigateBack} className="blog__load-more-container--button">
+            Back to Blog
+          </button>
+        </div>
         {/* </Link> */}
       </div>
     </article>

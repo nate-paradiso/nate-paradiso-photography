@@ -78,12 +78,18 @@
       text-transform: uppercase;
     }
   }
-  &__load-more {
-    font-size: 1.25rem;
-    &:hover {
-      color: #8f8f8f;
+  &__load-more-container {
+    display: flex;
+    justify-content: center;
+    &--button {
+      align-self: center;
+      font-size: 1.25rem;
+      &:hover {
+        color: #8f8f8f;
+      }
     }
   }
+
   &__post-comment-container {
     display: flex;
     flex-direction: row;
