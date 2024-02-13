@@ -14,9 +14,8 @@ export const SinglePostPage = ({ blogPosts }) => {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    const decodedTitle = decodeURIComponent(title);
     // Find the post with the matching postId from the blogData array
-    const foundPost = blogPosts.find(post => post.title === decodedTitle);
+    const foundPost = blogPosts.find(post => post.urltitle === title);
     setPost(foundPost);
     // eslint-disable-next-line
   }, []);

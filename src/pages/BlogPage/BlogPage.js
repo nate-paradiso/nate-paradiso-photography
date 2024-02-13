@@ -25,7 +25,7 @@ export const BlogPage = ({ blogPosts }) => {
 
   const handleLoadMore = () => {
     // Increase the number of displayed posts by 3 when the "Load More" button is clicked
-    setDisplayedPosts(prevDisplayedPosts => prevDisplayedPosts + 1);
+    setDisplayedPosts(prevDisplayedPosts => prevDisplayedPosts + 3);
   };
   return (
     <article>
@@ -35,9 +35,8 @@ export const BlogPage = ({ blogPosts }) => {
           {blogPosts.slice(0, displayedPosts).map(post => (
             <div className="blog__post blog__post--line-break" key={post.id}>
               <h4 className="blog__post--title">
-                <Link to={`/blog/${encodeURIComponent(post.title)}`}>{post.title}</Link>{" "}
+                <Link to={`/blog/${post.urltitle}`}>{post.title}</Link>{" "}
               </h4>
-
               <p className="blog__post--time">{formatTimeFromNow(post.timestamp)}</p>
               {post.paragraph && (
                 <div>
