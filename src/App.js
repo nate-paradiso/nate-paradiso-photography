@@ -15,6 +15,7 @@ import "./styles/_global.scss";
 import { SinglePostPage } from "./pages/SinglePostPage/SinglePostPage";
 import blogData from "./data/blog-posts.json";
 import { v4 as uuidv4 } from "uuid"; // Import uuidv4 function
+import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
 // Create a new context
 export const MyContext = React.createContext();
 // Create the provider
@@ -73,6 +74,7 @@ const App = () => {
             />
             <Route path="/blog/:title" element={<SinglePostPage blogPosts={blogPosts} />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
           <Footer />
         </main>
