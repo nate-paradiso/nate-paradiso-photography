@@ -1,14 +1,13 @@
 import "./SinglePostPage.scss";
-// import { LikesButton } from "../../components/LikesButton/LikesButton";
 import { formatTimeFromNow } from "../../_utility/utility";
 import avatar from "../../assets/images/Pngtree—avatar vector icon white background_5184638.png";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
-// import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { LikesButton } from "../../components/LikesButton/LikesButton";
 
-export const SinglePostPage = ({ blogPosts }) => {
+export const SinglePostPage = ({ blogPosts, setBlogPosts }) => {
   const navigate = useNavigate();
   const { title } = useParams();
   const [post, setPost] = useState(null);
@@ -24,7 +23,17 @@ export const SinglePostPage = ({ blogPosts }) => {
     navigate("/blog");
     window.scrollTo(0, 0);
   };
-
+  const handleUpdateLikes = (postId, updatedLikes) => {
+    // Update the likes of the current post
+    const updatedPost = { ...post, likes: updatedLikes };
+    // Update the state to reflect the changes
+    setPost(updatedPost);
+    // Optionally, you can also update the likes in the parent component
+    const updatedBlogPosts = blogPosts.map(blogPost =>
+      blogPost.id === postId ? updatedPost : blogPost,
+    );
+    setBlogPosts(updatedBlogPosts);
+  };
   if (!post) {
     return <p>Cannot find post</p>;
   }
@@ -90,21 +99,18 @@ export const SinglePostPage = ({ blogPosts }) => {
             <div>
               <p className="blog__post--tags">tags: {post.tags}</p>
             </div>
-            {/* <LikesButton
-            postId={post.id}
-            likes={post.likes}
-            // likes={post.likes === 0 ? "" : post.likes}
-            // handleUpdateLikes={handleUpdateLikes}
-        ></LikesButton> */}
+            <LikesButton
+              postId={post.id}
+              likes={post.likes}
+              handleUpdateLikes={handleUpdateLikes}
+            ></LikesButton>
           </div>
         </div>
-        {/* <Link to="/blog"> */}
         <div className="blog__load-more-container">
           <button onClick={handleNavigateBack} className="blog__load-more-container--button">
             Back to Blog
           </button>
         </div>
-        {/* </Link> */}
       </div>
     </article>
   );
