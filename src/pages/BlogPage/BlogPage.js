@@ -67,7 +67,7 @@ export const BlogPage = ({ blogPosts, setBlogPosts }) => {
                       className="blog__post--vid"
                       key={video.id}
                       url={video.videoUrl}
-                      controls={false}
+                      controls={true}
                     />
                   ))}
                 {post.images &&
