@@ -28,7 +28,7 @@ export const Header = () => {
           </NavLink>
         }
       </div>
-      <nav>
+      <nav className="header-nav__container">
         {isMobile ? (
           <div>
             <Navigation />
