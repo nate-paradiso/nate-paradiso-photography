@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 // import blogData from "../../data/blog-posts.json";
 import "./BlogPage.scss";
-// import { LikesButton } from "../../components/LikesButton/LikesButton";
+import { LikesButton } from "../../components/LikesButton/LikesButton";
 import { formatTimeFromNow } from "../../_utility/utility";
 import avatar from "../../assets/images/Pngtree—avatar vector icon white background_5184638.png";
 import ReactPlayer from "react-player";
 import { NavLink, Link } from "react-router-dom";
 
-export const BlogPage = ({ blogPosts }) => {
+export const BlogPage = ({ blogPosts, setBlogPosts }) => {
   const [displayedPosts, setDisplayedPosts] = useState(6);
 
   useEffect(() => {
@@ -16,12 +16,12 @@ export const BlogPage = ({ blogPosts }) => {
     // eslint-disable-next-line
   }, []);
 
-  // const handleUpdateLikes = (postId, updatedLikes) => {
-  //   const updatedPost = blogData.map(blogData =>
-  //     blogData.id === postId ? { ...blogData, likes: updatedLikes } : blogData,
-  //   );
-  //   setBlogPosts(updatedPost);
-  // };
+  const handleUpdateLikes = (postId, updatedLikes) => {
+    const updatedPost = blogPosts.map(blogPosts =>
+      blogPosts.id === postId ? { ...blogPosts, likes: updatedLikes } : blogPosts,
+    );
+    setBlogPosts(updatedPost);
+  };
 
   const handleLoadMore = () => {
     // Increase the number of displayed posts by 3 when the "Load More" button is clicked
@@ -42,12 +42,10 @@ export const BlogPage = ({ blogPosts }) => {
                 <div>
                   {Array.isArray(post.paragraph) ? (
                     post.paragraph.map(paragraph => (
-                      <>
-                        <p key={paragraph.id} className="blog__post--body">
-                          {paragraph.para}
-                        </p>
+                      <div key={paragraph.id}>
+                        <p className="blog__post--body">{paragraph.para}</p>
                         <br />
-                      </>
+                      </div>
                     ))
                   ) : (
                     <p key={post.id} className="blog__post--body">
@@ -100,12 +98,11 @@ export const BlogPage = ({ blogPosts }) => {
                 <div>
                   <p className="blog__post--tags">tags: {post.tags}</p>
                 </div>
-                {/* <LikesButton
+                <LikesButton
                   postId={post.id}
                   likes={post.likes}
-                  // likes={post.likes === 0 ? "" : post.likes}
                   handleUpdateLikes={handleUpdateLikes}
-                ></LikesButton> */}
+                ></LikesButton>
               </div>
             </div>
           ))}
