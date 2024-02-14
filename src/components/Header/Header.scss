@@ -6,11 +6,12 @@
   flex-direction: row;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 3rem;
+  padding-bottom: 1rem;
   @include desktop {
     margin: auto;
     margin-top: 0rem;
     max-width: 95%;
+    padding-bottom: 2rem;
   }
 }
 .header-nav {
