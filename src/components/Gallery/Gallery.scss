@@ -4,5 +4,7 @@
 
 .react-photo-album {
   margin-bottom: 2rem;
-  margin-top: 2rem;
+  @include tablet {
+    margin-top: 2rem;
+  }
 }
