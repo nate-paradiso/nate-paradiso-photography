@@ -30,6 +30,9 @@
   &__container {
     max-width: 100%;
     margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+
     @include desktop {
       margin-right: 6rem;
     }
@@ -53,6 +56,8 @@
 
     &--img {
       width: 100%;
+      // max-width: 600px;
+
       @include desktop {
         width: 40vw;
         padding: 0 4rem 4rem 8;

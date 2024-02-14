@@ -3,38 +3,41 @@
 @use "../../styles/variables" as *;
 
 .header {
-  display: flex;
   flex-direction: row;
+  display: flex;
   justify-content: space-between;
-  margin-bottom: 3rem;
+  padding-bottom: 1rem;
   @include desktop {
     margin: auto;
+    margin-top: 0rem;
     max-width: 95%;
-    margin-bottom: 7rem;
+    padding-bottom: 2rem;
   }
+}
+.header-nav {
+  display: flex;
   &__logo-text {
     display: flex;
     flex-direction: row;
+    @include desktop {
+    }
   }
   &__title {
     text-transform: uppercase;
     transition: color 0.3s ease;
-    font-size: 6vw; // Adjust font size based on viewport width
+    font-size: 1.5rem;
     letter-spacing: 5px;
-    width: auto; // Allow the title to shrink based on content
-    max-width: 15rem; // Set the maximum width
+    width: auto;
+    max-width: 15rem;
     min-width: 0.5625rem;
-    // margin-left: 0.5rem; // Adjust margin for smaller screens
-    padding-right: 2.5rem; // Adjust margin for smaller screens
-
+    padding-right: 2.5rem;
     @include tablet {
-      font-size: 2rem; // Adjust font size for larger screens
-      // margin-left: 1rem; // Adjust margin for larger screens
+      font-size: 2rem;
     }
   }
+
   &__full-menu {
     display: flex;
-    width: 400rem;
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-start;
