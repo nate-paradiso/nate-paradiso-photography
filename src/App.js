@@ -72,7 +72,10 @@ const App = () => {
               path="/blog"
               element={<BlogPage blogPosts={blogPosts} setBlogPosts={setBlogPosts} />}
             />
-            <Route path="/blog/:title" element={<SinglePostPage blogPosts={blogPosts} />} />
+            <Route
+              path="/blog/:title"
+              element={<SinglePostPage blogPosts={blogPosts} setBlogPosts={setBlogPosts} />}
+            />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
