@@ -16,8 +16,7 @@ export const SinglePostPage = ({ blogPosts, setBlogPosts }) => {
     // Find the post with the matching postId from the blogData array
     const foundPost = blogPosts.find(post => post.urltitle === title);
     setPost(foundPost);
-    // eslint-disable-next-line
-  }, []);
+  }, [blogPosts, title]);
 
   const handleNavigateBack = () => {
     navigate("/blog");
@@ -47,13 +46,11 @@ export const SinglePostPage = ({ blogPosts, setBlogPosts }) => {
           {post.paragraph && (
             <div>
               {Array.isArray(post.paragraph) ? (
-                post.paragraph.map((paragraph, index) => (
-                  <>
-                    <p key={index} className="blog__post--body">
-                      {paragraph.para}
-                    </p>
+                post.paragraph.map(paragraph => (
+                  <div key={paragraph.id}>
+                    <p className="blog__post--body">{paragraph.para}</p>
                     <br />
-                  </>
+                  </div>
                 ))
               ) : (
                 <p className="blog__post--body">{post.paragraph}</p>
@@ -82,8 +79,8 @@ export const SinglePostPage = ({ blogPosts, setBlogPosts }) => {
               ))}
           </div>
           {post.comments &&
-            post.comments.map((comment, index) => (
-              <div className="blog__post-comment" key={index}>
+            post.comments.map(comment => (
+              <div className="blog__post-comment" key={comment.id}>
                 <h4 className="blog__post-comment--title">comments ({post.comments.length})</h4>
                 <div className="blog__post-comment-container">
                   <img className="blog__post-comment-container--avatar" src={avatar} alt="" />
