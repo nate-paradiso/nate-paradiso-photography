@@ -38,6 +38,14 @@ export const BlogPage = ({ blogPosts, setBlogPosts }) => {
                 <Link to={`/blog/${post.urltitle}`}>{post.title}</Link>{" "}
               </h4>
               <p className="blog__post--time">{formatTimeFromNow(post.timestamp)}</p>
+              {post.urlLink && (
+                <p>
+                  <NavLink className="blog__post--link" target="_blank" to={post.urlLink}>
+                    {post.urlLink}
+                  </NavLink>
+                </p>
+              )}
+              <br />
               {post.paragraph && (
                 <div>
                   {Array.isArray(post.paragraph) ? (
@@ -55,11 +63,6 @@ export const BlogPage = ({ blogPosts, setBlogPosts }) => {
                 </div>
               )}
 
-              {post.urlLink && (
-                <NavLink target="_blank" to={post.urlLink}>
-                  Here
-                </NavLink>
-              )}
               <div className="blog__post--image-wrapper">
                 {post.videos &&
                   post.videos.map(video => (
