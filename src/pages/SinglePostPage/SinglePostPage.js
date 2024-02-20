@@ -4,7 +4,7 @@ import avatar from "../../assets/images/Pngtree—avatar vector icon white backg
 import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { LikesButton } from "../../components/LikesButton/LikesButton";
 
 export const SinglePostPage = ({ blogPosts, setBlogPosts }) => {
@@ -43,6 +43,14 @@ export const SinglePostPage = ({ blogPosts, setBlogPosts }) => {
         <div className="blog__post blog__post--line-break">
           <h4 className="blog__post--title">{post.title}</h4>
           <p className="blog__post--time">{formatTimeFromNow(post.timestamp)}</p>
+          {post.urlLink && (
+            <p>
+              <NavLink className="blog__post--link" target="_blank" to={post.urlLink}>
+                {post.urlLink}
+              </NavLink>
+            </p>
+          )}
+          <br />
           {post.paragraph && (
             <div>
               {Array.isArray(post.paragraph) ? (
@@ -58,11 +66,6 @@ export const SinglePostPage = ({ blogPosts, setBlogPosts }) => {
             </div>
           )}
 
-          {post.urlLink && (
-            <a href={post.urlLink} target="_blank" rel="noopener noreferrer">
-              Link
-            </a>
-          )}
           <div className="blog__post--image-wrapper">
             {post.videos &&
               post.videos.map((video, index) => (

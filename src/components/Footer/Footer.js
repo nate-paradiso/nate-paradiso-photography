@@ -37,8 +37,7 @@ export const Footer = () => {
             </NavLink>
           </div>
         </div>
-        <p>Copyright Nate Paradiso 2024</p>
-        <p>Website built by Nate Paradiso with React</p>
+        <p>All Rights Reserved. Content and Web Development by Nate Paradiso 2024</p>
       </footer>
     </>
   );
