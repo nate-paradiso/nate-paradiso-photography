@@ -13,7 +13,8 @@ import { VideoPage } from "./pages/VideoPage/VideoPage";
 import { BlogPage } from "./pages/BlogPage/BlogPage";
 import "./styles/_global.scss";
 import { SinglePostPage } from "./pages/SinglePostPage/SinglePostPage";
-import blogData from "./data/blog-posts.json";
+// import blogData from "./data/blog-posts.json";
+import axios from "axios";
 import { v4 as uuidv4 } from "uuid"; // Import uuidv4 function
 import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
 // Create a new context
@@ -39,20 +40,32 @@ const App = () => {
   const [blogPosts, setBlogPosts] = useState([]);
 
   useEffect(() => {
-    const updatedBlogData = blogData.map(post => ({
-      ...post,
-      id: uuidv4(), // Generate UUID for post
-      images: post.images.map(image => ({
-        ...image,
-        id: uuidv4(), // Generate UUID for image
-      })),
-      comments: post.comments.map(comment => ({
-        ...comment,
-        id: uuidv4(), // Generate UUID for comment
-      })),
-    }));
-
-    setBlogPosts(updatedBlogData);
+    const fetchBlogPosts = async () => {
+      try {
+        const response = await axios.get("./netlify/functions/fetchBlogPosts");
+        setBlogPosts(response.data);
+      } catch (error) {
+        console.error("Error fetching blog posts:", error);
+      }
+      try {
+        const updatedBlogData = blogPosts.map(post => ({
+          ...post,
+          id: uuidv4(), // Preserve UUIDs for posts
+          images: post.images.map(image => ({
+            ...image,
+            id: uuidv4(), // Preserve UUIDs for images
+          })),
+          comments: post.comments.map(comment => ({
+            ...comment,
+            id: uuidv4(), // Preserve UUIDs for comments
+          })),
+        }));
+        setBlogPosts(updatedBlogData);
+      } catch (error) {
+        console.error("Error generating uuid for posts:", error);
+      }
+    };
+    fetchBlogPosts();
     // eslint-disable-next-line
   }, []);
   return (

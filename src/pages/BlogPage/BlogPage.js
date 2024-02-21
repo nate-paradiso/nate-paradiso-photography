@@ -135,32 +135,7 @@ export const BlogPage = ({ blogPosts, setBlogPosts }) => {
 // import { formatTimeFromNow } from "../../_utility/utility";
 
 // export const BlogPage = () => {
-//   // const NETLIFY_AUTH_TOKEN = "nfp_xi2TyiKVS7EaoF7Q8DcaJA3YbEAGMXMn2818";
 //   const [blogPosts, setBlogPosts] = useState([]);
-
-//   useEffect(() => {
-//     const fetchBlogPosts = async (xMasterKey, xAccessKey) => {
-//       try {
-//         const response = await axios.get(url, {
-//           headers: {
-//             "X-Master-Key": xMasterKey,
-//             "X-Access-Key": xAccessKey,
-//           },
-//         });
-//         console.log(response.data);
-//         // Extract the record data from the response
-//         const { record } = response.data;
-
-//         // Set the blog posts state with the fetched data
-//         setBlogPosts(record);
-//       } catch (error) {
-//         console.error("Error fetching blog posts:", error);
-//       }
-//     };
-
-//     fetchBlogPosts(xMasterKey, xAccessKey);
-//     // eslint-disable-next-line react-hooks/exhaustive-deps
-//   }, []);
 
 // const handleUpdateLikes = async (postId, updatedLikes) => {
 //   console.log("Updating likes for post:", postId);
