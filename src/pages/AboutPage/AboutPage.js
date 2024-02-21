@@ -10,27 +10,25 @@ export const AboutPage = () => {
       <div className="about">
         <div className="about__container">
           <p className="about__container--text">
-            Behind the lens, Nate's passion for capturing moments transforms ordinary scenes into
-            impactful visuals. Specializing in underwater, nature, and beyond, Nate brings a unique
-            and creative perspective to his photography.
+            Behind the lens, my passion for capturing moments transforms ordinary scenes into
+            impactful visuals. Specializing in underwater, nature, and beyond, I bring a unique and
+            creative perspective to my photography.
           </p>
           <br />
           <br />
           <p className="about__container--text-paragraph">
-            His portfolio includes assignments for National Geographic in Alaska and published work
-            in prestigious magazines like Tail and Microscopy Today. Nate's talent has earned him
-            recognition, with his stunning images featured in National Geographic's "As the World
-            Turns" assignment and showcased on major networks such as Fox News and CNN.
-            Additionally, his work has been published in esteemed works like the Modernist Pizza
-            books.
+            My portfolio includes assignments for National Geographic in Alaska and published work
+            in magazines like Tail and Microscopy Today. My talent has earned me recognition, with
+            my images featured in National Geographic's "As the World Turns" assignment and
+            showcased on major networks such as Fox, CNN and ABC news. Additionally, my work has
+            been published in the Modernist Pizza books.
           </p>
           <br />
           <p className="about__container--text-paragraph">
-            Not just a skilled photographer, Nate Paradiso is also the web developer behind the
-            website you're currently enjoying. With experience in both fields, Nate's expertise
-            shines through in every aspect of his work. Nate's ability to seamlessly blend his
-            skills as both a photographer and web developer underscores his versatility and
-            dedication to crafting immersive visual experiences.
+            I am also the web developer behind the website you're currently enjoying. With
+            experience in both fields, my expertise shines through in every aspect of my work. My
+            ability to seamlessly blend my skills as both a photographer and web developer
+            underscores my versatility and dedication to crafting immersive visual experiences.
           </p>
         </div>
         <div>
