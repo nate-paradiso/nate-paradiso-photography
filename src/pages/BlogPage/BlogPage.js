@@ -5,16 +5,54 @@ import { LikesButton } from "../../components/LikesButton/LikesButton";
 import { formatTimeFromNow } from "../../_utility/utility";
 import avatar from "../../assets/images/Pngtree—avatar vector icon white background_5184638.png";
 import ReactPlayer from "react-player";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid"; // Import uuidv4 function
 
-export const BlogPage = ({ blogPosts, setBlogPosts }) => {
+export const BlogPage = () => {
   const [displayedPosts, setDisplayedPosts] = useState(6);
+  const [blogPosts, setBlogPosts] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchBlogPosts = async () => {
+      try {
+        const response = await axios.get("/.netlify/functions/fetchBlogPosts");
+        const fetchedBlogPosts = response.data.record;
+        const updatedBlogData = fetchedBlogPosts.map(post => ({
+          ...post,
+          id: uuidv4(), // Always generate a new UUID
+          images: post.images.map(image => ({
+            ...image,
+            id: uuidv4(), // Always generate a new UUID
+          })),
+          comments: post.comments.map(comment => ({
+            ...comment,
+            id: uuidv4(), // Always generate a new UUID
+          })),
+          paragraphs: post.paragraphs.map(paragraph => ({
+            ...paragraph,
+            id: uuidv4(), // Generate UUID for each paragraph
+          })),
+        }));
+        setBlogPosts(updatedBlogData);
+      } catch (error) {
+        console.error("Error fetching blog posts:", error);
+      }
+    };
+    fetchBlogPosts();
+    // eslint-disable-next-line
+  }, []);
 
   useEffect(() => {
     // Sort the blog posts by date (timestamp)
     blogPosts.sort((a, b) => b.timestamp - a.timestamp);
     // eslint-disable-next-line
   }, []);
+
+  const handlePostClick = title => {
+    navigate(`/blog/${title}`, { state: { blogPosts } });
+  };
 
   const handleUpdateLikes = (postId, updatedLikes) => {
     const updatedPost = blogPosts.map(blogPosts =>
@@ -34,8 +72,12 @@ export const BlogPage = ({ blogPosts, setBlogPosts }) => {
         <div className="blog">
           {blogPosts.slice(0, displayedPosts).map(post => (
             <div className="blog__post blog__post--line-break" key={post.id}>
-              <h4 className="blog__post--title">
-                <Link to={`/blog/${post.urltitle}`}>{post.title}</Link>{" "}
+              <h4
+                className="blog__post--title"
+                key={post.id}
+                onClick={() => handlePostClick(post.urltitle)}
+              >
+                <Link to={`/blog/${post.urltitle}`}>{post.title}</Link>
               </h4>
               <p className="blog__post--time">{formatTimeFromNow(post.timestamp)}</p>
               {post.urlLink && (
@@ -46,22 +88,15 @@ export const BlogPage = ({ blogPosts, setBlogPosts }) => {
                 </p>
               )}
               <br />
-              {post.paragraph && (
-                <div>
-                  {Array.isArray(post.paragraph) ? (
-                    post.paragraph.map(paragraph => (
-                      <div key={paragraph.id}>
-                        <p className="blog__post--body">{paragraph.para}</p>
-                        <br />
-                      </div>
-                    ))
-                  ) : (
-                    <p key={post.id} className="blog__post--body">
-                      {post.paragraph}
-                    </p>
-                  )}
-                </div>
-              )}
+
+              <div>
+                {post.paragraphs.map(paragraph => (
+                  <div key={paragraph.id}>
+                    <p className="blog__post--body">{paragraph.paragraph}</p>
+                    <br />
+                  </div>
+                ))}
+              </div>
 
               <div className="blog__post--image-wrapper">
                 {post.videos &&

@@ -2,14 +2,15 @@ import "./SinglePostPage.scss";
 import { formatTimeFromNow } from "../../_utility/utility";
 import avatar from "../../assets/images/Pngtree—avatar vector icon white background_5184638.png";
 import ReactPlayer from "react-player";
-import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate, NavLink, useLocation, useParams } from "react-router-dom";
 import { LikesButton } from "../../components/LikesButton/LikesButton";
 
-export const SinglePostPage = ({ blogPosts, setBlogPosts }) => {
+export const SinglePostPage = () => {
   const navigate = useNavigate();
   const { title } = useParams();
+  const location = useLocation();
+  const { blogPosts, setBlogPosts } = location.state || {};
   const [post, setPost] = useState(null);
 
   useEffect(() => {
@@ -33,6 +34,7 @@ export const SinglePostPage = ({ blogPosts, setBlogPosts }) => {
     );
     setBlogPosts(updatedBlogPosts);
   };
+
   if (!post) {
     return <p>Cannot find post</p>;
   }
@@ -51,20 +53,14 @@ export const SinglePostPage = ({ blogPosts, setBlogPosts }) => {
             </p>
           )}
           <br />
-          {post.paragraph && (
-            <div>
-              {Array.isArray(post.paragraph) ? (
-                post.paragraph.map(paragraph => (
-                  <div key={paragraph.id}>
-                    <p className="blog__post--body">{paragraph.para}</p>
-                    <br />
-                  </div>
-                ))
-              ) : (
-                <p className="blog__post--body">{post.paragraph}</p>
-              )}
-            </div>
-          )}
+          <div>
+            {post.paragraphs.map(paragraph => (
+              <div key={paragraph.id}>
+                <p className="blog__post--body">{paragraph.paragraph}</p>
+                <br />
+              </div>
+            ))}
+          </div>
 
           <div className="blog__post--image-wrapper">
             {post.videos &&

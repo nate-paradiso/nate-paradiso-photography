@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AdventurePage } from "./pages/AdventurePage/AdventurePage";
 import { Header } from "./components/Header/Header";
@@ -11,11 +11,11 @@ import { CouplesPage } from "./pages/CouplesPage/CouplesPage";
 import { StillLifePage } from "./pages/StillLifePage/StillLifePage";
 import { VideoPage } from "./pages/VideoPage/VideoPage";
 import { BlogPage } from "./pages/BlogPage/BlogPage";
-import "./styles/_global.scss";
 import { SinglePostPage } from "./pages/SinglePostPage/SinglePostPage";
+import "./styles/_global.scss";
 // import blogData from "./data/blog-posts.json";
-import axios from "axios";
-import { v4 as uuidv4 } from "uuid"; // Import uuidv4 function
+// import axios from "axios";
+// import { v4 as uuidv4 } from "uuid"; // Import uuidv4 function
 import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
 // Create a new context
 export const MyContext = React.createContext();
@@ -37,40 +37,6 @@ const MyProvider = props => {
 };
 
 const App = () => {
-  const [blogPosts, setBlogPosts] = useState([]);
-
-  useEffect(() => {
-    const fetchBlogPosts = async () => {
-      try {
-        const response = await axios.get("/.netlify/functions/fetchBlogPosts");
-        const fetchedBlogPosts = response.data.record;
-        const updatedBlogData = fetchedBlogPosts.map(post => ({
-          ...post,
-          id: uuidv4(), // Always generate a new UUID
-          images: post.images.map(image => ({
-            ...image,
-            id: uuidv4(), // Always generate a new UUID
-          })),
-          comments: post.comments.map(comment => ({
-            ...comment,
-            id: uuidv4(), // Always generate a new UUID
-          })),
-          paragraph: Array.isArray(post.paragraph)
-            ? post.paragraph.map(paragraph => ({
-                ...paragraph,
-                id: uuidv4(), // Preserve UUIDs for paragraphs
-              }))
-            : [],
-        }));
-        setBlogPosts(updatedBlogData);
-      } catch (error) {
-        console.error("Error fetching blog posts:", error);
-      }
-    };
-    fetchBlogPosts();
-    // eslint-disable-next-line
-  }, []);
-
   return (
     <MyProvider>
       <BrowserRouter>
@@ -84,14 +50,9 @@ const App = () => {
             <Route path="/still-life" element={<StillLifePage />} />
             <Route path="/video" element={<VideoPage />} />
             <Route path="/about" element={<AboutPage />} />
-            <Route
-              path="/blog"
-              element={<BlogPage blogPosts={blogPosts} setBlogPosts={setBlogPosts} />}
-            />
-            <Route
-              path="/blog/:title"
-              element={<SinglePostPage blogPosts={blogPosts} setBlogPosts={setBlogPosts} />}
-            />
+            <Route path="/blog/" element={<BlogPage />} />
+            <Route path="/blog/:title" element={<SinglePostPage />} />
+
             <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
