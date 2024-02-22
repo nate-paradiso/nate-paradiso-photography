@@ -68,11 +68,11 @@ export const Header = () => {
             </NavLink>
             <NavLink
               className={`header-nav__link ${
-                location.pathname === "/realestate"
+                location.pathname === "/real-estate"
                   ? "header-nav__link--active"
                   : "header-nav__link--inactive"
               }`}
-              to="/realestate"
+              to="/real-estate"
             >
               Real Estate
             </NavLink>
