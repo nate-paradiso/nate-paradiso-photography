@@ -47,25 +47,29 @@ const App = () => {
       } catch (error) {
         console.error("Error fetching blog posts:", error);
       }
-      try {
-        const updatedBlogData = blogPosts.map(post => ({
-          ...post,
-          id: uuidv4(), // Preserve UUIDs for posts
-          images: post.images.map(image => ({
-            ...image,
-            id: uuidv4(), // Preserve UUIDs for images
-          })),
-          comments: post.comments.map(comment => ({
-            ...comment,
-            id: uuidv4(), // Preserve UUIDs for comments
-          })),
-        }));
-        setBlogPosts(updatedBlogData);
-      } catch (error) {
-        console.error("Error generating uuid for posts:", error);
-      }
     };
+
     fetchBlogPosts();
+  }, []);
+
+  useEffect(() => {
+    try {
+      const updatedBlogData = blogPosts.map(post => ({
+        ...post,
+        id: uuidv4(), // Preserve UUIDs for posts
+        images: post.images.map(image => ({
+          ...image,
+          id: uuidv4(), // Preserve UUIDs for images
+        })),
+        comments: post.comments.map(comment => ({
+          ...comment,
+          id: uuidv4(), // Preserve UUIDs for comments
+        })),
+      }));
+      setBlogPosts(updatedBlogData);
+    } catch (error) {
+      console.error("Error generating uuid for posts:", error);
+    }
     // eslint-disable-next-line
   }, []);
   return (
