@@ -42,36 +42,35 @@ const App = () => {
   useEffect(() => {
     const fetchBlogPosts = async () => {
       try {
-        const response = await axios.get("./netlify/functions/fetchBlogPosts");
-        setBlogPosts(response.data);
+        const response = await axios.get("/.netlify/functions/fetchBlogPosts");
+        const fetchedBlogPosts = response.data.record;
+        const updatedBlogData = fetchedBlogPosts.map(post => ({
+          ...post,
+          id: uuidv4(), // Always generate a new UUID
+          images: post.images.map(image => ({
+            ...image,
+            id: uuidv4(), // Always generate a new UUID
+          })),
+          comments: post.comments.map(comment => ({
+            ...comment,
+            id: uuidv4(), // Always generate a new UUID
+          })),
+          paragraph: Array.isArray(post.paragraph)
+            ? post.paragraph.map(paragraph => ({
+                ...paragraph,
+                id: uuidv4(), // Preserve UUIDs for paragraphs
+              }))
+            : [],
+        }));
+        setBlogPosts(updatedBlogData);
       } catch (error) {
         console.error("Error fetching blog posts:", error);
       }
     };
-
     fetchBlogPosts();
-  }, []);
-
-  useEffect(() => {
-    try {
-      const updatedBlogData = blogPosts.map(post => ({
-        ...post,
-        id: uuidv4(), // Preserve UUIDs for posts
-        images: post.images.map(image => ({
-          ...image,
-          id: uuidv4(), // Preserve UUIDs for images
-        })),
-        comments: post.comments.map(comment => ({
-          ...comment,
-          id: uuidv4(), // Preserve UUIDs for comments
-        })),
-      }));
-      setBlogPosts(updatedBlogData);
-    } catch (error) {
-      console.error("Error generating uuid for posts:", error);
-    }
     // eslint-disable-next-line
   }, []);
+
   return (
     <MyProvider>
       <BrowserRouter>
