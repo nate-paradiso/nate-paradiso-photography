@@ -13,13 +13,19 @@ import { v4 as uuidv4 } from "uuid"; // Import uuidv4 function
 export const BlogPage = () => {
   const [displayedPosts, setDisplayedPosts] = useState(6);
   const [blogPosts, setBlogPosts] = useState([]);
+
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBlogPosts = async () => {
       try {
-        const response = await axios.get("/.netlify/functions/fetchBlogPosts");
-        const fetchedBlogPosts = response.data.record;
+        let fetchedBlogPosts = sessionStorage.getItem("blogPosts");
+        if (!fetchedBlogPosts) {
+          const response = await axios.get("/.netlify/functions/fetchBlogPosts");
+          fetchedBlogPosts = response.data.record;
+        } else {
+          fetchedBlogPosts = JSON.parse(fetchedBlogPosts);
+        }
         const updatedBlogData = fetchedBlogPosts.map(post => ({
           ...post,
           id: uuidv4(), // Always generate a new UUID
@@ -36,6 +42,7 @@ export const BlogPage = () => {
             id: uuidv4(), // Generate UUID for each paragraph
           })),
         }));
+        sessionStorage.setItem("blogPosts", JSON.stringify(updatedBlogData));
         setBlogPosts(updatedBlogData);
       } catch (error) {
         console.error("Error fetching blog posts:", error);
