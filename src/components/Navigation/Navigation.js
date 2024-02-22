@@ -48,10 +48,10 @@ export const Navigation = () => {
         Couples
       </NavLink>
       <NavLink
-        to="/realestate"
+        to="/real-estate"
         onClick={() => ctx.stateChangeHandler({ isOpen: false })}
         className={`menu-item ${
-          location.pathname === "/realestate" ? "menu-item--active" : "menu-item--inactive"
+          location.pathname === "/real-estate" ? "menu-item--active" : "menu-item--inactive"
         }`}
       >
         Real Estate

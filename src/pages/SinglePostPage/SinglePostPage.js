@@ -14,13 +14,19 @@ export const SinglePostPage = () => {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    // Find the post with the matching postId from the blogData array
-    const foundPost = blogPosts.find(post => post.urltitle === title);
-    setPost(foundPost);
-  }, [blogPosts, title]);
+    // Retrieve blog posts data from session storage
+    const storedBlogPosts = sessionStorage.getItem("blogPosts");
+    if (storedBlogPosts) {
+      const parsedBlogPosts = JSON.parse(storedBlogPosts);
+      const foundPost = parsedBlogPosts.find(post => post.urltitle === title);
+      setPost(foundPost);
+    } else {
+      navigate("/blog"); // Handle the case when blog posts data is not found in session storage
+    }
+  }, [title, navigate]);
 
   const handleNavigateBack = () => {
-    navigate("/blog");
+    navigate("/blog", { state: { blogPosts } }); // Pass blogPosts as state when navigating back
     window.scrollTo(0, 0);
   };
   const handleUpdateLikes = (postId, updatedLikes) => {
