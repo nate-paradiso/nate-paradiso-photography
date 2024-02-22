@@ -5,10 +5,47 @@ import { LikesButton } from "../../components/LikesButton/LikesButton";
 import { formatTimeFromNow } from "../../_utility/utility";
 import avatar from "../../assets/images/Pngtree—avatar vector icon white background_5184638.png";
 import ReactPlayer from "react-player";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, Routes, Route } from "react-router-dom";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid"; // Import uuidv4 function
+import { SinglePostPage } from "../SinglePostPage/SinglePostPage";
 
-export const BlogPage = ({ blogPosts, setBlogPosts }) => {
+export const BlogPage = () => {
   const [displayedPosts, setDisplayedPosts] = useState(6);
+
+  const [blogPosts, setBlogPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchBlogPosts = async () => {
+      try {
+        const response = await axios.get("/.netlify/functions/fetchBlogPosts");
+        const fetchedBlogPosts = response.data.record;
+        const updatedBlogData = fetchedBlogPosts.map(post => ({
+          ...post,
+          id: uuidv4(), // Always generate a new UUID
+          images: post.images.map(image => ({
+            ...image,
+            id: uuidv4(), // Always generate a new UUID
+          })),
+          comments: post.comments.map(comment => ({
+            ...comment,
+            id: uuidv4(), // Always generate a new UUID
+          })),
+          paragraph: Array.isArray(post.paragraph)
+            ? post.paragraph.map(paragraph => ({
+                ...paragraph,
+                id: uuidv4(), // Preserve UUIDs for paragraphs
+              }))
+            : [],
+        }));
+        setBlogPosts(updatedBlogData);
+      } catch (error) {
+        console.error("Error fetching blog posts:", error);
+      }
+    };
+    fetchBlogPosts();
+    // eslint-disable-next-line
+  }, []);
 
   useEffect(() => {
     // Sort the blog posts by date (timestamp)
@@ -121,6 +158,12 @@ export const BlogPage = ({ blogPosts, setBlogPosts }) => {
       ) : (
         <p>searching the vast web for blog posts.....</p>
       )}
+      <Routes>
+        <Route
+          path="/blog/:title"
+          element={<SinglePostPage blogPosts={blogPosts} setBlogPosts={setBlogPosts} />}
+        />
+      </Routes>
     </article>
   );
 };
