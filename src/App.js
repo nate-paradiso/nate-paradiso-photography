@@ -11,6 +11,7 @@ import { CouplesPage } from "./pages/CouplesPage/CouplesPage";
 import { StillLifePage } from "./pages/StillLifePage/StillLifePage";
 import { VideoPage } from "./pages/VideoPage/VideoPage";
 import { BlogPage } from "./pages/BlogPage/BlogPage";
+import { SinglePostPage } from "./pages/SinglePostPage/SinglePostPage";
 import "./styles/_global.scss";
 // import blogData from "./data/blog-posts.json";
 // import axios from "axios";
@@ -49,7 +50,9 @@ const App = () => {
             <Route path="/still-life" element={<StillLifePage />} />
             <Route path="/video" element={<VideoPage />} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/" element={<BlogPage />} />
+            <Route path="/blog/:title" element={<SinglePostPage />} />
+
             <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
