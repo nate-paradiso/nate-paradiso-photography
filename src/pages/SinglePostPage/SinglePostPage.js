@@ -12,6 +12,7 @@ export const SinglePostPage = () => {
   const location = useLocation();
   const { blogPosts, setBlogPosts } = location.state || {};
   const [post, setPost] = useState(null);
+  console.log("hello from single post");
 
   useEffect(() => {
     // Retrieve blog posts data from session storage
