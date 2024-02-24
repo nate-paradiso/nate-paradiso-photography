@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// import blogData from "../../data/blog-posts.json";
 import "./BlogPage.scss";
 import { LikesButton } from "../../components/LikesButton/LikesButton";
 import { formatTimeFromNow } from "../../_utility/utility";
@@ -7,11 +6,13 @@ import avatar from "../../assets/images/Pngtree—avatar vector icon white backg
 import ReactPlayer from "react-player";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { v4 as uuidv4 } from "uuid"; // Import uuidv4 function
+import { v4 as uuidv4 } from "uuid";
+import { CommentForm } from "../../components/CommentForm/CommentForm";
 
 export const BlogPage = () => {
   const [displayedPosts, setDisplayedPosts] = useState(6);
   const [blogPosts, setBlogPosts] = useState([]);
+
   console.log("hello from blog");
 
   const navigate = useNavigate();
@@ -128,6 +129,7 @@ export const BlogPage = () => {
                     />
                   ))}
               </div>
+              <CommentForm postTitle={post.title} />
               {post.comments &&
                 post.comments.map(comment => (
                   <div className="blog__post-comment" key={comment.id}>

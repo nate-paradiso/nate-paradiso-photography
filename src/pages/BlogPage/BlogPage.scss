@@ -111,6 +111,14 @@
       margin-right: 2rem;
     }
   }
+  &__post-post-comment {
+    margin: 1rem 0rem 1rem 0rem;
+    width: 100%;
+    &--form {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }
 .cannot-find {
   display: flex;
