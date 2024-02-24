@@ -3,7 +3,8 @@ import axios from "axios";
 export async function handler(event, context) {
   try {
     const { X_MASTER_KEY, X_ACCESS_KEY, BIN_ID } = process.env;
-    const { postTitle, comment } = JSON.parse(event.body); // Assuming the request body contains postTitle and the new comment
+    const { postTitle, comment } = JSON.parse(event.body);
+    console.log(comment); // Assuming the request body contains postTitle and the new comment
 
     // Find the correct post based on postTitle and add the comment
     const response = await axios.get(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
@@ -33,7 +34,7 @@ export async function handler(event, context) {
     jsonData[postIndex].comments.push(newComment);
 
     // Update JSONbin with the modified data
-    await axios.put(`https://api.jsonbin.io/v3/b/${BIN_ID}`, jsonData, {
+    await axios.patch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, jsonData, {
       headers: {
         "X-Master-Key": X_MASTER_KEY,
         "X-Access-Key": X_ACCESS_KEY,

@@ -22,7 +22,7 @@ export const CommentForm = ({ postTitle }) => {
       console.error("Error posting comment:", error);
     }
   };
-  const handlePostComment = async commentData => {
+  const handlePostComment = async (commentData, postTitle) => {
     try {
       // Make a POST request to the Netlify function to post a comment
       const response = await axios.post("/.netlify/functions/postBlogComment", {
