@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import tubeSpinner from "../../assets/images/tube-spinner.svg";
 
 export const CommentForm = ({ postTitle, onCommentPosted, setBlogPosts }) => {
   const [formData, setFormData] = useState({
@@ -7,16 +8,51 @@ export const CommentForm = ({ postTitle, onCommentPosted, setBlogPosts }) => {
     comment: "",
   });
 
+  const [validationErrors, setValidationErrors] = useState({
+    name: "",
+    comment: "",
+  });
+  const [isButtonVisible, setIsButtonVisible] = useState(true); // State to control button visibility
+
   const handleChange = event => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
+
+    // Clear validation error for the changed field
+    setValidationErrors(prevErrors => ({
+      ...prevErrors,
+      [name]: "", // Clear the validation error for the changed field
+    }));
   };
 
   const handleSubmit = async event => {
     event.preventDefault();
+    let form = event.target;
+    // Basic form validation
+    let submitButton = form.querySelector("button[type=submit]");
+    submitButton.disabled = true; // Disable the submit button
 
+    if (!validateName(formData.name)) {
+      setValidationErrors(prevErrors => ({
+        ...prevErrors,
+        name: "Please enter a valid name.",
+      }));
+      form.removeAttribute("data-submitting"); // Release the form from submitting state
+      submitButton.disabled = false; // Re-enable the submit button
+      return;
+    }
+    if (!validateComment(formData.comment)) {
+      setValidationErrors(prevErrors => ({
+        ...prevErrors,
+        comment: "Please enter a valid comment.",
+      }));
+      form.removeAttribute("data-submitting"); // Release the form from submitting state
+      submitButton.disabled = false; // Re-enable the submit button
+      return;
+    }
     try {
       // Call the handlePostComment function to post the comment
+      setIsButtonVisible(false);
       await handlePostComment(formData, postTitle);
       setFormData({ name: "", comment: "" });
       onCommentPosted();
@@ -40,12 +76,20 @@ export const CommentForm = ({ postTitle, onCommentPosted, setBlogPosts }) => {
         "blogPosts",
         JSON.stringify(updatedBlogPost),
       );
+      setIsButtonVisible(true);
       onCommentPosted(setBlogPosts(updateSessionStorage));
     } catch (error) {
       console.error("Error posting comment:", error);
       throw error; // Rethrow the error to handle it in the calling code
     }
   };
+
+  function validateName(name) {
+    return name.trim() !== ""; // Check if the name is not empty
+  }
+  function validateComment(comment) {
+    return comment.trim() !== ""; // Check if the name is not empty
+  }
 
   return (
     <>
@@ -64,6 +108,9 @@ export const CommentForm = ({ postTitle, onCommentPosted, setBlogPosts }) => {
               value={formData.name}
               onChange={handleChange}
             />
+            {validationErrors.name && (
+              <span className="contact__error-message">{validationErrors.name}</span>
+            )}
             <label htmlFor="comment" className="contact__label">
               Comment: <span className="contact__required"></span>
             </label>
@@ -74,9 +121,18 @@ export const CommentForm = ({ postTitle, onCommentPosted, setBlogPosts }) => {
               value={formData.comment}
               onChange={handleChange}
             ></textarea>
-            <button type="submit" className="contact__button">
-              Submit
-            </button>
+            {validationErrors.comment && (
+              <span className="contact__error-message">{validationErrors.comment}</span>
+            )}
+            <div>
+              {isButtonVisible ? (
+                <button className="contact__button" type="submit">
+                  Submit
+                </button>
+              ) : (
+                <img className="contact__tube-spinner" src={tubeSpinner} alt="loading icon" />
+              )}
+            </div>
           </form>
         </div>
       </div>

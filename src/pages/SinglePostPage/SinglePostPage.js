@@ -84,13 +84,19 @@ export const SinglePostPage = () => {
                 <img key={index} className="blog__post--image" src={image.imgUrl} alt={image.alt} />
               ))}
           </div>
+          <h4 className="blog__post-comment--title">comments ({post.comments.length})</h4>
           {post.comments &&
             post.comments.map(comment => (
               <div className="blog__post-comment" key={comment.id}>
-                <h4 className="blog__post-comment--title">comments ({post.comments.length})</h4>
                 <div className="blog__post-comment-container">
-                  <img className="blog__post-comment-container--avatar" src={avatar} alt="" />
-                  <h3 className="blog__post-comment-container--name">{comment.name}</h3>
+                  <div className="blog__post-comment-container-box">
+                    <img
+                      className="blog__post-comment-container--avatar"
+                      src={avatar}
+                      alt="avatar"
+                    />
+                    <h3 className="blog__post-comment-container--name">{comment.name}</h3>
+                  </div>{" "}
                   <p className="blog__post-comment-container--time">
                     {formatTimeFromNow(comment.timestamp)}
                   </p>

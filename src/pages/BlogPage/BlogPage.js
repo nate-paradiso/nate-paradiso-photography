@@ -77,11 +77,7 @@ export const BlogPage = () => {
         <div className="blog">
           {blogPosts.slice(0, displayedPosts).map(post => (
             <div className="blog__post blog__post--line-break" key={post.id}>
-              <h4
-                className="blog__post--title"
-                key={post.id}
-                // onClick={() => handlePostClick(post.urltitle)}
-              >
+              <h4 className="blog__post--title" key={post.id}>
                 <Link to={`/blog/${post.urltitle}`}>{post.title}</Link>
               </h4>
               <p className="blog__post--time">{formatTimeFromNow(post.timestamp)}</p>
@@ -133,8 +129,14 @@ export const BlogPage = () => {
                 post.comments.map(comment => (
                   <div className="blog__post-comment" key={comment.id}>
                     <div className="blog__post-comment-container">
-                      <img className="blog__post-comment-container--avatar" src={avatar} alt="" />
-                      <h3 className="blog__post-comment-container--name">{comment.name}</h3>
+                      <div className="blog__post-comment-container-box">
+                        <img
+                          className="blog__post-comment-container--avatar"
+                          src={avatar}
+                          alt="avatar"
+                        />
+                        <h3 className="blog__post-comment-container--name">{comment.name}</h3>
+                      </div>
                       <p className="blog__post-comment-container--time">
                         {formatTimeFromNow(comment.timestamp)}
                       </p>
