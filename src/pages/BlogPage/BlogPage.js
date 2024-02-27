@@ -90,7 +90,7 @@ export const BlogPage = () => {
               )}
               <br />
 
-              <div>
+              <div className="blog__post-container">
                 {post.paragraphs.map(paragraph => (
                   <div key={paragraph.id}>
                     <p className="blog__post--body">{paragraph.paragraph}</p>
