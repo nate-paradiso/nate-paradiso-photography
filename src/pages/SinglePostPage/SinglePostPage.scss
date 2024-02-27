@@ -90,14 +90,15 @@
     margin-bottom: 1rem;
     &--name {
       margin-right: 2rem;
-      font-size: 1.5rem;
+      font-size: 1rem;
+      align-self: center;
     }
     &--time {
       margin-top: 0.5rem;
     }
     &--avatar {
       height: 40px;
-      margin-right: 2rem;
+      margin-right: 1rem;
     }
   }
 }

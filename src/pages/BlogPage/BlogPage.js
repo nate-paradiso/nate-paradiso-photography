@@ -1,16 +1,53 @@
 import { useState, useEffect } from "react";
-// import blogData from "../../data/blog-posts.json";
 import "./BlogPage.scss";
 import { LikesButton } from "../../components/LikesButton/LikesButton";
 import { formatTimeFromNow } from "../../_utility/utility";
 import avatar from "../../assets/images/Pngtree—avatar vector icon white background_5184638.png";
 import ReactPlayer from "react-player";
 import { NavLink, Link } from "react-router-dom";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
+import { CommentForm } from "../../components/CommentForm/CommentForm";
 
-export const BlogPage = ({ blogPosts, setBlogPosts }) => {
+export const BlogPage = () => {
   const [displayedPosts, setDisplayedPosts] = useState(6);
+  const [blogPosts, setBlogPosts] = useState([]);
 
+  console.log("hello from blog");
+
+  const fetchBlogPosts = async () => {
+    try {
+      let fetchedBlogPosts = sessionStorage.getItem("blogPosts");
+      if (!fetchedBlogPosts) {
+        const response = await axios.get("/.netlify/functions/fetchBlogPosts");
+        fetchedBlogPosts = response.data.record;
+      } else {
+        fetchedBlogPosts = JSON.parse(fetchedBlogPosts);
+      }
+      const updatedBlogData = fetchedBlogPosts.map(post => ({
+        ...post,
+        id: uuidv4(), // Always generate a new UUID
+        images: post.images.map(image => ({
+          ...image,
+          id: uuidv4(), // Always generate a new UUID
+        })),
+        comments: post.comments.map(comment => ({
+          ...comment,
+          id: uuidv4(), // Always generate a new UUID
+        })),
+        paragraphs: post.paragraphs.map(paragraph => ({
+          ...paragraph,
+          id: uuidv4(), // Generate UUID for each paragraph
+        })),
+      }));
+      sessionStorage.setItem("blogPosts", JSON.stringify(updatedBlogData));
+      setBlogPosts(updatedBlogData);
+    } catch (error) {
+      console.error("Error fetching blog posts:", error);
+    }
+  };
   useEffect(() => {
+    fetchBlogPosts();
     // Sort the blog posts by date (timestamp)
     blogPosts.sort((a, b) => b.timestamp - a.timestamp);
     // eslint-disable-next-line
@@ -27,6 +64,12 @@ export const BlogPage = ({ blogPosts, setBlogPosts }) => {
     // Increase the number of displayed posts by 3 when the "Load More" button is clicked
     setDisplayedPosts(prevDisplayedPosts => prevDisplayedPosts + 3);
   };
+
+  const onCommentPosted = () => {
+    // Trigger a rerender by updating a state variable
+    setBlogPosts(JSON.parse(sessionStorage.getItem("blogPosts")));
+  };
+
   return (
     <article>
       {/* added a ternary to the entire body to check for axios data, if not there, then state loading... */}
@@ -34,8 +77,8 @@ export const BlogPage = ({ blogPosts, setBlogPosts }) => {
         <div className="blog">
           {blogPosts.slice(0, displayedPosts).map(post => (
             <div className="blog__post blog__post--line-break" key={post.id}>
-              <h4 className="blog__post--title">
-                <Link to={`/blog/${post.urltitle}`}>{post.title}</Link>{" "}
+              <h4 className="blog__post--title" key={post.id}>
+                <Link to={`/blog/${post.urltitle}`}>{post.title}</Link>
               </h4>
               <p className="blog__post--time">{formatTimeFromNow(post.timestamp)}</p>
               {post.urlLink && (
@@ -46,22 +89,15 @@ export const BlogPage = ({ blogPosts, setBlogPosts }) => {
                 </p>
               )}
               <br />
-              {post.paragraph && (
-                <div>
-                  {Array.isArray(post.paragraph) ? (
-                    post.paragraph.map(paragraph => (
-                      <div key={paragraph.id}>
-                        <p className="blog__post--body">{paragraph.para}</p>
-                        <br />
-                      </div>
-                    ))
-                  ) : (
-                    <p key={post.id} className="blog__post--body">
-                      {post.paragraph}
-                    </p>
-                  )}
-                </div>
-              )}
+
+              <div>
+                {post.paragraphs.map(paragraph => (
+                  <div key={paragraph.id}>
+                    <p className="blog__post--body">{paragraph.paragraph}</p>
+                    <br />
+                  </div>
+                ))}
+              </div>
 
               <div className="blog__post--image-wrapper">
                 {post.videos &&
@@ -83,13 +119,24 @@ export const BlogPage = ({ blogPosts, setBlogPosts }) => {
                     />
                   ))}
               </div>
+              <CommentForm
+                postTitle={post.title}
+                onCommentPosted={onCommentPosted}
+                setBlogPosts={setBlogPosts}
+              />
+              <h4 className="blog__post-comment--title">comments ({post.comments.length})</h4>
               {post.comments &&
                 post.comments.map(comment => (
                   <div className="blog__post-comment" key={comment.id}>
-                    <h4 className="blog__post-comment--title">comments ({post.comments.length})</h4>
                     <div className="blog__post-comment-container">
-                      <img className="blog__post-comment-container--avatar" src={avatar} alt="" />
-                      <h3 className="blog__post-comment-container--name">{comment.name}</h3>
+                      <div className="blog__post-comment-container-box">
+                        <img
+                          className="blog__post-comment-container--avatar"
+                          src={avatar}
+                          alt="avatar"
+                        />
+                        <h3 className="blog__post-comment-container--name">{comment.name}</h3>
+                      </div>
                       <p className="blog__post-comment-container--time">
                         {formatTimeFromNow(comment.timestamp)}
                       </p>
@@ -119,121 +166,8 @@ export const BlogPage = ({ blogPosts, setBlogPosts }) => {
           )}
         </div>
       ) : (
-        <p>Cannot find posts...sorry</p>
+        <p>searching the vast web for blog posts.....</p>
       )}
     </article>
   );
 };
-
-// the code below is for jsonbin.io api
-
-// const { v4: uuid } = require("uuid");
-// import { useState, useEffect } from "react";
-// import "./BlogPage.scss";
-// import axios from "axios";
-// // import { LikesButton } from "../../components/LikesButton/LikesButton";
-// import { formatTimeFromNow } from "../../_utility/utility";
-
-// export const BlogPage = () => {
-//   // const NETLIFY_AUTH_TOKEN = "nfp_xi2TyiKVS7EaoF7Q8DcaJA3YbEAGMXMn2818";
-//   const [blogPosts, setBlogPosts] = useState([]);
-
-//   useEffect(() => {
-//     const fetchBlogPosts = async (xMasterKey, xAccessKey) => {
-//       try {
-//         const response = await axios.get(url, {
-//           headers: {
-//             "X-Master-Key": xMasterKey,
-//             "X-Access-Key": xAccessKey,
-//           },
-//         });
-//         console.log(response.data);
-//         // Extract the record data from the response
-//         const { record } = response.data;
-
-//         // Set the blog posts state with the fetched data
-//         setBlogPosts(record);
-//       } catch (error) {
-//         console.error("Error fetching blog posts:", error);
-//       }
-//     };
-
-//     fetchBlogPosts(xMasterKey, xAccessKey);
-//     // eslint-disable-next-line react-hooks/exhaustive-deps
-//   }, []);
-
-// const handleUpdateLikes = async (postId, updatedLikes) => {
-//   console.log("Updating likes for post:", postId);
-//   try {
-//     const postUrl = `${url}/${postId}`;
-//     console.log(postUrl);
-//     const response = await axios.put(
-//       postUrl,
-//       { likes: updatedLikes },
-//       {
-//         headers: {
-//           "Content-Type": "application/json",
-//           "X-Master-Key": xMasterKey,
-//           "X-Access-Key": xAccessKey,
-//         },
-//       },
-//     );
-//     console.log("Update response:", response.data);
-//     // Assuming response.data contains the updated post
-//     const updatedPost = response.data.record;
-//     console.log("Updated post:", updatedPost);
-//     // Update the state by mapping over the existing blogPosts array
-//     const updatedBlogPosts = blogPosts.map(post =>
-//       post.id === updatedPost.id ? updatedPost : post,
-//     );
-//     console.log("Updated blog posts:", updatedBlogPosts);
-//     setBlogPosts(updatedBlogPosts);
-//   } catch (error) {
-//     console.error("Error updating likes:", error);
-//     // Handle error gracefully, e.g., display an error message to the user
-//   }
-// };
-
-//   return (
-//     <article>
-//       {/* added a ternary to the entire body to check for axios data, if not there, then state loading... */}
-//       {blogPosts.length > 0 ? (
-//         <div className="blog">
-//           {blogPosts.map(post => (
-//             <div className="blog__post blog__post--line-break" key={post.id}>
-//               <h4 className="blog__post--title">{post.title}</h4>
-//               <p className="blog__post--time">{formatTimeFromNow(post.timestamp)}</p>
-//               <p className="blog__post--body">{post.paragraph}</p>
-//               <div className="blog__post--image-wrapper">
-//                 {post.images.map(image => (
-//                   <img
-//                     className="blog__post--image"
-//                     key={image.id}
-//                     src={image.imgUrl}
-//                     alt={image.alt}
-//                   />
-//                 ))}
-//                 {post.comments.map(comment => (
-//                   <p className="blog__post--image-comment" key={comment.id}>
-//                     {comment.comment}
-//                   </p>
-//                 ))}
-//               </div>
-//               <div className="blog__post--like-button">
-//                 {/* <LikesButton
-//                   postId={post.id}
-//                   likes={post.likes}
-//                   handleUpdateLikes={handleUpdateLikes}
-//                 ></LikesButton> */}
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       ) : (
-//         <div className="cannot-find">
-//           <p className="cannot-find__text">Cannot find posts...sorry friend.</p>
-//         </div>
-//       )}
-//     </article>
-//   );
-// };
