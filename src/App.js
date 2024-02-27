@@ -47,7 +47,7 @@ const App = () => {
             <Route path="/still-life" element={<StillLifePage />} />
             <Route path="/video" element={<VideoPage />} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/blog/*" element={<BlogPage />} />
+            <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:title" element={<SinglePostPage />} />
 
             <Route path="/contact" element={<ContactPage />} />

@@ -4,7 +4,7 @@ import { LikesButton } from "../../components/LikesButton/LikesButton";
 import { formatTimeFromNow } from "../../_utility/utility";
 import avatar from "../../assets/images/Pngtree—avatar vector icon white background_5184638.png";
 import ReactPlayer from "react-player";
-import { NavLink, Link, useNavigate } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { CommentForm } from "../../components/CommentForm/CommentForm";
@@ -15,54 +15,43 @@ export const BlogPage = () => {
 
   console.log("hello from blog");
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchBlogPosts = async () => {
-      try {
-        let fetchedBlogPosts = sessionStorage.getItem("blogPosts");
-        if (!fetchedBlogPosts) {
-          const response = await axios.get("/.netlify/functions/fetchBlogPosts");
-          fetchedBlogPosts = response.data.record;
-        } else {
-          fetchedBlogPosts = JSON.parse(fetchedBlogPosts);
-        }
-        const updatedBlogData = fetchedBlogPosts.map(post => ({
-          ...post,
-          id: uuidv4(), // Always generate a new UUID
-          images: post.images.map(image => ({
-            ...image,
-            id: uuidv4(), // Always generate a new UUID
-          })),
-          comments: post.comments.map(comment => ({
-            ...comment,
-            id: uuidv4(), // Always generate a new UUID
-          })),
-          paragraphs: post.paragraphs.map(paragraph => ({
-            ...paragraph,
-            id: uuidv4(), // Generate UUID for each paragraph
-          })),
-        }));
-        sessionStorage.setItem("blogPosts", JSON.stringify(updatedBlogData));
-        setBlogPosts(updatedBlogData);
-      } catch (error) {
-        console.error("Error fetching blog posts:", error);
+  const fetchBlogPosts = async () => {
+    try {
+      let fetchedBlogPosts = sessionStorage.getItem("blogPosts");
+      if (!fetchedBlogPosts) {
+        const response = await axios.get("/.netlify/functions/fetchBlogPosts");
+        fetchedBlogPosts = response.data.record;
+      } else {
+        fetchedBlogPosts = JSON.parse(fetchedBlogPosts);
       }
-    };
-    fetchBlogPosts();
-    // eslint-disable-next-line
-  }, []);
-
+      const updatedBlogData = fetchedBlogPosts.map(post => ({
+        ...post,
+        id: uuidv4(), // Always generate a new UUID
+        images: post.images.map(image => ({
+          ...image,
+          id: uuidv4(), // Always generate a new UUID
+        })),
+        comments: post.comments.map(comment => ({
+          ...comment,
+          id: uuidv4(), // Always generate a new UUID
+        })),
+        paragraphs: post.paragraphs.map(paragraph => ({
+          ...paragraph,
+          id: uuidv4(), // Generate UUID for each paragraph
+        })),
+      }));
+      sessionStorage.setItem("blogPosts", JSON.stringify(updatedBlogData));
+      setBlogPosts(updatedBlogData);
+    } catch (error) {
+      console.error("Error fetching blog posts:", error);
+    }
+  };
   useEffect(() => {
+    fetchBlogPosts();
     // Sort the blog posts by date (timestamp)
     blogPosts.sort((a, b) => b.timestamp - a.timestamp);
     // eslint-disable-next-line
   }, []);
-
-  const handlePostClick = title => {
-    const clickedPost = blogPosts.find(post => post.urltitle === title);
-    navigate(`/blog/${title}`, { state: { post: clickedPost } });
-  };
 
   const handleUpdateLikes = (postId, updatedLikes) => {
     const updatedPost = blogPosts.map(blogPosts =>
@@ -76,6 +65,11 @@ export const BlogPage = () => {
     setDisplayedPosts(prevDisplayedPosts => prevDisplayedPosts + 3);
   };
 
+  const onCommentPosted = () => {
+    // Trigger a rerender by updating a state variable
+    setBlogPosts(JSON.parse(sessionStorage.getItem("blogPosts")));
+  };
+
   return (
     <article>
       {/* added a ternary to the entire body to check for axios data, if not there, then state loading... */}
@@ -86,7 +80,7 @@ export const BlogPage = () => {
               <h4
                 className="blog__post--title"
                 key={post.id}
-                onClick={() => handlePostClick(post.urltitle)}
+                // onClick={() => handlePostClick(post.urltitle)}
               >
                 <Link to={`/blog/${post.urltitle}`}>{post.title}</Link>
               </h4>
@@ -129,11 +123,15 @@ export const BlogPage = () => {
                     />
                   ))}
               </div>
-              <CommentForm postTitle={post.title} />
+              <CommentForm
+                postTitle={post.title}
+                onCommentPosted={onCommentPosted}
+                setBlogPosts={setBlogPosts}
+              />
+              <h4 className="blog__post-comment--title">comments ({post.comments.length})</h4>
               {post.comments &&
                 post.comments.map(comment => (
                   <div className="blog__post-comment" key={comment.id}>
-                    <h4 className="blog__post-comment--title">comments ({post.comments.length})</h4>
                     <div className="blog__post-comment-container">
                       <img className="blog__post-comment-container--avatar" src={avatar} alt="" />
                       <h3 className="blog__post-comment-container--name">{comment.name}</h3>
