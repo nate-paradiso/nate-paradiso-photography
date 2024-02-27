@@ -1,0 +1,20 @@
+{
+	"siteId": "098e4e05-8aeb-472d-91b1-638049c4476c",
+	"geolocation": {
+		"data": {
+			"city": "Seattle",
+			"country": {
+				"code": "US",
+				"name": "United States"
+			},
+			"subdivision": {
+				"code": "WA",
+				"name": "Washington"
+			},
+			"timezone": "America/Los_Angeles",
+			"latitude": 47.6109,
+			"longitude": -122.3303
+		},
+		"timestamp": 1709072607908
+	}
+}
