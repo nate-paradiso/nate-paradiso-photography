@@ -15,6 +15,7 @@
     @include tablet {
       padding: 0rem 75px;
     }
+
     &--title {
       padding: 1rem 0.5rem 0rem 0rem;
       font-size: 1.75rem;
@@ -64,6 +65,9 @@
       height: auto !important;
       aspect-ratio: 3/2;
     }
+  }
+  &__post-container {
+    width: 100%;
   }
   &__post-comment {
     margin: 1rem 0rem;
