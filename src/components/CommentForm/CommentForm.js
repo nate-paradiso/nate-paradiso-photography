@@ -82,6 +82,15 @@ export const CommentForm = ({ postTitle, onCommentPosted, setBlogPosts }) => {
       console.error("Error posting comment:", error);
       throw error; // Rethrow the error to handle it in the calling code
     }
+    try {
+      const response = await axios.post("/.netlify/functions/sendEmail", {
+        comment: formData,
+        postTitle: postTitle,
+      });
+      console.log("Email sent successfully:", response.data);
+    } catch (error) {
+      console.error("Error sending email for new comment", error);
+    }
   };
 
   function validateName(name) {
