@@ -3,18 +3,26 @@ import axios from "axios";
 export async function handler(event, context) {
   try {
     const { X_MASTER_KEY, X_ACCESS_KEY, BIN_ID } = process.env;
-    const { postTitle, comment } = JSON.parse(event.body);
+    const { postTitle, likeIncrement } = JSON.parse(event.body);
 
-    // Find the correct post based on postTitle and add the comment
-    const response = await axios.get(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+    // Fetch the data from the bin
+    const responseFromBin = await axios.get(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
       headers: {
         "X-Master-Key": X_MASTER_KEY,
         "X-Access-Key": X_ACCESS_KEY,
       },
     });
 
+    // Check if the response status is not OK
+    if (responseFromBin.status !== 200) {
+      return {
+        statusCode: responseFromBin.status,
+        body: JSON.stringify({ error: "Failed to fetch data from the bin" }),
+      };
+    }
+
     // Find the correct post based on postTitle
-    const jsonData = response.data.record;
+    const jsonData = responseFromBin.data.record;
     const postIndex = jsonData.findIndex(post => post.title === postTitle);
     if (postIndex === -1) {
       return {
@@ -23,38 +31,29 @@ export async function handler(event, context) {
       };
     }
 
-    // Add the new comment to the correct post
-    const newLike = {
-      likes: likes + 1,
-    };
-    jsonData[postIndex].push(newLike);
+    // Update the likes for the post
+    jsonData[postIndex].likes += likeIncrement;
 
-    // Update JSONbin with the modified data
+    // Update the post in the bin
     await axios.put(`https://api.jsonbin.io/v3/b/${BIN_ID}`, jsonData, {
       headers: {
         "X-Master-Key": X_MASTER_KEY,
         "X-Access-Key": X_ACCESS_KEY,
-        "Content-Type": "application/json",
       },
     });
 
-    // Fetch the updated data again
-    const updatedResponse = await axios.get(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
-      headers: {
-        "X-Master-Key": X_MASTER_KEY,
-        "X-Access-Key": X_ACCESS_KEY,
-      },
-    });
-
+    // Return success response
     return {
       statusCode: 200,
-      body: JSON.stringify(updatedResponse.data),
+      body: JSON.stringify({
+        message: "Likes updated successfully",
+        likes: jsonData[postIndex].likes,
+      }),
     };
   } catch (error) {
-    console.error("Error adding comment:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Failed to add comment" }),
+      body: JSON.stringify({ error: error.message }),
     };
   }
 }

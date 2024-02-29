@@ -149,6 +149,7 @@ export const BlogPage = () => {
                   <p className="blog__post--tags">tags: {post.tags}</p>
                 </div>
                 <LikesButton
+                  postTitle={post.title}
                   postId={post.id}
                   likes={post.likes}
                   handleUpdateLikes={handleUpdateLikes}
