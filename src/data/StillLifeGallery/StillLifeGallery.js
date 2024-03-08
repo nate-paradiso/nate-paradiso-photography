@@ -4,4 +4,9 @@ export const cloudinaryStillLifePhotos = [
     height: 750,
     width: 500,
   },
+  {
+    publicId: "portfolio-nate-paradiso-photography/upv7j4lnkag8e7nuo83c",
+    height: 750,
+    width: 500,
+  },
 ];

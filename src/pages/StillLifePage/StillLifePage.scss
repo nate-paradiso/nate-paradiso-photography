@@ -3,14 +3,8 @@
 @use "../../styles/variables" as *;
 
 .still-life {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 100%;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
   margin-bottom: 2rem;
-  &__img {
-    align-self: center;
-    width: 100%;
-    max-width: 600px;
-  }
 }
