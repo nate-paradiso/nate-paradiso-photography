@@ -6,6 +6,11 @@ export const VideoPage = () => {
     <div className="videos">
       <ReactPlayer
         className="videos__vid"
+        url={"https://youtu.be/ngXuZQpUFRw?si=A7n3KSqCytpCIWa5"}
+        controls={true}
+      />
+      <ReactPlayer
+        className="videos__vid"
         url={"https://youtu.be/h0_t5AGWs44?si=NpOuIk6Axa0S6W2D"}
         controls={true}
       />
