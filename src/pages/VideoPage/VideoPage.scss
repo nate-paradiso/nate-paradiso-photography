@@ -16,4 +16,17 @@
     height: auto !important;
     aspect-ratio: 16/9;
   }
+  &__title {
+    text-align: center;
+    font-weight: lighter;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+  }
+}
+
+.videos-title {
+  text-align: center;
+  font-weight: lighter;
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
 }
