@@ -2,19 +2,19 @@
 	"siteId": "098e4e05-8aeb-472d-91b1-638049c4476c",
 	"geolocation": {
 		"data": {
-			"city": "Stockton",
+			"city": "Seattle",
 			"country": {
 				"code": "US",
 				"name": "United States"
 			},
 			"subdivision": {
-				"code": "CA",
-				"name": "California"
+				"code": "WA",
+				"name": "Washington"
 			},
 			"timezone": "America/Los_Angeles",
-			"latitude": 37.9539,
-			"longitude": -121.2956
+			"latitude": 47.6859,
+			"longitude": -122.2994
 		},
-		"timestamp": 1709921348950
+		"timestamp": 1710442985641
 	}
 }

@@ -5,6 +5,7 @@ import "./RealEstatePage.scss";
 export const RealEstatePage = () => {
   return (
     <>
+      <p className="realestate-title">real estate</p>
       <Gallery photos={cloudinaryRealEstateSlides} layout="rows" targetRowHeight="400" />
     </>
   );
