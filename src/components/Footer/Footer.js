@@ -15,7 +15,7 @@ export const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img className="footer__icon" src={instagram} alt="instagram" />
+              <img className="footer__icon" src={instagram} alt="Instagram" />
             </NavLink>
           </div>
           <div>
@@ -24,7 +24,7 @@ export const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img className="footer__icon" src={youtube} alt="youtube" />
+              <img className="footer__icon" src={youtube} alt="Youtube" />
             </NavLink>
           </div>
           <div>

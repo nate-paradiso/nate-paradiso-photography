@@ -3,10 +3,18 @@ import { NavLink } from "react-router-dom";
 import evolve from "../../assets/images/evolve.png";
 import tongass from "../../assets/images/Screen+Shot+2023-05-06+at+9.09.36+AM.png";
 import mod from "../../assets/images/mod.png";
+import { Helmet } from "react-helmet";
 
 export const AboutPage = () => {
   return (
     <div>
+      <Helmet>
+        <title>About</title>
+        <meta
+          name="description"
+          content="Learn more about Nate Paradiso Photography, a Seattle, Washington-based photographer specializing in underwater, nature, weddings, and lifestyle photography. Also providing web development services."
+        />
+      </Helmet>
       <div className="about">
         <div className="about__container">
           <p className="about__container--text">

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import "./ContactPage.scss";
 import tubeSpinner from "../../assets/images/tube-spinner.svg";
+import { Helmet } from "react-helmet";
 
 export const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -219,93 +220,102 @@ export const ContactPage = () => {
   };
 
   return (
-    <div className="container">
-      <div className="text">
-        <p className="text__paragraph">
-          Looking to discuss a project in photography or web development? Please get in touch!
-        </p>
-      </div>
-      <div className="contact">
-        <form
-          className="gform"
-          method="POST"
-          data-email="example@gmail.com"
-          action="https://script.google.com/macros/s/AKfycbx1mSHcIXUmuOmylCtxfpSPUbo7Kg8DEE2V1rhdtQ6mE-983pw0qzzzD8vGZBnwI2KdXg/exec"
-        >
-          {isSubmitted ? (
-            <p className="contact__success">Thank you for your submission!</p>
-          ) : (
-            <>
-              <label htmlFor="name" className="contact__label">
-                First Name: <span className="contact__required">(required)</span>
-              </label>
-              <input
-                className="contact__input contact__input--darken"
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-              />
-              {validationErrors.name && (
-                <span className="contact__error-message">{validationErrors.name}</span>
-              )}
-              <label htmlFor="lastName" className="contact__label">
-                Last Name: <span className="contact__required">(required)</span>
-              </label>
-              <input
-                className="contact__input contact__input--darken"
-                type="text"
-                id="lastName"
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleInputChange}
-              />
-              {validationErrors.lastName && (
-                <span className="contact__error-message">{validationErrors.lastName}</span>
-              )}
-
-              <label htmlFor="email" className="contact__label">
-                Email: <span className="contact__required">(required)</span>
-              </label>
-              <input
-                className="contact__input contact__input--darken"
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-              />
-              {validationErrors.email && (
-                <span className="contact__error-message">{validationErrors.email}</span>
-              )}
-
-              <label htmlFor="message" className="contact__label">
-                Message: <span className="contact__required">(required)</span>
-              </label>
-              <textarea
-                className="contact__input contact__text-area contact__input--darken"
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-              ></textarea>
-              {validationErrors.message && (
-                <span className="contact__error-message">{validationErrors.message}</span>
-              )}
-              <div>
-                {isButtonVisible ? (
-                  <button className="contact__button" type="submit">
-                    Submit
-                  </button>
-                ) : (
-                  <img className="contact__tube-spinner" src={tubeSpinner} alt="loading icon" />
+    <>
+      <Helmet>
+        <title>Contact</title>
+        <meta
+          name="description"
+          content="Contact Nate Paradiso for inquiries, bookings, collaborations, or any other questions. Reach out to discuss your photography or web development needs, and let's create something together!"
+        />
+      </Helmet>
+      <div className="container">
+        <div className="text">
+          <p className="text__paragraph">
+            Looking to discuss a project in photography or web development? Please get in touch!
+          </p>
+        </div>
+        <div className="contact">
+          <form
+            className="gform"
+            method="POST"
+            data-email="example@gmail.com"
+            action="https://script.google.com/macros/s/AKfycbx1mSHcIXUmuOmylCtxfpSPUbo7Kg8DEE2V1rhdtQ6mE-983pw0qzzzD8vGZBnwI2KdXg/exec"
+          >
+            {isSubmitted ? (
+              <p className="contact__success">Thank you for your submission!</p>
+            ) : (
+              <>
+                <label htmlFor="name" className="contact__label">
+                  First Name: <span className="contact__required">(required)</span>
+                </label>
+                <input
+                  className="contact__input contact__input--darken"
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                />
+                {validationErrors.name && (
+                  <span className="contact__error-message">{validationErrors.name}</span>
                 )}
-              </div>
-            </>
-          )}
-        </form>
+                <label htmlFor="lastName" className="contact__label">
+                  Last Name: <span className="contact__required">(required)</span>
+                </label>
+                <input
+                  className="contact__input contact__input--darken"
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleInputChange}
+                />
+                {validationErrors.lastName && (
+                  <span className="contact__error-message">{validationErrors.lastName}</span>
+                )}
+
+                <label htmlFor="email" className="contact__label">
+                  Email: <span className="contact__required">(required)</span>
+                </label>
+                <input
+                  className="contact__input contact__input--darken"
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                />
+                {validationErrors.email && (
+                  <span className="contact__error-message">{validationErrors.email}</span>
+                )}
+
+                <label htmlFor="message" className="contact__label">
+                  Message: <span className="contact__required">(required)</span>
+                </label>
+                <textarea
+                  className="contact__input contact__text-area contact__input--darken"
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                ></textarea>
+                {validationErrors.message && (
+                  <span className="contact__error-message">{validationErrors.message}</span>
+                )}
+                <div>
+                  {isButtonVisible ? (
+                    <button className="contact__button" type="submit">
+                      Submit
+                    </button>
+                  ) : (
+                    <img className="contact__tube-spinner" src={tubeSpinner} alt="loading icon" />
+                  )}
+                </div>
+              </>
+            )}
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
