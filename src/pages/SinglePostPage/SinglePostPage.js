@@ -5,6 +5,7 @@ import ReactPlayer from "react-player";
 import React, { useState, useEffect } from "react";
 import { useNavigate, NavLink, useLocation, useParams } from "react-router-dom";
 import { LikesButton } from "../../components/LikesButton/LikesButton";
+import { Helmet } from "react-helmet";
 
 export const SinglePostPage = () => {
   const navigate = useNavigate();
@@ -48,6 +49,13 @@ export const SinglePostPage = () => {
 
   return (
     <article>
+      <Helmet>
+        <title>{post.title}</title>
+        <meta
+          name="description"
+          content={`Read about ${post.title} on Nate Paradiso Photography's blog. Explore captivating content on ${post.title} and other photography topics.`}
+        />
+      </Helmet>
       <div className="blog">
         <div className="blog__post blog__post--line-break">
           <h4 className="blog__post--title">{post.title}</h4>

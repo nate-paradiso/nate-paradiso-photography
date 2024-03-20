@@ -14,6 +14,8 @@ import { BlogPage } from "./pages/BlogPage/BlogPage";
 import "./styles/_global.scss";
 import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
 import { SinglePostPage } from "./pages/SinglePostPage/SinglePostPage";
+import { Helmet } from "react-helmet";
+
 // Create a new context
 export const MyContext = React.createContext();
 // Create the provider
@@ -37,6 +39,15 @@ const App = () => {
   return (
     <MyProvider>
       <BrowserRouter>
+        <Helmet>
+          <title>Nate Paradiso Photography - Seattle Photographer</title>
+          <meta
+            name="description"
+            content="Nate Paradiso Photography - Seattle-based photographer specializing in weddings, portraits, underwater, and lifestyle photography. Crafting immersive visual content. Also providing web development services. Contact us for your photography needs."
+          />
+          {/* Add more meta tags as needed */}
+        </Helmet>
+
         <main className="body">
           <Header />
           <Routes>

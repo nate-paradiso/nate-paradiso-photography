@@ -8,12 +8,11 @@ import { NavLink, Link } from "react-router-dom";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { CommentForm } from "../../components/CommentForm/CommentForm";
+import { Helmet } from "react-helmet";
 
 export const BlogPage = () => {
   const [displayedPosts, setDisplayedPosts] = useState(6);
   const [blogPosts, setBlogPosts] = useState([]);
-
-  console.log("hello from blog");
 
   const fetchBlogPosts = async () => {
     try {
@@ -72,6 +71,14 @@ export const BlogPage = () => {
 
   return (
     <article>
+      <Helmet>
+        <title>Blog - Nate Paradiso Photography</title>
+        <meta
+          name="description"
+          content="Explore blog posts featuring stunning visual content by Nate Paradiso Photography. Discover stories, insights, and adventures across various themes including photography techniques, travel experiences, wildlife encounters, and more."
+        />
+      </Helmet>
+
       {/* added a ternary to the entire body to check for axios data, if not there, then state loading... */}
       {blogPosts.length > 0 ? (
         <div className="blog">

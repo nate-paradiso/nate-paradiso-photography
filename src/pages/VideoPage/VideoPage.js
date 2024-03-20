@@ -1,9 +1,17 @@
 import ReactPlayer from "react-player";
 import "./VideoPage.scss";
+import { Helmet } from "react-helmet";
 
 export const VideoPage = () => {
   return (
     <>
+      <Helmet>
+        <title>Videos</title>
+        <meta
+          name="description"
+          content="From mesmerizing underwater footage to stunning travel highlights, visual storytelling at its finest."
+        />
+      </Helmet>
       <p className="videos-title">videos</p>
       <div className="videos">
         <ReactPlayer
