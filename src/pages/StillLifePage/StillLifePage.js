@@ -14,7 +14,7 @@ export const StillLifePage = () => {
         />
       </Helmet>
       <p className="still-life__title">still life</p>
-      <Gallery photos={cloudinaryStillLifeSlides} layout="columns" columns="2" margin="31.25rem" />
+      <Gallery photos={cloudinaryStillLifeSlides} layout="rows" columns="2" margin="31.25rem" />
     </div>
   );
 };

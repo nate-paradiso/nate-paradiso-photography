@@ -113,7 +113,7 @@ export const cloudinaryStillLifeSlides = cloudinaryStillLifePhotos.map(photo => 
 
   const availableWidth =
     window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-  const maxWidth = Math.min(availableWidth, 500); // Set the maximum width to 750 pixels or the available width, whichever is smaller
+  const maxWidth = Math.min(availableWidth, 1200); // Set the maximum width to 750 pixels or the available width, whichever is smaller
 
   const scaledWidth = Math.min(width, maxWidth);
   const scaledHeight = Math.round((height / width) * scaledWidth);
