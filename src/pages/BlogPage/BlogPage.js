@@ -75,7 +75,7 @@ export const BlogPage = () => {
         <title>Blog - Nate Paradiso Photography</title>
         <meta
           name="description"
-          content="Explore blog posts featuring stunning visual content by Nate Paradiso Photography. Discover stories, insights, and adventures across various themes including photography techniques, travel experiences, wildlife encounters, and more."
+          content="Blog posts featuring stunning visual content by Nate Paradiso Photography. Discover stories, insights, and adventures across various themes including photography techniques, travel experiences, wildlife encounters, and more."
         />
       </Helmet>
 
