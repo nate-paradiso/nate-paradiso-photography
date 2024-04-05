@@ -87,7 +87,7 @@ export const cloudinaryCoupleSlides = cloudinaryCouplesPhotos.map(photo => {
   const width = photo.width;
   const height = photo.height;
 
-  const maxWidth = 750;
+  const maxWidth = 1200;
   const scaledWidth = Math.min(width, maxWidth);
   const scaledHeight = Math.round((height / width) * scaledWidth);
 
@@ -111,15 +111,12 @@ export const cloudinaryStillLifeSlides = cloudinaryStillLifePhotos.map(photo => 
   const width = photo.width;
   const height = photo.height;
 
-  const availableWidth =
-    window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-  const maxWidth = Math.min(availableWidth, 1200); // Set the maximum width to 750 pixels or the available width, whichever is smaller
-
+  const maxWidth = 1200;
   const scaledWidth = Math.min(width, maxWidth);
   const scaledHeight = Math.round((height / width) * scaledWidth);
 
   return {
-    src: cloudinaryLink(photo.publicId, width, height), // Use scaledWidth and scaledHeight here
+    src: cloudinaryLink(photo.publicId, scaledWidth, scaledHeight), // Use scaledWidth and scaledHeight here
     width: scaledWidth,
     height: scaledHeight,
     srcSet: breakpoints.map(breakpoint => {
