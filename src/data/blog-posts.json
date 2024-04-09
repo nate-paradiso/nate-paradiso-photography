@@ -2,7 +2,7 @@
   {
     "id": 888,
     "urltitle": "spear-to-print",
-    "title": "Spear to Print",
+    "title": "Spear to Print - A Photo Essay",
     "timestamp": 1712699326004,
     "urlLink": "https://www.instagram.com/spearotaku/",
     "singleImages": [
@@ -10,6 +10,11 @@
         "id": 1,
         "imgUrl": "https://res.cloudinary.com/hzjhihahh/image/upload/v1712701464/spear-to-print/fdsorig5u7mxiii2ctcc.jpg",
         "alt": "free diver with fish underwater"
+      },
+      {
+        "id": 20,
+        "imgUrl": "https://res.cloudinary.com/hzjhihahh/image/upload/v1712701464/spear-to-print/lsyfo2ukhedcgfazzgyq.jpg",
+        "alt": "wiping off paint from eye"
       }
     ],
     "paragraphs": [
@@ -162,11 +167,6 @@
         "id": 19,
         "imgUrl": "https://res.cloudinary.com/hzjhihahh/image/upload/v1712701464/spear-to-print/itd5rte3jjslunohiply.jpg",
         "alt": "holding fins"
-      },
-      {
-        "id": 20,
-        "imgUrl": "https://res.cloudinary.com/hzjhihahh/image/upload/v1712701464/spear-to-print/lsyfo2ukhedcgfazzgyq.jpg",
-        "alt": "wiping off paint from eye"
       },
       {
         "id": 21,
