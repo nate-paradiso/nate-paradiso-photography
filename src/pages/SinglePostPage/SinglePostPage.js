@@ -67,8 +67,20 @@ export const SinglePostPage = () => {
               </NavLink>
             </p>
           )}
+          <div className="blog__post--image-wrapper">
+            {post.singleImages &&
+              post.singleImages.map(singleImage => (
+                <img
+                  className="blog__post--image"
+                  key={singleImage.id}
+                  src={singleImage.imgUrl}
+                  alt={singleImage.alt}
+                />
+              ))}
+          </div>
           <br />
-          <div>
+
+          <div className="blog__post-container">
             {post.paragraphs.map(paragraph => (
               <div key={paragraph.id}>
                 <p className="blog__post--body">{paragraph.paragraph}</p>
