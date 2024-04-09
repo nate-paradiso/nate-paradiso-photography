@@ -101,7 +101,7 @@ export const BlogPage = () => {
                     <img
                       className="blog__post--image"
                       key={singleImage.id}
-                      src={singleImage}
+                      src={singleImage.imgUrl}
                       alt={singleImage.alt}
                     />
                   ))}
