@@ -42,6 +42,11 @@ export const VideoPage = () => {
           controls={true}
         />
         <ReactPlayer className="videos__vid" url={"https://youtu.be/83e0AKPgBxQ"} controls={true} />
+        <ReactPlayer
+          className="videos__vid"
+          url={"https://youtu.be/-QSW__YMuzg?si=xHxaI_KHhVZy0C1D"}
+          controls={true}
+        />
         <ReactPlayer className="videos__vid" url={"https://youtu.be/BN1a0m5XEpA"} controls={true} />
         <ReactPlayer className="videos__vid" url={"https://youtu.be/IKFkIprY_R8"} controls={true} />
         <ReactPlayer className="videos__vid" url={"https://youtu.be/wNPZjAzwDQE"} controls={true} />

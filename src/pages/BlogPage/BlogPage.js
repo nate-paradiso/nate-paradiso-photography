@@ -95,6 +95,17 @@ export const BlogPage = () => {
                   </NavLink>
                 </p>
               )}
+              <div className="blog__post--image-wrapper">
+                {post.singleImages &&
+                  post.singleImages.map(singleImage => (
+                    <img
+                      className="blog__post--image"
+                      key={singleImage.id}
+                      src={singleImage}
+                      alt={singleImage.alt}
+                    />
+                  ))}
+              </div>
               <br />
 
               <div className="blog__post-container">

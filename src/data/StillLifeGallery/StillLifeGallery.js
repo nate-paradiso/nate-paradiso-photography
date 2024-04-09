@@ -49,4 +49,34 @@ export const cloudinaryStillLifePhotos = [
     height: 1000,
     width: 1500,
   },
+  {
+    publicId: "portfolio-nate-paradiso-photography/lgwttjolwnkyeivckjsu",
+    height: 1500,
+    width: 1000,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/x2cnqvhk0n0slw4wjob5",
+    height: 1000,
+    width: 1500,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/vlztxxyorxnhx6fyeayw",
+    height: 1000,
+    width: 1500,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/cw2ujmrwfuei31vdngzp",
+    height: 1000,
+    width: 1500,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/umdokj0kjqiawd6luymp",
+    height: 1500,
+    width: 1500,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/yo7ihgo1byodtcialy71",
+    height: 1000,
+    width: 1500,
+  },
 ];
