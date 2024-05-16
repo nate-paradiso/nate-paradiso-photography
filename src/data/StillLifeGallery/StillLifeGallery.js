@@ -111,11 +111,6 @@ export const cloudinaryStillLifePhotos = [
     height: 1000,
     width: 1500,
   },
-  {
-    publicId: "portfolio-nate-paradiso-photography/yo7ihgo1byodtcialy71",
-    height: 1000,
-    width: 1500,
-  },
 
   // swaroski shoes
   {
