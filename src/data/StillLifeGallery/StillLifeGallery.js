@@ -9,6 +9,38 @@ export const cloudinaryStillLifePhotos = [
     height: 750,
     width: 500,
   },
+  // jordans
+
+  {
+    publicId: "portfolio-nate-paradiso-photography/mzhutagndhtrumy1cb5f",
+    height: 1000,
+    width: 1500,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/k1euitnilrjc47pi6ibi",
+    height: 1000,
+    width: 1500,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/yj7clvdf830havu4jdab",
+    height: 1500,
+    width: 1000,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/zzfbbkrirhjxhxojr9h6",
+    height: 1000,
+    width: 1500,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/skdamsjvt6bxpouhhm3f",
+    height: 1500,
+    width: 1000,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/men9sbewukhu337fh8gt",
+    height: 1500,
+    width: 1000,
+  },
   {
     publicId: "portfolio-nate-paradiso-photography/lvllwlxzdbaeuvcjukjd",
     height: 1000,
@@ -76,6 +108,43 @@ export const cloudinaryStillLifePhotos = [
   },
   {
     publicId: "portfolio-nate-paradiso-photography/yo7ihgo1byodtcialy71",
+    height: 1000,
+    width: 1500,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/yo7ihgo1byodtcialy71",
+    height: 1000,
+    width: 1500,
+  },
+
+  // swaroski shoes
+  {
+    publicId: "portfolio-nate-paradiso-photography/aktnkekytndfvaqptduu",
+    height: 1000,
+    width: 1500,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/pvvemyfx8xrtzqsl6pen",
+    height: 1000,
+    width: 1500,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/ajsydg3b13ohvugjjszo",
+    height: 1500,
+    width: 594,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/u2mqmpebqssem5kqfunx",
+    height: 1000,
+    width: 1500,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/qqi9ah23wvrlmv7wqt8r",
+    height: 1000,
+    width: 1500,
+  },
+  {
+    publicId: "portfolio-nate-paradiso-photography/p5uid3oygeksn1drue8g",
     height: 1000,
     width: 1500,
   },
