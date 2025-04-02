@@ -1,6 +1,8 @@
 import "./AboutPage.scss";
 import { NavLink } from "react-router-dom";
 import evolve from "../../assets/images/evolve.png";
+import kiliii from "../../assets/images/kiliii.png";
+import devilfish from "../../assets/images/devilfish-logo2-resize.png";
 import tongass from "../../assets/images/Screen+Shot+2023-05-06+at+9.09.36+AM.png";
 import mod from "../../assets/images/mod.png";
 import { Helmet } from "react-helmet";
@@ -52,8 +54,18 @@ export const AboutPage = () => {
           </div>
         </div>
       </div>
+      <h3 className="about__title">Partners</h3>
       <div className="about__partners">
-        <h3>Partners</h3>
+        <NavLink
+          className="about__partners--link"
+          to={"https://devilfishdive.com/"}
+          target="_blank"
+        >
+          <img className="about__partners--img" src={devilfish} alt="devilfish diving" />
+        </NavLink>
+        <NavLink className="about__partners--link" to={"https://kiliii.com/"} target="_blank">
+          <img className="about__partners--img" src={kiliii} alt="Kiliii Yuyan" />
+        </NavLink>
         <NavLink className="about__partners--link" to={"https://evolve.com/"} target="_blank">
           <img className="about__partners--img" src={evolve} alt="Evolve" />
         </NavLink>
